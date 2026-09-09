@@ -1,0 +1,8 @@
+TT Row Reduce Lab — original project orchestration, validation and tests, 2026.
+
+The reader/compute/writer kernels and modern host integration are derived from
+or informed by Tenstorrent TT-Metalium examples and tests at the commit pinned
+in upstream.lock. Those sources are Copyright Tenstorrent USA, Inc. and licensed
+under Apache-2.0. Attribution and exact source paths appear in docs/source-notes.md.
+No upstream checkout, compiler, simulator binary, or vendor SDK is vendored here.
+Their licenses remain applicable to separately obtained dependencies.

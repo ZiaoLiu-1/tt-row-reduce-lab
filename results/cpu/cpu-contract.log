@@ -1,0 +1,14 @@
+PASS bf16_known_answers
+PASS shape_and_length_rejection
+PASS values_rejection
+PASS face_known_coordinates
+PASS face_independent_enumeration
+PASS quantized_oracle_known_answer
+PASS all_shapes_all_patterns
+PASS deterministic_generation
+PASS output_extract_and_padding
+PASS numeric_budget_and_exact_path
+PASS deliberately_wrong_results
+PASS nonfinite_comparator_rejection
+C0 CPU contract: 12/12 groups passed; 255025 assertions; 84 shape/pattern cases (12 shapes x 7 patterns).
+No Metal, JIT, simulator, or hardware execution in this executable.

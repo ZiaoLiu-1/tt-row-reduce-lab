@@ -1,0 +1,38 @@
+cmake_minimum_required(VERSION 3.24)
+project(tt_row_reduce_lab LANGUAGES CXX)
+
+include(CTest)
+option(ROW_REDUCE_SANITIZERS "Enable address and undefined-behavior sanitizers" OFF)
+
+add_library(row_reduce_contract INTERFACE)
+target_include_directories(row_reduce_contract INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_compile_features(row_reduce_contract INTERFACE cxx_std_20)
+
+function(row_reduce_cpu_options target)
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
+        target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic -Werror)
+        if(ROW_REDUCE_SANITIZERS)
+            target_compile_options(${target} PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer)
+            target_link_options(${target} PRIVATE -fsanitize=address,undefined)
+        endif()
+    endif()
+endfunction()
+
+add_executable(row_reduce_cpu src/cpu_main.cpp)
+target_link_libraries(row_reduce_cpu PRIVATE row_reduce_contract)
+row_reduce_cpu_options(row_reduce_cpu)
+
+if(BUILD_TESTING)
+    add_executable(row_reduce_cpu_tests tests/cpu_tests.cpp)
+    target_link_libraries(row_reduce_cpu_tests PRIVATE row_reduce_contract)
+    row_reduce_cpu_options(row_reduce_cpu_tests)
+    add_test(NAME cpu_contract COMMAND row_reduce_cpu_tests)
+    add_test(NAME cpu_matrix COMMAND row_reduce_cpu --matrix)
+    add_test(NAME cpu_invalid_shape COMMAND row_reduce_cpu --rows 0 --cols 32)
+    set_tests_properties(cpu_invalid_shape PROPERTIES WILL_FAIL TRUE)
+endif()
+
+option(ROW_REDUCE_BUILD_METAL "Build the real Metal host target in a pinned upstream tree" OFF)
+if(ROW_REDUCE_BUILD_METAL)
+    include(cmake/metal-target.cmake)
+endif()

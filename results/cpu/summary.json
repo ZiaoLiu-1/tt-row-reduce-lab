@@ -1,0 +1,61 @@
+{
+  "validation_level": "C0",
+  "backend": "cpu_reference",
+  "status": "pass",
+  "recorded_at_utc": "2026-09-09T01:26:57.035549+00:00",
+  "platform": "Darwin",
+  "architecture": "arm64",
+  "compiler": "Apple clang version 17.0.0 (clang-1700.0.13.5)\nTarget: arm64-apple-darwin24.5.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "test_groups_passed": 12,
+  "test_groups_total": 12,
+  "shape_pattern_cases": 84,
+  "unique_shapes": 12,
+  "assertions": 255025,
+  "cli_matrix_cases_passed": 12,
+  "cli_rejections_passed": 10,
+  "commands": [
+    {
+      "command": "cmake -S . -B build_cpu -DCMAKE_BUILD_TYPE=Debug -DROW_REDUCE_SANITIZERS=ON",
+      "exit_code": 127,
+      "result": "cmake not installed in shell PATH"
+    },
+    {
+      "command": "clang++ -std=c++20 -O1 -g -Wall -Wextra -Wpedantic -Werror -fsanitize=address,undefined -fno-omit-frame-pointer -Iinclude tests/cpu_tests.cpp -o .local/row_reduce_cpu_tests",
+      "exit_code": 0
+    },
+    {
+      "command": ".local/row_reduce_cpu_tests > .local/cpu-contract.log 2>&1",
+      "exit_code": 0
+    },
+    {
+      "command": "clang++ -std=c++20 -O1 -g -Wall -Wextra -Wpedantic -Werror -fsanitize=address,undefined -fno-omit-frame-pointer -Iinclude src/cpu_main.cpp -o .local/row_reduce_cpu",
+      "exit_code": 0
+    },
+    {
+      "command": ".local/row_reduce_cpu --matrix",
+      "exit_code": 0
+    }
+  ],
+  "source_commit": null,
+  "source_identity": "Uncommitted project source bytes captured at validation; hashes below.",
+  "source_sha256": {
+    "CMakeLists.txt": "40c29d60bd535f1e0678a9cd0ec24d9fe5bf9d6e99569be03d910160d2529848",
+    "include/row_reduce/row_reduce.hpp": "84c6255644f61aace6217762f13b001a721f175401c833f96b5fb80ede87ad5d",
+    "tests/cpu_tests.cpp": "af23ffc4d04f120d09fda7b580ff41463ba72c918fc296ca6c1d100ada2febff",
+    "src/cpu_main.cpp": "6ca55a4a334433a816b37ab092fc70a0b09d29b3fe0d876f0adf466b19387667"
+  },
+  "artifacts": {
+    "contract_stdout_stderr": "results/cpu/cpu-contract.log",
+    "matrix_stdout": "results/cpu/cpu-matrix.jsonl",
+    "rejection_records": "results/cpu/cpu-cli-rejections.json",
+    "compiler_stdout": "results/cpu/compiler.txt"
+  },
+  "limitations": [
+    "CPU reference and layout verification only.",
+    "No benchmark or execution timing was measured."
+  ]
+}

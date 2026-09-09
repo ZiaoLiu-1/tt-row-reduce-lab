@@ -1,0 +1,8 @@
+{
+  "tt_metal": {"url": "https://github.com/tenstorrent/tt-metal", "commit": "89e1256c982a5b4739d173bcc446c8c748a44b40", "license": "Apache-2.0"},
+  "umd": {"commit": "1d8da476f6576a2dc9d2d171a08c523beecc160f", "relationship": "tt-metal pinned submodule"},
+  "tracy": {"commit": "117100515bb21d9a6b3a8f0eee50ecd91f961408", "relationship": "tt-metal pinned submodule"},
+  "tt_cluster_descriptors": {"commit": "9bcf698e971a7a49df1aaf17892352c47d359d47", "relationship": "tt-metal pinned submodule"},
+  "sfpi": {"version": "7.74.0", "build": 897, "source": "tt_metal/sfpi-version"},
+  "ttsim": {"version": "v1.10.6", "url": "https://github.com/tenstorrent/ttsim/releases/tag/v1.10.6", "documentation_commit": "89bdc5eb726c4f1ebbe597e03b1b9cdf7622c779", "aarch64_asset": "libttsim_wh_aarch64.so", "aarch64_sha256": "d38142c9d94526a5d6b48e5c0711efd718ffaed9270150c5556da0de788214ae", "x86_64_asset": "libttsim_wh.so", "x86_64_sha256": "2686ebc212ea9753c0aecde74e640aff43efbe54db0322676627c3a0c1b14d81"}
+}

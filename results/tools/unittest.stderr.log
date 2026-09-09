@@ -1,0 +1,18 @@
+test_exact_sum_and_little_endian_hash (test_tools.OracleTests.test_exact_sum_and_little_endian_hash) ... ok
+test_false_pass_and_padding_failure (test_tools.OracleTests.test_false_pass_and_padding_failure) ... ok
+test_general_budget_is_recomputed (test_tools.OracleTests.test_general_budget_is_recomputed) ... ok
+test_invalid_or_misbound_evidence_is_rejected (test_tools.OracleTests.test_invalid_or_misbound_evidence_is_rejected) ... ok
+test_matrix_shapes_are_complete (test_tools.OracleTests.test_matrix_shapes_are_complete) ... ok
+test_mt19937_published_default_seed_sequence (test_tools.OracleTests.test_mt19937_published_default_seed_sequence) ... ok
+test_physical_padding_and_mislabeled_input (test_tools.OracleTests.test_physical_padding_and_mislabeled_input) ... ok
+test_process_pass_and_raw_logs (test_tools.ProcessTests.test_process_pass_and_raw_logs) ... ok
+test_repeated_same_input_is_rejected (test_tools.ProcessTests.test_repeated_same_input_is_rejected) ... ok
+test_timeout_retains_elapsed_time (test_tools.ProcessTests.test_timeout_retains_elapsed_time) ... ok
+test_unsupported_crash_and_malformed (test_tools.ProcessTests.test_unsupported_crash_and_malformed) ... ok
+test_missing_empty_and_incomplete_fail (test_tools.ProfilerTests.test_missing_empty_and_incomplete_fail) ... ok
+test_real_schema_structure (test_tools.ProfilerTests.test_real_schema_structure) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.761s
+
+OK

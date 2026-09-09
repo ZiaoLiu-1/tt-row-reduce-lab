@@ -1,0 +1,82 @@
+[
+  {
+    "argv": [
+      "--rows",
+      "0"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: rows and cols must each be in [1,128]"
+  },
+  {
+    "argv": [
+      "--cols",
+      "129"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: rows and cols must each be in [1,128]"
+  },
+  {
+    "argv": [
+      "--nodes",
+      "2"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: this single-node contract requires nodes=1"
+  },
+  {
+    "argv": [
+      "--seed",
+      "4294967296"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: seed exceeds uint32 range"
+  },
+  {
+    "argv": [
+      "--seed",
+      "-1"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: expected a nonnegative integer"
+  },
+  {
+    "argv": [
+      "--rows",
+      "abc"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: expected a nonnegative integer"
+  },
+  {
+    "argv": [
+      "--pattern",
+      "unknown"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: unknown input pattern"
+  },
+  {
+    "argv": [
+      "--matrix",
+      "--rows",
+      "1"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: --matrix cannot be combined with case options"
+  },
+  {
+    "argv": [
+      "--unknown",
+      "1"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: unknown option"
+  },
+  {
+    "argv": [
+      "--rows"
+    ],
+    "exit_code": 2,
+    "stderr": "input/error: option is missing its value"
+  }
+]
