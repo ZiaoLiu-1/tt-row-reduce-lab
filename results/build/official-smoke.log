@@ -1,0 +1,51 @@
+{"asset": "libttsim_wh_aarch64.so", "sha256": "d38142c9d94526a5d6b48e5c0711efd718ffaed9270150c5556da0de788214ae", "version": "v1.10.6", "architecture": "aarch64"}
+Captured environment.json
+d3931b33b74e7d3cc8f4afa244cbb081952c441ad6532eb72408eed4ece7f726  build_Release/programming_examples/metal_example_add_2_integers_in_riscv
+WARNING: Please set the environment variable TT_METAL_DPRINT_CORES to 0,0 to see the output of the Data Movement kernels.
+WARNING: For example, export TT_METAL_DPRINT_CORES=0,0
+2026-09-09 02:04:18.803 | info     |           Metal | Disabling multi-erisc mode with simulator/emule target device (rtoptions.cpp:382)
+2026-09-09 02:04:18.805 | info     |          Device | Opening user mode device driver (tt_cluster.cpp:224)
+2026-09-09 02:04:18.807 | info     |             UMD | Cluster constructor started. (cluster.cpp:406)
+2026-09-09 02:04:18.809 | warning  |             UMD | Chip 0 has inconsistent Tensix harvesting information between harvest mask and number of harvested. Board n150 expects 1 units, but harvest mask indicates 0 units. (cluster_descriptor.cpp:1304)
+2026-09-09 02:04:18.811 | info     |             UMD | Creating Simulation device (cluster.cpp:283)
+2026-09-09 02:04:18.814 | info     | EmulationDriver | TTSimTTDevice chip_id=0 PCI vendor_id=0x1e52 device_id=0x401e (tt_sim_tt_device.cpp:135)
+2026-09-09 02:04:18.814 | info     |             UMD | Cluster constructor completed. (cluster.cpp:665)
+2026-09-09 02:04:18.815 | info     |             UMD | Starting devices in cluster (cluster.cpp:1205)
+2026-09-09 02:04:18.815 | info     |             UMD | Starting devices in cluster completed. (cluster.cpp:1213)
+2026-09-09 02:04:18.819 | info     |     Distributed | Using auto discovery to generate mesh graph. (metal_env.cpp:422)
+2026-09-09 02:04:18.819 | info     |     Distributed | Constructing control plane using auto-discovery (no mesh graph descriptor). (metal_env.cpp:484)
+2026-09-09 02:04:18.826 | info     |          Fabric | Logical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {0:1} (topology_mapper_utils.cpp:3368)
+2026-09-09 02:04:18.826 | info     |          Fabric | Physical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {0:1} (topology_mapper_utils.cpp:3376)
+Success: Result is 21
+2026-09-09 02:04:21.077 | info     |    BuildKernels | JIT cache stats: 0/9 hits (0.0%) [0 cached, 0 build-once dedup, 0 merged artifacts, 0 merged genfiles] (build_cache_telemetry.cpp:207)
+2026-09-09 02:04:21.077 | info     |    BuildKernels | JIT telemetry: 2 registered TelemetryTokens (build_cache_telemetry.cpp:230)
+2026-09-09 02:04:21.078 | info     |          Device | Closing user mode device drivers (tt_cluster.cpp:550)
+2026-09-09 02:04:21.078 | info     |             UMD | Closing devices in cluster (cluster.cpp:1218)
+2026-09-09 02:04:21.078 | info     |             UMD | Closing devices in cluster completed. (cluster.cpp:1227)
+2026-09-09 02:04:21.079 | info     |             UMD | Cluster destructor started. (cluster.cpp:933)
+2026-09-09 02:04:21.079 | info     |             UMD | Cluster destructor completed. (cluster.cpp:936)
+2026-09-09 02:04:21.079 | info     | EmulationDriver | Sending exit signal to remote... (tt_sim_communicator.cpp:295)
+[4172] 0.3 seconds (15.4 KHz)
+	Command being timed: "timeout 300 build_Release/programming_examples/metal_example_add_2_integers_in_riscv"
+	User time (seconds): 3.79
+	System time (seconds): 0.97
+	Percent of CPU this job got: 200%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.37
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 75240
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 25
+	Minor (reclaiming a frame) page faults: 169679
+	Voluntary context switches: 5410
+	Involuntary context switches: 2058
+	Swaps: 0
+	File system inputs: 14872
+	File system outputs: 16704
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

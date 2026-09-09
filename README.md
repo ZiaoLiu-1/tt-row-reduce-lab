@@ -5,8 +5,8 @@ Tensix node, and reader/compute/writer kernels. Inputs and outputs are BF16;
 the host checks device readback against a reference computed from the quantized
 input bits. The scope is `1 ≤ M,N ≤ 128`, with explicit padding and tile layout.
 
-**Current evidence: C0 CPU contract tests have run; custom-kernel ttsim validation
-is pending.** Building the host, JIT compilation and simulator execution are
+**Current evidence: C0 CPU tests, C1 host build and 14 pre-device rejection
+cases passed. The official simulator smoke passed; custom-kernel C3 remains pending.** Building the host, JIT compilation and simulator execution are
 separate milestones in [STATE.md](STATE.md). There is no Tenstorrent card and no
 hardware performance result. The commands below are the reproducible interface;
 only saved, source-bound results establish which steps have passed.
@@ -93,10 +93,11 @@ After C1, verify 14 invalid inputs are rejected before device creation:
 ```sh
 python3 tools/run_rejections.py \
   --binary "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
-  --output-dir results/c1-rejections --timeout 15
+  --output-dir results/c1-rejections-rerun --timeout 15
 ```
 
-The runner writes `environment.json`, `simulator.jsonl`, `summary.json` and
+The rejection runner writes `rejections.jsonl`, its summary, input fixtures and
+raw logs. The simulator matrix runner writes `environment.json`, `simulator.jsonl`, `summary.json` and
 `raw/*.stdout.log` / `raw/*.stderr.log`. Records bind project source, binary,
 Metal commit, simulator release/asset SHA, input and output bytes, command,
 exit status and elapsed wall time. The checker independently regenerates the

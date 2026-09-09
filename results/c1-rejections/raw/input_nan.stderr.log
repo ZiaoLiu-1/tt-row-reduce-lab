@@ -1,0 +1,1 @@
+TT_ROW_REDUCE_ERROR={"status":"invalid-input","before_device":true,"message":"input contains NaN or infinity"}

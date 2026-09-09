@@ -1,0 +1,47 @@
+{
+  "captured_at_utc": "2026-09-09T02:04:18.471242+00:00",
+  "os": "Linux",
+  "architecture": "aarch64",
+  "kernel_release": "6.8.0-1044-oracle",
+  "logical_cpus": 4,
+  "hardware_label": "no Tenstorrent silicon; Wormhole official software simulator",
+  "silicon_performance_measured": false,
+  "disk_free_bytes_at_capture": 112844652544,
+  "clang": {
+    "exit_code": 0,
+    "output": "Ubuntu clang version 20.1.8 (++20250708123929+0de59a293f7a-1~exp1~20250708003944.130)\nTarget: aarch64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/llvm-20/bin"
+  },
+  "cxx_include_search": {
+    "exit_code": 0,
+    "output": "# 1 \"<stdin>\"\n# 1 \"<built-in>\" 1\n# 1 \"<built-in>\" 3\n# 502 \"<built-in>\" 3\n# 1 \"<command line>\" 1\n# 1 \"<built-in>\" 2\n# 1 \"<stdin>\" 2\n\nUbuntu clang version 20.1.8 (++20250708123929+0de59a293f7a-1~exp1~20250708003944.130)\nTarget: aarch64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/llvm-20/bin\nFound candidate GCC installation: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12\nSelected GCC installation: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12\nCandidate multilib: .;@m64\nSelected multilib: .;@m64\n (in-process)\n \"/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/llvm-20/bin/clang\" -cc1 -triple aarch64-unknown-linux-gnu -E -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name - -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=non-leaf -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic -target-feature +v8a -target-feature +fp-armv8 -target-feature +neon -target-abi aapcs -debugger-tuning=gdb -fdebug-compilation-dir=/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/project -v -fcoverage-compilation-dir=/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/project -resource-dir /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/llvm-20/lib/clang/20 -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/aarch64-linux-gnu -internal-isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12 -internal-isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12/../../../../include/aarch64-linux-gnu/c++/12 -internal-isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/backward -internal-isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/llvm-20/lib/clang/20/include -internal-isystem /usr/local/include -internal-isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12/../../../../aarch64-linux-gnu/include -internal-externc-isystem /usr/include/aarch64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=c++20 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fno-implicit-modules -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -target-feature +outline-atomics -target-feature -fmv -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o - -x c++ -\nclang -cc1 version 20.1.8 based upon LLVM 20.1.8 default target aarch64-unknown-linux-gnu\nignoring nonexistent directory \"/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12/../../../../aarch64-linux-gnu/include\"\nignoring nonexistent directory \"/include\"\n#include \"...\" search starts here:\n#include <...> search starts here:\n /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include\n /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/aarch64-linux-gnu\n /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12\n /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12/../../../../include/aarch64-linux-gnu/c++/12\n /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/backward\n /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/llvm-20/lib/clang/20/include\n /usr/local/include\n /usr/include/aarch64-linux-gnu\n /usr/include\nEnd of search list."
+  },
+  "libstdcpp_link_path": {
+    "exit_code": 0,
+    "output": "/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/gcc/aarch64-linux-gnu/12/libstdc++.so"
+  },
+  "cmake": {
+    "exit_code": 0,
+    "output": "cmake version 4.0.2\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake)."
+  },
+  "ninja": {
+    "exit_code": 0,
+    "output": "1.11.1.git.kitware.jobserver-1"
+  },
+  "python": "3.10.12",
+  "metal_commit": {
+    "exit_code": 0,
+    "output": "89e1256c982a5b4739d173bcc446c8c748a44b40"
+  },
+  "metal_submodules": {
+    "exit_code": 0,
+    "output": "117100515bb21d9a6b3a8f0eee50ecd91f961408 tt_metal/third_party/tracy (heads/master)\n 9bcf698e971a7a49df1aaf17892352c47d359d47 tt_metal/third_party/tt-cluster-descriptors (heads/main)\n 1d8da476f6576a2dc9d2d171a08c523beecc160f tt_metal/third_party/umd (1d8da47)"
+  },
+  "simulator_asset": "libttsim_wh_aarch64.so",
+  "simulator_sha256": "d38142c9d94526a5d6b48e5c0711efd718ffaed9270150c5556da0de788214ae",
+  "execution_switches": {
+    "TT_METAL_SLOW_DISPATCH_MODE": "1",
+    "TT_METAL_DISABLE_SFPLOADMACRO": "1"
+  },
+  "distribution": "PRETTY_NAME=\"Ubuntu 22.04.3 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"22.04\"\nVERSION=\"22.04.3 LTS (Jammy Jellyfish)\"\nVERSION_CODENAME=jammy\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=jammy\n",
+  "memory": "MemTotal:       24554556 kB\nMemAvailable:   21117660 kB\nSwapTotal:             0 kB"
+}

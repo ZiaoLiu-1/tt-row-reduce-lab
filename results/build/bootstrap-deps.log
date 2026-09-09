@@ -1,0 +1,17 @@
+LLVM download bytes 74738314 unpacked KiB 344184
+unpack clang-20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack libclang-common-20-dev 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack libclang-cpp20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack libclang1-20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack libllvm20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack lld-20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack llvm-20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack llvm-20-linker-tools 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack llvm-20-runtime 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+E: Unable to locate package libtbbbind-2-5
+Traceback (most recent call last):
+  File "/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/bootstrap-deps.py", line 20, in <module>
+    subprocess.run(['apt-get','download',*ubuntu],cwd=downloads,check=True)
+  File "/usr/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['apt-get', 'download', 'gcc-12', 'g++-12', 'cpp-12', 'libgcc-12-dev', 'libstdc++-12-dev', 'libstdc++6', 'libhwloc-dev', 'libhwloc15', 'libnuma-dev', 'libnuma1', 'libtbb-dev', 'libtbb12', 'libtbbmalloc2', 'libtbbbind-2-5', 'libpfm4', 'libcapstone-dev', 'libcapstone4']' returned non-zero exit status 100.

@@ -5,9 +5,10 @@ Ubuntu 22.04 on aarch64, with four logical CPUs and about 23.4 GiB RAM. The
 isolated prefix provides Clang 20.1.8, GCC 12 C++20 headers and libstdc++, CMake
 4.0.2, Ninja 1.11.1, and a Python venv. A real `std::span` / `std::bit_cast`
 probe compiled, linked, and ran; its loader dependencies were inspected.
-At this checkpoint the project Metal target has no successful build or device
-execution result. Configuration and a standalone compiler probe establish
-environment readiness only. See [STATE.md](../STATE.md) for later outcomes.
+The project Metal target subsequently compiled and linked (C1); the official
+simulator example returned 21. Custom-kernel execution remains pending.
+See [STATE.md](../STATE.md) and [build logs](../results/build/) for the separate
+environment, build and execution outcomes.
 
 All commands below run in a separate Linux project checkout. They extract
 packages into a user prefix and do not use sudo, install a kernel driver,
@@ -161,7 +162,7 @@ Capture the actual environment after activation:
 
 ```bash
 python3 "$RR_PROJECT/tools/capture_environment.py" \
-  --output "$RR_PROJECT/results/environment.json"
+  --output "$RR_PROJECT/environment.json"
 ```
 
 The capture requires `TT_METAL_HOME`, creates the output directory, and records

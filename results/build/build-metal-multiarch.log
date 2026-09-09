@@ -1,0 +1,1068 @@
+-- Version: 0.79.0-dev20260909
+-- Metalium version: 0.79.0
+-- Build type: Release
+-- CMAKE_TOOLCHAIN_FILE: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/cmake/aarch64-linux-clang-20-libstdcpp-toolchain.cmake
+-- Checking compilers
+-- Compressed debug sections not supported, skipping
+-- Do you have the clang-tools package installed?
+-- Linker type: LLD
+-- Linker version: 20.1.8
+-- Linker does not support --gdb-index, skipping
+-- ENABLE_LIBCXX: FALSE
+-- Build shared libs: ON
+-- Build Python bindings: OFF
+-- Build Programming Examples: ON
+-- Build TT METAL Tests: OFF
+-- Build TTNN Tests: OFF
+-- Build with Unity builds: ON
+-- Build with LTO: OFF
+-- Build with Shared TTNN Sublibraries: OFF
+-- Build with LightMetal Trace Enabled: ON
+-- Build with Multihost Distributed Compute: OFF
+-- CPM: Adding package blake3@1.8.4 (1.8.4 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/blake3/b4d598ea672ffc1a88600ed5876875112b29ca86)
+-- Boost: Release build, static libraries, MPI OFF, Python OFF, testing OFF
+-- Boost: libraries included: core;container;smart_ptr;interprocess;asio;lockfree
+-- Boost.Context: architecture arm64, binary format elf, ABI aapcs, assembler gas, suffix .S, implementation fcontext
+-- CPM: Adding package Boost@1.86.0 (1.86.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/boost/1359e136761ab2d10afa1c4e21086c8d824735cd)
+CMake Deprecation Warning at .cpmcache/protobuf/8a3b611df2de7d977c1a110a21a76a4db510b115/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- CPM: Adding package protobuf@21.12 (v21.12 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/protobuf/8a3b611df2de7d977c1a110a21a76a4db510b115)
+-- CPM: Adding package yaml-cpp@0 (2f86d13775d119edbb69af52e5f566fd65c6953b at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/yaml-cpp/0_8_0_upstream_patched)
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/googlemock/CMakeLists.txt:39 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/googletest/CMakeLists.txt:49 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Found Python: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv/bin/python3.10 (found version "3.10.12") found components: Interpreter
+-- CPM: Adding package GTest@1.13.0 (v1.13.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949)
+-- CPM: Adding package reflect@1.2.6 (v1.2.6 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/reflect/f93e77475670eaeacf332927dfe8b50e3f3812e0)
+-- CPM: Adding package enchantum@0 (8ca5b0eb7e7ebe0252e5bc6915083f1dd1b8294e at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/enchantum/2fb7ab238e36c101b9848892ddb6382276b65837)
+-- CPM: Adding package fmt@11.1.4 (11.1.4 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/fmt/69912fb6b71fcb1f7e5deca191a2bb4748c4e7b6)
+-- CPM: Adding package range-v3@0.12.0 (0.12.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/range-v3/0_12_0_patched)
+-- Found Python: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv/bin/python3.10 (found version "3.10.12") found components: Interpreter Development.Module Development.SABIModule
+-- CPM: Adding package nanobind@0 (86e5626728fc282637a6c338597120913dded1bb at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nanobind/7965351fcedc97e6ade403d51a150a266d188dc6)
+-- CPM: Adding package nlohmann_json@3.11.3 (v3.11.3 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nlohmann_json/798e0374658476027d9723eeb67a262d0f3c8308)
+-- CPM: Adding package xtl@0.8.0 (0.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtl/0_8_0_patched)
+-- CPM: Adding package xtensor@0.26.0 (0.26.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtensor/0_26_0_patched)
+-- CPM: Adding package xtensor-blas@0.22.0 (0.22.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtensor-blas/0_22_0_patched)
+-- CPM: Adding package benchmark@1.9.1 (v1.9.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/benchmark/17a125dc196d0eea81711f65879e8410dd54303f)
+-- CPM: Adding package Taskflow@3.7.0 (v3.7.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/taskflow/52063f60902bfeb362fa4616b1394ab5efe30994)
+-- Proceeding with version: 24.3.25.0
+-- CMAKE_CXX_FLAGS: --gcc-toolchain=/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/aarch64-linux-gnu
+-- CPM: Adding package flatbuffers@24.3.25 (v24.3.25 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/flatbuffers/2c4062bffa52fa4157b1b4deeae73395df475fda)
+-- CPM: Adding package simd-everywhere@0.8.2 (v0.8.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/simd-everywhere/b3b426f78574ef837b17f42e86bab88314c5e4db)
+-- CPM: Adding package spdlog@1.15.2 (v1.15.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/spdlog/b1c2586bb5c35a7929362e87f62433eb68206873)
+-- tt-logger: using spdlog target spdlog::spdlog
+-- CPM: Adding package tt-logger@1.1.8 (v1.1.8 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/tt-logger/d2339ce68562cae34cd95f3fece7fd94eb0529b7)
+-- CPM: Adding package cadical@ (rel-2.2.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2") found components: Crypto SSL
+-- CPM: Adding package capnproto@0 (d135c9ca5e15219eaf131dfce1a41afdbaea9aab at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/capnproto/f6c518d3bd34781c51de8344e9c1574d44c43348)
+-- CPM: Adding package ttexalens@0 (6f5720240b7254b25cb3d78aef81769fc12a30f9 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/ttexalens/a20f65d9ba149476c88937f984419ea3beedefce)
+-- CMake version: 4.0.2
+-- CPM: Adding package nanomsg@1.8.0 (v1.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nanomsg/28cc32d5bdb6a858fe53b3ccf7e923957e53eada)
+INFOCPM Added flatbuffers, creating ALIAS flatbuffers::flatbuffers
+-- CPM: Adding package libuv@1.51.0 (v1.51.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/libuv/2b05484ccff8fdf26b363fb50e4830b774d7eb53)
+-- CPM: Adding package cxxopts@0 (dbf4c6a66816f6c3872b46cc6af119ad227e04e1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/cxxopts/dda70ad5c1afdb5368541192bace55dbcd7872e3)
+CMake Warning at .cpmcache/cpm/CPM_0.40.2.cmake:317 (message):
+  CPM: Requires a newer version of nanobind (2.10.2) than currently included
+  (0).
+Call Stack (most recent call first):
+  .cpmcache/cpm/CPM_0.40.2.cmake:682 (cpm_check_if_package_already_added)
+  tt_metal/third_party/umd/third_party/CMakeLists.txt:190 (CPMAddPackage)
+
+
+-- CPM: Adding package umd_asio@ (asio-1-30-2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/umd_asio/83a029aeca9a00050695989a093d0cc1fcd67ba8)
+-- 
+-- ==================== UMD configuration summary ====================
+--   CMAKE_BUILD_TYPE = Release
+--   TT_EMULE_PATH = 
+--   TT_UMD_BUILD_ALL = OFF
+--   TT_UMD_BUILD_EMULE = OFF
+--   TT_UMD_BUILD_EXAMPLES = OFF
+--   TT_UMD_BUILD_JTAG = OFF
+--   TT_UMD_BUILD_PIP = 
+--   TT_UMD_BUILD_PYTHON = OFF
+--   TT_UMD_BUILD_SIMULATION = ON
+--   TT_UMD_BUILD_STATIC = OFF
+--   TT_UMD_BUILD_TESTS = OFF
+--   TT_UMD_BUILD_TOOLS = ON
+--   TT_UMD_ENABLE_CLANG_TIDY = OFF
+--   TT_UMD_ENABLE_LOGGING = OFF
+--   TT_UMD_ENABLE_TRACY = OFF
+-- ===================================================================
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- Could NOT find rocprofiler-sdk (missing: rocprofiler-sdk_DIR)
+-- TRACY_ENABLE: ON
+-- TRACY_ON_DEMAND: OFF
+-- TRACY_CALLSTACK: (not set)
+-- TRACY_NO_CALLSTACK: OFF
+-- TRACY_NO_CALLSTACK_INLINES: OFF
+-- TRACY_ONLY_LOCALHOST: OFF
+-- TRACY_NO_BROADCAST: OFF
+-- TRACY_ONLY_IPV4: OFF
+-- TRACY_NO_CODE_TRANSFER: OFF
+-- TRACY_NO_CONTEXT_SWITCH: OFF
+-- TRACY_NO_EXIT: OFF
+-- TRACY_NO_SAMPLING: OFF
+-- TRACY_NO_VERIFY: OFF
+-- TRACY_NO_VSYNC_CAPTURE: OFF
+-- TRACY_NO_FRAME_IMAGE: OFF
+-- TRACY_NO_SYSTEM_TRACING: OFF
+-- TRACY_PATCHABLE_NOPSLEDS: OFF
+-- TRACY_DELAYED_INIT: OFF
+-- TRACY_MANUAL_LIFETIME: OFF
+-- TRACY_FIBERS: OFF
+-- TRACY_NO_CRASH_HANDLER: OFF
+-- TRACY_TIMER_FALLBACK: ON
+-- TRACY_DISALLOW_HW_TIMER: OFF
+-- TRACY_LIBUNWIND_BACKTRACE: OFF
+-- TRACY_SYMBOL_OFFLINE_RESOLVE: OFF
+-- TRACY_LIBBACKTRACE_ELF_DYNLOAD_SUPPORT: OFF
+-- TRACY_DEBUGINFOD: OFF
+-- TRACY_IGNORE_MEMORY_FAULTS: OFF
+-- TRACY_VERBOSE: OFF
+-- TRACY_NO_INTERNAL_MESSAGE: OFF
+-- TRACY_DEMANGLE: OFF
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- NO_ISA_EXTENSIONS: ON
+-- NO_LTO: OFF
+-- NO_MOLD_LINKER: OFF
+-- NO_CCACHE: ON
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+Enabling CAPSTONE_ARM_SUPPORT
+Enabling CAPSTONE_AARCH64_SUPPORT
+Enabling CAPSTONE_X86_SUPPORT
+-- CPM: Adding package capstone@6.0.0 (6.0.0-Alpha1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/capstone/bbb5bd2ce37fb9eb88905aa958322ed1c477bd15)
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Could NOT find PNG (missing: PNG_LIBRARY PNG_PNG_INCLUDE_DIR) 
+-- Could NOT find BZip2 (missing: BZIP2_LIBRARIES BZIP2_INCLUDE_DIR) 
+-- Could NOT find BrotliDec (missing: BROTLIDEC_INCLUDE_DIRS BROTLIDEC_LIBRARIES) 
+-- CPM: Adding package freetype@ (VER-2-14-3 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/freetype/adf3abb0a96c3adc6d84b8bfd7172192db267d75)
+-- ZSTD VERSION: 1.5.7
+-- CMAKE_INSTALL_PREFIX: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release
+-- CMAKE_INSTALL_LIBDIR: lib
+-- ZSTD_LEGACY_SUPPORT defined!
+-- ZSTD_MULTITHREAD_SUPPORT is enabled
+-- CPM: Adding package zstd@1.5.7 (v1.5.7 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/zstd/dfd2e0b6e613dcf44911302708e636a8aee527d2)
+-- CPM: Adding package ImGui@1.92.8 (v1.92.8-docking at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/imgui/4afe909dc6063570b0ec9c75d03af1d6d5f301d0)
+-- CPM: PPQSort: Adding package PackageProject.cmake@1.11.1 (v1.11.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/packageproject.cmake/39dc740304285c2e0815cb4669f337dc2af3b0a3)
+-- PPQSORT_OPTIMIZE_NATIVE: OFF
+-- CPM: Adding package PPQSort@1.0.6 (v1.0.6 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/ppqsort/501e95a7fe7f78924f116c3ac0b965356ded7bd8)
+CMake Deprecation Warning at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- CPM: Adding package md4c@ (release-0.5.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68)
+-- /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/base64/84ae1394053597c26e30daec579e0a125b5f9744
+-- Could NOT find OpenMP_C (missing: OpenMP_C_FLAGS OpenMP_C_LIB_NAMES) 
+-- Could NOT find OpenMP_CXX (missing: OpenMP_CXX_FLAGS OpenMP_CXX_LIB_NAMES) 
+-- Could NOT find OpenMP (missing: OpenMP_C_FOUND OpenMP_CXX_FOUND) 
+-- The following packages have been found:
+
+ * Python
+ * OpenSSL
+ * ZLIB
+ * Threads
+ * Git
+
+-- The following packages have not been found:
+
+ * rocprofiler-sdk
+ * PNG
+ * BZip2
+ * BrotliDec
+ * OpenMP
+   Allows to utilize OpenMP
+
+-- The following features have been enabled:
+
+ * NEON SIMD intrinsics, The library uses NEON SIMD intrinsics.
+ * NEON64, add NEON64 codepath
+
+-- The following features have been disabled:
+
+ * AMD64 assembly, The library uses hand written amd64 SIMD assembly.
+ * x86 SIMD intrinsics, The library uses x86 SIMD intrinsics.
+ * oneTBB parallelism, The library uses oneTBB parallelism.
+ * CLI, enables the CLI executable for encoding and decoding
+ * OpenMP codec, spreads codec work accross multiple threads
+ * SSSE3, add SSSE 3 codepath
+ * SSE4.1, add SSE 4.1 codepath
+ * SSE4.2, add SSE 4.2 codepath
+ * AVX, add AVX codepath
+ * AVX2, add AVX2 codepath
+ * AVX512, add AVX512 codepath
+ * NEON32, add NEON32 codepath
+
+-- CPM: Adding package base64@0.5.2 (v0.5.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/base64/84ae1394053597c26e30daec579e0a125b5f9744)
+-> TIDY_SO_VERSION = 58. This is an EVEN (stable) release.
+-- *** Debug Logging is NOT enabled.
+-- *** Building support for runtime configuration files.
+-- *** Also building DLL library SHARED, version 5.8.0, date 2021.07.10
+-- *** NOTE: xsltproc NOT FOUND! Can NOT generate man page.
+-- *** You need to install xsltproc in your system.
+-- CPM: Adding package tidy@5.8.0 (5.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/tidy/4f721c05cc5dfeca83fce683e489577f1e045640)
+-- CPM: Adding package usearch@2.23.0 (v2.23.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/usearch/45b3dace4fb730b831c618ce192366cac43383a6)
+-- CPM: Adding package pugixml@1.15 (v1.15 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/pugixml/e07018e704dbbe9c0f19244e7eb78a094614260a)
+-- Using CMake version 4.0.2
+-- curl version=[8.19.0-DEV]
+-- CMake platform flags: UNIX LLVM-CLANG
+-- Picky compiler options: -Werror-implicit-function-declaration -Wextra -Wall -Wpedantic -Wbad-function-cast -Wconversion -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Waddress -Wattributes -Wcast-align -Wcast-qual -Wdeclaration-after-statement -Wdiv-by-zero -Wempty-body -Wendif-labels -Wfloat-equal -Wformat-security -Wignored-qualifiers -Wmissing-field-initializers -Wmissing-noreturn -Wno-padded -Wno-sign-conversion -Wno-switch-default -Wno-switch-enum -Wno-system-headers -Wold-style-definition -Wredundant-decls -Wstrict-prototypes -Wtype-limits -Wunreachable-code -Wunused-parameter -Wvla -Wconditional-uninitialized -Wno-used-but-marked-unused -Wshift-sign-overflow -Wshorten-64-to-32 -Wformat=2 -Wlanguage-extension-token -Wno-covered-switch-default -Wno-disabled-macro-expansion -Wformat-non-iso -Wenum-conversion -Wmissing-variable-declarations -Wno-documentation-unknown-command -Wsometimes-uninitialized -Wdouble-promotion -Wheader-guard -Wpragmas -Wunused-const-variable -Wcomma -Wassign-enum -Wextra-semi-stmt -Wimplicit-fallthrough -Wxor-used-as-pow -Wcast-function-type -Wreserved-identifier -Wno-reserved-macro-identifier -Wno-unsafe-buffer-usage -Wcast-function-type-strict -Wno-format-signedness
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")
+-- Could NOT find Brotli (missing: BROTLI_INCLUDE_DIR BROTLIDEC_LIBRARY BROTLICOMMON_LIBRARY) 
+-- Could NOT find NGHTTP2 (missing: NGHTTP2_INCLUDE_DIR NGHTTP2_LIBRARY) 
+-- Could NOT find Libidn2 (missing: LIBIDN2_INCLUDE_DIR LIBIDN2_LIBRARY) 
+-- Could NOT find Libssh2 (missing: LIBSSH2_INCLUDE_DIR LIBSSH2_LIBRARY) 
+-- Enabled examples with dependencies: cacertinmem:USE_OPENSSL threaded:HAVE_PTHREAD_H usercertinmem:USE_OPENSSL
+-- Protocols: http https
+-- Features: alt-svc AsynchDNS HSTS HTTPS-proxy IPv6 Largefile libz NTLM SSL threadsafe TLS-SRP UnixSockets
+-- Enabled SSL backends: OpenSSL
+-- CPM: Adding package libcurl@ (curl-8_19_0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/libcurl/31c94cb23f21bf76308a51d0005a4d6f8c1eb54b)
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- NO_ISA_EXTENSIONS: ON
+-- NO_LTO: OFF
+-- NO_MOLD_LINKER: OFF
+-- NO_CCACHE: ON
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- CPM: Adding package emsdk@0 (0dfff153dc3c596948ac088b8853006c570f2609 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/emsdk/de6013a6f56ddc5bd63ce157184ad7c79ea4815f)
+-- Using SFPI compiler: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/runtime/sfpi/compiler/bin/riscv-tt-elf-g++ (tenstorrent/sfpi:7.74.0[897]) 15.1.0
+-- TT_METAL_INSTALL_ROOT == /usr/libexec/tt-metalium
+-- Multihost compute with MPI disabled, using single host context.
+-- Configuring done (2.5s)
+You have changed variables that require your cache to be deleted.
+Configure will be re-run and you may have to reset some variables.
+The following variables have changed:
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+CMAKE_C_COMPILER= clang-20
+CMAKE_CXX_COMPILER= clang++-20
+
+-- Found Git: /usr/bin/git (found version "2.34.1")
+-- Version: 0.79.0-dev20260909
+-- The C compiler identification is Clang 20.1.8
+-- The CXX compiler identification is Clang 20.1.8
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/bin/clang-20 - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/bin/clang++-20 - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Metalium version: 0.79.0
+-- Build type: RelWithDebInfo
+-- CMAKE_TOOLCHAIN_FILE is not set.
+-- Building with Python Bindings: nanobind
+-- Checking compilers
+-- Performing Test COMPILER_SUPPORTS_GZ_ZSTD
+-- Performing Test COMPILER_SUPPORTS_GZ_ZSTD - Failed
+-- Performing Test COMPILER_SUPPORTS_GZ
+-- Performing Test COMPILER_SUPPORTS_GZ - Failed
+-- Performing Test LINKER_SUPPORTS_COMPRESS_ZSTD
+-- Performing Test LINKER_SUPPORTS_COMPRESS_ZSTD - Failed
+-- Performing Test LINKER_SUPPORTS_COMPRESS_ZLIB
+-- Performing Test LINKER_SUPPORTS_COMPRESS_ZLIB - Failed
+-- Compressed debug sections not supported, skipping
+-- Do you have the clang-tools package installed?
+-- Linker not specified. Using LLD linker 20.1.8: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/llvm-20/bin/ld.lld
+-- Linker type: LLD
+-- Linker version: 20.1.8
+-- Performing Test LINKER_SUPPORTS_GDB_INDEX
+-- Performing Test LINKER_SUPPORTS_GDB_INDEX - Failed
+-- Linker does not support --gdb-index, skipping
+-- ENABLE_LIBCXX: OFF
+-- Build shared libs: ON
+-- Build Python bindings: ON
+-- Build Programming Examples: OFF
+-- Build TT METAL Tests: OFF
+-- Build TTNN Tests: OFF
+-- Build with Unity builds: ON
+-- Build with LTO: OFF
+-- Build with Shared TTNN Sublibraries: OFF
+-- Build with LightMetal Trace Enabled: ON
+-- Build with Multihost Distributed Compute: ON
+-- CPM: Adding package blake3@1.8.4 (1.8.4 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/blake3/b4d598ea672ffc1a88600ed5876875112b29ca86)
+-- Boost: RelWithDebInfo build, static libraries, MPI OFF, Python OFF, testing OFF
+-- Boost: libraries included: core;container;smart_ptr;interprocess;asio;lockfree
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test BOOST_ATOMIC_TARGET_X86
+-- Performing Test BOOST_ATOMIC_TARGET_X86 - Failed
+-- Boost.Context: architecture arm64, binary format elf, ABI aapcs, assembler gas, suffix .S, implementation fcontext
+-- CPM: Adding package Boost@1.86.0 (1.86.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/boost/1359e136761ab2d10afa1c4e21086c8d824735cd)
+CMake Deprecation Warning at .cpmcache/protobuf/8a3b611df2de7d977c1a110a21a76a4db510b115/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- CPM: Adding package protobuf@21.12 (v21.12 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/protobuf/8a3b611df2de7d977c1a110a21a76a4db510b115)
+-- CPM: Adding package yaml-cpp@0 (2f86d13775d119edbb69af52e5f566fd65c6953b at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/yaml-cpp/0_8_0_upstream_patched)
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/googlemock/CMakeLists.txt:39 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/googletest/CMakeLists.txt:49 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Found Python: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv/bin/python3.10 (found version "3.10.12") found components: Interpreter
+-- CPM: Adding package GTest@1.13.0 (v1.13.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949)
+-- CPM: Adding package reflect@1.2.6 (v1.2.6 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/reflect/f93e77475670eaeacf332927dfe8b50e3f3812e0)
+-- CPM: Adding package enchantum@0 (8ca5b0eb7e7ebe0252e5bc6915083f1dd1b8294e at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/enchantum/2fb7ab238e36c101b9848892ddb6382276b65837)
+-- CPM: Adding package fmt@11.1.4 (11.1.4 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/fmt/69912fb6b71fcb1f7e5deca191a2bb4748c4e7b6)
+-- CPM: Adding package range-v3@0.12.0 (0.12.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/range-v3/0_12_0_patched)
+-- Found Python: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv/bin/python3.10 (found version "3.10.12") found components: Interpreter Development.Module Development.SABIModule
+-- CPM: Adding package nanobind@0 (86e5626728fc282637a6c338597120913dded1bb at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nanobind/7965351fcedc97e6ade403d51a150a266d188dc6)
+-- CPM: Adding package nlohmann_json@3.11.3 (v3.11.3 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nlohmann_json/798e0374658476027d9723eeb67a262d0f3c8308)
+-- CPM: Adding package xtl@0.8.0 (0.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtl/0_8_0_patched)
+-- CPM: Adding package xtensor@0.26.0 (0.26.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtensor/0_26_0_patched)
+-- CPM: Adding package xtensor-blas@0.22.0 (0.22.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtensor-blas/0_22_0_patched)
+-- CPM: Adding package benchmark@1.9.1 (v1.9.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/benchmark/17a125dc196d0eea81711f65879e8410dd54303f)
+-- CPM: Adding package Taskflow@3.7.0 (v3.7.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/taskflow/52063f60902bfeb362fa4616b1394ab5efe30994)
+-- Proceeding with version: 24.3.25.0
+-- Looking for strtof_l
+-- Looking for strtof_l - found
+-- Looking for strtoull_l
+-- Looking for strtoull_l - found
+-- Looking for realpath
+-- Looking for realpath - found
+-- CMAKE_CXX_FLAGS: --gcc-toolchain=/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/aarch64-linux-gnu
+-- CPM: Adding package flatbuffers@24.3.25 (v24.3.25 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/flatbuffers/2c4062bffa52fa4157b1b4deeae73395df475fda)
+-- CPM: Adding package simd-everywhere@0.8.2 (v0.8.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/simd-everywhere/b3b426f78574ef837b17f42e86bab88314c5e4db)
+-- CPM: Adding package spdlog@1.15.2 (v1.15.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/spdlog/b1c2586bb5c35a7929362e87f62433eb68206873)
+-- tt-logger: using spdlog target spdlog::spdlog
+-- CPM: Adding package tt-logger@1.1.8 (v1.1.8 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/tt-logger/d2339ce68562cae34cd95f3fece7fd94eb0529b7)
+-- CPM: Adding package cadical@ (rel-2.2.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3)
+-- Looking for C++ include initializer_list
+-- Looking for C++ include initializer_list - found
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2") found components: Crypto SSL
+-- Looking for makecontext in c
+-- Looking for makecontext in c - found
+-- CPM: Adding package capnproto@0 (d135c9ca5e15219eaf131dfce1a41afdbaea9aab at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/capnproto/f6c518d3bd34781c51de8344e9c1574d44c43348)
+-- CPM: Adding package ttexalens@0 (6f5720240b7254b25cb3d78aef81769fc12a30f9 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/ttexalens/a20f65d9ba149476c88937f984419ea3beedefce)
+-- CMake version: 4.0.2
+-- CPM: Adding package nanomsg@1.8.0 (v1.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nanomsg/28cc32d5bdb6a858fe53b3ccf7e923957e53eada)
+INFOCPM Added flatbuffers, creating ALIAS flatbuffers::flatbuffers
+-- CPM: Adding package libuv@1.51.0 (v1.51.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/libuv/2b05484ccff8fdf26b363fb50e4830b774d7eb53)
+-- CPM: Adding package cxxopts@0 (dbf4c6a66816f6c3872b46cc6af119ad227e04e1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/cxxopts/dda70ad5c1afdb5368541192bace55dbcd7872e3)
+CMake Warning at .cpmcache/cpm/CPM_0.40.2.cmake:317 (message):
+  CPM: Requires a newer version of nanobind (2.10.2) than currently included
+  (0).
+Call Stack (most recent call first):
+  .cpmcache/cpm/CPM_0.40.2.cmake:682 (cpm_check_if_package_already_added)
+  tt_metal/third_party/umd/third_party/CMakeLists.txt:190 (CPMAddPackage)
+
+
+-- CPM: Adding package umd_asio@ (asio-1-30-2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/umd_asio/83a029aeca9a00050695989a093d0cc1fcd67ba8)
+-- Looking for backtrace
+-- Looking for backtrace - found
+-- 
+-- ==================== UMD configuration summary ====================
+--   CMAKE_BUILD_TYPE = RelWithDebInfo
+--   TT_EMULE_PATH = 
+--   TT_UMD_BUILD_ALL = OFF
+--   TT_UMD_BUILD_EMULE = OFF
+--   TT_UMD_BUILD_EXAMPLES = OFF
+--   TT_UMD_BUILD_JTAG = OFF
+--   TT_UMD_BUILD_PIP = 
+--   TT_UMD_BUILD_PYTHON = OFF
+--   TT_UMD_BUILD_SIMULATION = ON
+--   TT_UMD_BUILD_STATIC = OFF
+--   TT_UMD_BUILD_TESTS = OFF
+--   TT_UMD_BUILD_TOOLS = ON
+--   TT_UMD_ENABLE_CLANG_TIDY = OFF
+--   TT_UMD_ENABLE_LOGGING = OFF
+--   TT_UMD_ENABLE_TRACY = OFF
+-- ===================================================================
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- Could NOT find rocprofiler-sdk (missing: rocprofiler-sdk_DIR)
+-- TRACY_ENABLE: ON
+-- TRACY_ON_DEMAND: OFF
+-- TRACY_CALLSTACK: (not set)
+-- TRACY_NO_CALLSTACK: OFF
+-- TRACY_NO_CALLSTACK_INLINES: OFF
+-- TRACY_ONLY_LOCALHOST: OFF
+-- TRACY_NO_BROADCAST: OFF
+-- TRACY_ONLY_IPV4: OFF
+-- TRACY_NO_CODE_TRANSFER: OFF
+-- TRACY_NO_CONTEXT_SWITCH: OFF
+-- TRACY_NO_EXIT: OFF
+-- TRACY_NO_SAMPLING: OFF
+-- TRACY_NO_VERIFY: OFF
+-- TRACY_NO_VSYNC_CAPTURE: OFF
+-- TRACY_NO_FRAME_IMAGE: OFF
+-- TRACY_NO_SYSTEM_TRACING: OFF
+-- TRACY_PATCHABLE_NOPSLEDS: OFF
+-- TRACY_DELAYED_INIT: OFF
+-- TRACY_MANUAL_LIFETIME: OFF
+-- TRACY_FIBERS: OFF
+-- TRACY_NO_CRASH_HANDLER: OFF
+-- TRACY_TIMER_FALLBACK: ON
+-- TRACY_DISALLOW_HW_TIMER: OFF
+-- TRACY_LIBUNWIND_BACKTRACE: OFF
+-- TRACY_SYMBOL_OFFLINE_RESOLVE: OFF
+-- TRACY_LIBBACKTRACE_ELF_DYNLOAD_SUPPORT: OFF
+-- TRACY_DEBUGINFOD: OFF
+-- TRACY_IGNORE_MEMORY_FAULTS: OFF
+-- TRACY_VERBOSE: OFF
+-- TRACY_NO_INTERNAL_MESSAGE: OFF
+-- TRACY_DEMANGLE: OFF
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- NO_ISA_EXTENSIONS: ON
+-- NO_LTO: OFF
+-- NO_MOLD_LINKER: OFF
+-- NO_CCACHE: ON
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Performing Test SUPPORTS_MU
+-- Performing Test SUPPORTS_MU - Failed
+-- Performing Test SUPPORTS_SHADOWING
+-- Performing Test SUPPORTS_SHADOWING - Failed
+-- Performing Test SUPPORTS_SUNINIT
+-- Performing Test SUPPORTS_SUNINIT - Success
+Enabling CAPSTONE_ARM_SUPPORT
+Enabling CAPSTONE_AARCH64_SUPPORT
+Enabling CAPSTONE_X86_SUPPORT
+-- CPM: Adding package capstone@6.0.0 (6.0.0-Alpha1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/capstone/bbb5bd2ce37fb9eb88905aa958322ed1c477bd15)
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Could NOT find PNG (missing: PNG_LIBRARY PNG_PNG_INCLUDE_DIR) 
+-- Could NOT find BZip2 (missing: BZIP2_LIBRARIES BZIP2_INCLUDE_DIR) 
+-- Could NOT find BrotliDec (missing: BROTLIDEC_INCLUDE_DIRS BROTLIDEC_LIBRARIES) 
+-- CPM: Adding package freetype@ (VER-2-14-3 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/freetype/adf3abb0a96c3adc6d84b8bfd7172192db267d75)
+-- ZSTD VERSION: 1.5.7
+-- Performing Test C_FLAG_WALL
+-- Performing Test C_FLAG_WALL - Success
+-- Performing Test CXX_FLAG_WALL
+-- Performing Test CXX_FLAG_WALL - Success
+-- Performing Test C_FLAG_WEXTRA
+-- Performing Test C_FLAG_WEXTRA - Success
+-- Performing Test CXX_FLAG_WEXTRA
+-- Performing Test CXX_FLAG_WEXTRA - Success
+-- Performing Test C_FLAG_WUNDEF
+-- Performing Test C_FLAG_WUNDEF - Success
+-- Performing Test CXX_FLAG_WUNDEF
+-- Performing Test CXX_FLAG_WUNDEF - Success
+-- Performing Test C_FLAG_WSHADOW
+-- Performing Test C_FLAG_WSHADOW - Success
+-- Performing Test CXX_FLAG_WSHADOW
+-- Performing Test CXX_FLAG_WSHADOW - Success
+-- Performing Test C_FLAG_WCAST_ALIGN
+-- Performing Test C_FLAG_WCAST_ALIGN - Success
+-- Performing Test CXX_FLAG_WCAST_ALIGN
+-- Performing Test CXX_FLAG_WCAST_ALIGN - Success
+-- Performing Test C_FLAG_WCAST_QUAL
+-- Performing Test C_FLAG_WCAST_QUAL - Success
+-- Performing Test CXX_FLAG_WCAST_QUAL
+-- Performing Test CXX_FLAG_WCAST_QUAL - Success
+-- Performing Test C_FLAG_WSTRICT_PROTOTYPES
+-- Performing Test C_FLAG_WSTRICT_PROTOTYPES - Success
+-- Performing Test LD_FLAG_WL_Z_NOEXECSTACK
+-- Performing Test LD_FLAG_WL_Z_NOEXECSTACK - Success
+-- Performing Test C_FLAG_QUNUSED_ARGUMENTS
+-- Performing Test C_FLAG_QUNUSED_ARGUMENTS - Success
+-- Performing Test CXX_FLAG_QUNUSED_ARGUMENTS
+-- Performing Test CXX_FLAG_QUNUSED_ARGUMENTS - Success
+-- Performing Test C_FLAG_WA_NOEXECSTACK
+-- Performing Test C_FLAG_WA_NOEXECSTACK - Success
+-- Performing Test CXX_FLAG_WA_NOEXECSTACK
+-- Performing Test CXX_FLAG_WA_NOEXECSTACK - Success
+-- CMAKE_INSTALL_PREFIX: /usr/local
+-- CMAKE_INSTALL_LIBDIR: lib
+-- ZSTD_LEGACY_SUPPORT defined!
+-- ZSTD_MULTITHREAD_SUPPORT is enabled
+-- CPM: Adding package zstd@1.5.7 (v1.5.7 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/zstd/dfd2e0b6e613dcf44911302708e636a8aee527d2)
+-- CPM: Adding package ImGui@1.92.8 (v1.92.8-docking at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/imgui/4afe909dc6063570b0ec9c75d03af1d6d5f301d0)
+-- CPM: PPQSort: Adding package PackageProject.cmake@1.11.1 (v1.11.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/packageproject.cmake/39dc740304285c2e0815cb4669f337dc2af3b0a3)
+-- PPQSORT_OPTIMIZE_NATIVE: OFF
+-- CPM: Adding package PPQSort@1.0.6 (v1.0.6 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/ppqsort/501e95a7fe7f78924f116c3ac0b965356ded7bd8)
+CMake Deprecation Warning at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- CPM: Adding package md4c@ (release-0.5.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68)
+-- /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/base64/84ae1394053597c26e30daec579e0a125b5f9744
+-- Looking for getopt.h
+-- Looking for getopt.h - found
+-- Could NOT find OpenMP_C (missing: OpenMP_C_FLAGS OpenMP_C_LIB_NAMES) 
+-- Could NOT find OpenMP_CXX (missing: OpenMP_CXX_FLAGS OpenMP_CXX_LIB_NAMES) 
+-- Could NOT find OpenMP (missing: OpenMP_C_FOUND OpenMP_CXX_FOUND) 
+-- The following packages have been found:
+
+ * Python
+ * OpenSSL
+ * ZLIB
+ * Threads
+ * Git
+
+-- The following packages have not been found:
+
+ * rocprofiler-sdk
+ * PNG
+ * BZip2
+ * BrotliDec
+ * OpenMP
+   Allows to utilize OpenMP
+
+-- The following features have been enabled:
+
+ * NEON SIMD intrinsics, The library uses NEON SIMD intrinsics.
+ * NEON64, add NEON64 codepath
+
+-- The following features have been disabled:
+
+ * AMD64 assembly, The library uses hand written amd64 SIMD assembly.
+ * x86 SIMD intrinsics, The library uses x86 SIMD intrinsics.
+ * oneTBB parallelism, The library uses oneTBB parallelism.
+ * CLI, enables the CLI executable for encoding and decoding
+ * OpenMP codec, spreads codec work accross multiple threads
+ * SSSE3, add SSSE 3 codepath
+ * SSE4.1, add SSE 4.1 codepath
+ * SSE4.2, add SSE 4.2 codepath
+ * AVX, add AVX codepath
+ * AVX2, add AVX2 codepath
+ * AVX512, add AVX512 codepath
+ * NEON32, add NEON32 codepath
+
+-- CPM: Adding package base64@0.5.2 (v0.5.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/base64/84ae1394053597c26e30daec579e0a125b5f9744)
+-> TIDY_SO_VERSION = 58. This is an EVEN (stable) release.
+-- *** Debug Logging is NOT enabled.
+-- *** Building support for runtime configuration files.
+-- *** Also building DLL library SHARED, version 5.8.0, date 2021.07.10
+-- *** NOTE: xsltproc NOT FOUND! Can NOT generate man page.
+-- *** You need to install xsltproc in your system.
+-- CPM: Adding package tidy@5.8.0 (5.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/tidy/4f721c05cc5dfeca83fce683e489577f1e045640)
+-- Performing Test USEARCH_CAN_COMPILE_FP16
+-- Performing Test USEARCH_CAN_COMPILE_FP16 - Failed
+-- Performing Test USEARCH_CAN_COMPILE_FLOAT16
+-- Performing Test USEARCH_CAN_COMPILE_FLOAT16 - Failed
+-- Performing Test USEARCH_CAN_COMPILE_BF16
+-- Performing Test USEARCH_CAN_COMPILE_BF16 - Failed
+-- Performing Test USEARCH_CAN_COMPILE_BFLOAT16
+-- Performing Test USEARCH_CAN_COMPILE_BFLOAT16 - Failed
+-- CPM: Adding package usearch@2.23.0 (v2.23.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/usearch/45b3dace4fb730b831c618ce192366cac43383a6)
+-- CPM: Adding package pugixml@1.15 (v1.15 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/pugixml/e07018e704dbbe9c0f19244e7eb78a094614260a)
+-- Using CMake version 4.0.2
+-- curl version=[8.19.0-DEV]
+-- CMake platform flags: UNIX LLVM-CLANG
+-- Picky compiler options: -Werror-implicit-function-declaration -Wextra -Wall -Wpedantic -Wbad-function-cast -Wconversion -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Waddress -Wattributes -Wcast-align -Wcast-qual -Wdeclaration-after-statement -Wdiv-by-zero -Wempty-body -Wendif-labels -Wfloat-equal -Wformat-security -Wignored-qualifiers -Wmissing-field-initializers -Wmissing-noreturn -Wno-padded -Wno-sign-conversion -Wno-switch-default -Wno-switch-enum -Wno-system-headers -Wold-style-definition -Wredundant-decls -Wstrict-prototypes -Wtype-limits -Wunreachable-code -Wunused-parameter -Wvla -Wconditional-uninitialized -Wno-used-but-marked-unused -Wshift-sign-overflow -Wshorten-64-to-32 -Wformat=2 -Wlanguage-extension-token -Wno-covered-switch-default -Wno-disabled-macro-expansion -Wformat-non-iso -Wenum-conversion -Wmissing-variable-declarations -Wno-documentation-unknown-command -Wsometimes-uninitialized -Wdouble-promotion -Wheader-guard -Wpragmas -Wunused-const-variable -Wcomma -Wassign-enum -Wextra-semi-stmt -Wimplicit-fallthrough -Wxor-used-as-pow -Wcast-function-type -Wreserved-identifier -Wno-reserved-macro-identifier -Wno-unsafe-buffer-usage -Wcast-function-type-strict -Wno-format-signedness
+-- Found Perl: /usr/bin/perl (found version "5.34.0")
+-- Looking for connect in socket
+-- Looking for connect in socket - not found
+-- Performing Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID
+-- Performing Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID - Success
+-- Performing Test HAVE_SOCKADDR_IN6_SIN6_ADDR
+-- Performing Test HAVE_SOCKADDR_IN6_SIN6_ADDR - Success
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")
+-- Looking for OPENSSL_IS_BORINGSSL
+-- Looking for OPENSSL_IS_BORINGSSL - not found
+-- Looking for OPENSSL_IS_AWSLC
+-- Looking for OPENSSL_IS_AWSLC - not found
+-- Looking for LIBRESSL_VERSION_NUMBER
+-- Looking for LIBRESSL_VERSION_NUMBER - not found
+-- Could NOT find Brotli (missing: BROTLI_INCLUDE_DIR BROTLIDEC_LIBRARY BROTLICOMMON_LIBRARY) 
+-- Looking for DES_ecb_encrypt
+-- Looking for DES_ecb_encrypt - found
+-- Looking for SSL_set0_wbio
+-- Looking for SSL_set0_wbio - found
+-- Looking for SSL_CTX_set_srp_username
+-- Looking for SSL_CTX_set_srp_username - found
+-- Could NOT find NGHTTP2 (missing: NGHTTP2_INCLUDE_DIR NGHTTP2_LIBRARY) 
+-- Could NOT find Libidn2 (missing: LIBIDN2_INCLUDE_DIR LIBIDN2_LIBRARY) 
+-- Could NOT find Libssh2 (missing: LIBSSH2_INCLUDE_DIR LIBSSH2_LIBRARY) 
+-- Performing Test USE_UNIX_SOCKETS
+-- Performing Test USE_UNIX_SOCKETS - Success
+-- Found CA bundle: /etc/ssl/certs/ca-certificates.crt
+-- Found CA path: /etc/ssl/certs
+-- Looking for sys/eventfd.h
+-- Looking for sys/eventfd.h - found
+-- Looking for sys/filio.h
+-- Looking for sys/filio.h - not found
+-- Looking for sys/ioctl.h
+-- Looking for sys/ioctl.h - found
+-- Looking for sys/param.h
+-- Looking for sys/param.h - found
+-- Looking for sys/poll.h
+-- Looking for sys/poll.h - found
+-- Looking for sys/resource.h
+-- Looking for sys/resource.h - found
+-- Looking for 3 include files sys/socket.h, ..., sys/select.h
+-- Looking for 3 include files sys/socket.h, ..., sys/select.h - found
+-- Looking for sys/sockio.h
+-- Looking for sys/sockio.h - not found
+-- Looking for sys/un.h
+-- Looking for sys/un.h - found
+-- Looking for 5 include files sys/socket.h, ..., sys/utime.h
+-- Looking for 5 include files sys/socket.h, ..., sys/utime.h - not found
+-- Looking for 5 include files sys/socket.h, ..., arpa/inet.h
+-- Looking for 5 include files sys/socket.h, ..., arpa/inet.h - found
+-- Looking for dirent.h
+-- Looking for dirent.h - found
+-- Looking for 6 include files sys/socket.h, ..., ifaddrs.h
+-- Looking for 6 include files sys/socket.h, ..., ifaddrs.h - found
+-- Looking for io.h
+-- Looking for io.h - not found
+-- Looking for 7 include files sys/socket.h, ..., libgen.h
+-- Looking for 7 include files sys/socket.h, ..., libgen.h - found
+-- Looking for linux/tcp.h
+-- Looking for linux/tcp.h - found
+-- Looking for locale.h
+-- Looking for locale.h - found
+-- Looking for 8 include files sys/socket.h, ..., net/if.h
+-- Looking for 8 include files sys/socket.h, ..., net/if.h - found
+-- Looking for 9 include files sys/socket.h, ..., netdb.h
+-- Looking for 9 include files sys/socket.h, ..., netdb.h - found
+-- Looking for 10 include files sys/socket.h, ..., netinet/in.h
+-- Looking for 10 include files sys/socket.h, ..., netinet/in.h - found
+-- Looking for netinet/in6.h
+-- Looking for netinet/in6.h - not found
+-- Looking for 11 include files sys/socket.h, ..., netinet/tcp.h
+-- Looking for 11 include files sys/socket.h, ..., netinet/tcp.h - found
+-- Looking for 12 include files sys/socket.h, ..., netinet/udp.h
+-- Looking for 12 include files sys/socket.h, ..., netinet/udp.h - found
+-- Looking for poll.h
+-- Looking for poll.h - found
+-- Looking for pwd.h
+-- Looking for pwd.h - found
+-- Looking for stdatomic.h
+-- Looking for stdatomic.h - found
+-- Looking for stdbool.h
+-- Looking for stdbool.h - found
+-- Looking for strings.h
+-- Looking for strings.h - found
+-- Looking for stropts.h
+-- Looking for stropts.h - not found
+-- Looking for termio.h
+-- Looking for termio.h - found
+-- Looking for termios.h
+-- Looking for termios.h - found
+-- Looking for utime.h
+-- Looking for utime.h - found
+-- Check size of size_t
+-- Check size of size_t - done
+-- Check size of ssize_t
+-- Check size of ssize_t - done
+-- Check size of long
+-- Check size of long - done
+-- Check size of int
+-- Check size of int - done
+-- Check size of __int64
+-- Check size of __int64 - failed
+-- Check size of time_t
+-- Check size of time_t - done
+-- Check size of suseconds_t
+-- Check size of suseconds_t - done
+-- Looking for accept4
+-- Looking for accept4 - found
+-- Looking for fnmatch
+-- Looking for fnmatch - found
+-- Looking for basename
+-- Looking for basename - found
+-- Looking for opendir
+-- Looking for opendir - found
+-- Looking for poll
+-- Looking for poll - found
+-- Looking for socket
+-- Looking for socket - found
+-- Looking for socketpair
+-- Looking for socketpair - found
+-- Looking for recv
+-- Looking for recv - found
+-- Looking for send
+-- Looking for send - found
+-- Looking for sendmsg
+-- Looking for sendmsg - found
+-- Looking for sendmmsg
+-- Looking for sendmmsg - found
+-- Looking for select
+-- Looking for select - found
+-- Looking for memrchr
+-- Looking for memrchr - found
+-- Looking for alarm
+-- Looking for alarm - found
+-- Looking for fcntl
+-- Looking for fcntl - found
+-- Looking for getppid
+-- Looking for getppid - found
+-- Looking for utimes
+-- Looking for utimes - found
+-- Looking for gettimeofday
+-- Looking for gettimeofday - found
+-- Looking for closesocket
+-- Looking for closesocket - not found
+-- Looking for sigsetjmp
+-- Looking for sigsetjmp - found
+-- Looking for getpass_r
+-- Looking for getpass_r - not found
+-- Looking for getpwuid
+-- Looking for getpwuid - found
+-- Looking for getpwuid_r
+-- Looking for getpwuid_r - found
+-- Looking for geteuid
+-- Looking for geteuid - found
+-- Looking for utime
+-- Looking for utime - found
+-- Looking for gmtime_r
+-- Looking for gmtime_r - found
+-- Looking for localtime_r
+-- Looking for localtime_r - found
+-- Looking for gethostbyname_r
+-- Looking for gethostbyname_r - found
+-- Looking for gethostname
+-- Looking for gethostname - found
+-- Looking for signal
+-- Looking for signal - found
+-- Looking for strerror_r
+-- Looking for strerror_r - found
+-- Looking for sigaction
+-- Looking for sigaction - found
+-- Looking for siginterrupt
+-- Looking for siginterrupt - found
+-- Looking for getaddrinfo
+-- Looking for getaddrinfo - found
+-- Looking for getifaddrs
+-- Looking for getifaddrs - found
+-- Looking for freeaddrinfo
+-- Looking for freeaddrinfo - found
+-- Looking for pipe
+-- Looking for pipe - found
+-- Looking for pipe2
+-- Looking for pipe2 - found
+-- Looking for eventfd
+-- Looking for eventfd - found
+-- Looking for ftruncate
+-- Looking for ftruncate - found
+-- Looking for getpeername
+-- Looking for getpeername - found
+-- Looking for getsockname
+-- Looking for getsockname - found
+-- Looking for getrlimit
+-- Looking for getrlimit - found
+-- Looking for setlocale
+-- Looking for setlocale - found
+-- Looking for setrlimit
+-- Looking for setrlimit - found
+-- Looking for if_nametoindex
+-- Looking for if_nametoindex - found
+-- Looking for sched_yield
+-- Looking for sched_yield - found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for strcasecmp
+-- Looking for strcasecmp - found
+-- Looking for stricmp
+-- Looking for stricmp - not found
+-- Looking for strcmpi
+-- Looking for strcmpi - not found
+-- Looking for inet_ntop
+-- Looking for inet_ntop - found
+-- Looking for inet_pton
+-- Looking for inet_pton - found
+-- Looking for fsetxattr
+-- Looking for fsetxattr - found
+-- Performing Test HAVE_FSETXATTR_5
+-- Performing Test HAVE_FSETXATTR_5 - Success
+-- Performing Test HAVE_FSETXATTR_6
+-- Performing Test HAVE_FSETXATTR_6 - Failed
+-- Check size of sa_family_t
+-- Check size of sa_family_t - done
+-- Performing Test HAVE_FCNTL_O_NONBLOCK
+-- Performing Test HAVE_FCNTL_O_NONBLOCK - Success
+-- Performing Test HAVE_IOCTLSOCKET
+-- Performing Test HAVE_IOCTLSOCKET - Failed
+-- Performing Test HAVE_IOCTLSOCKET_CAMEL
+-- Performing Test HAVE_IOCTLSOCKET_CAMEL - Failed
+-- Performing Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO
+-- Performing Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO - Failed
+-- Performing Test HAVE_IOCTLSOCKET_FIONBIO
+-- Performing Test HAVE_IOCTLSOCKET_FIONBIO - Failed
+-- Performing Test HAVE_IOCTL_FIONBIO
+-- Performing Test HAVE_IOCTL_FIONBIO - Success
+-- Performing Test HAVE_IOCTL_SIOCGIFADDR
+-- Performing Test HAVE_IOCTL_SIOCGIFADDR - Success
+-- Performing Test HAVE_SETSOCKOPT_SO_NONBLOCK
+-- Performing Test HAVE_SETSOCKOPT_SO_NONBLOCK - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_3
+-- Performing Test HAVE_GETHOSTBYNAME_R_3 - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_5
+-- Performing Test HAVE_GETHOSTBYNAME_R_5 - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_6
+-- Performing Test HAVE_GETHOSTBYNAME_R_6 - Success
+-- Performing Test HAVE_BOOL_T
+-- Performing Test HAVE_BOOL_T - Success
+-- Performing Test STDC_HEADERS
+-- Performing Test STDC_HEADERS - Success
+-- Performing Test HAVE_ATOMIC
+-- Performing Test HAVE_ATOMIC - Success
+-- Performing Test HAVE_GETHOSTBYNAME_R_3_REENTRANT
+-- Performing Test HAVE_GETHOSTBYNAME_R_3_REENTRANT - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_5_REENTRANT
+-- Performing Test HAVE_GETHOSTBYNAME_R_5_REENTRANT - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_6_REENTRANT
+-- Performing Test HAVE_GETHOSTBYNAME_R_6_REENTRANT - Success
+-- Performing Test HAVE_FILE_OFFSET_BITS
+-- Performing Test HAVE_FILE_OFFSET_BITS - Success
+-- Check size of off_t
+-- Check size of off_t - done
+-- Looking for fseeko
+-- Looking for fseeko - found
+-- Check size of curl_off_t
+-- Check size of curl_off_t - done
+-- Check size of curl_socket_t
+-- Check size of curl_socket_t - done
+-- Performing Test HAVE_WRITABLE_ARGV
+-- Performing Test HAVE_WRITABLE_ARGV - Success
+-- Performing Test HAVE_TIME_T_UNSIGNED
+-- Performing Test HAVE_TIME_T_UNSIGNED - Failed
+-- Performing Test HAVE_GLIBC_STRERROR_R
+-- Performing Test HAVE_GLIBC_STRERROR_R - Success
+-- Performing Test HAVE_POSIX_STRERROR_R
+-- Performing Test HAVE_POSIX_STRERROR_R - Failed
+-- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC
+-- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC - Success
+-- Check size of struct sockaddr_storage
+-- Check size of struct sockaddr_storage - done
+-- Performing Test HAVE_STRUCT_TIMEVAL
+-- Performing Test HAVE_STRUCT_TIMEVAL - Success
+-- Performing Test HAVE_H_ERRNO
+-- Performing Test HAVE_H_ERRNO - Success
+-- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC_RAW
+-- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC_RAW - Success
+-- Enabled examples with dependencies: cacertinmem:USE_OPENSSL threaded:HAVE_PTHREAD_H usercertinmem:USE_OPENSSL
+-- Protocols: http https
+-- Features: alt-svc AsynchDNS HSTS HTTPS-proxy IPv6 Largefile libz NTLM SSL threadsafe TLS-SRP UnixSockets
+-- Enabled SSL backends: OpenSSL
+-- CPM: Adding package libcurl@ (curl-8_19_0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/libcurl/31c94cb23f21bf76308a51d0005a4d6f8c1eb54b)
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- NO_ISA_EXTENSIONS: ON
+-- NO_LTO: OFF
+-- NO_MOLD_LINKER: OFF
+-- NO_CCACHE: ON
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- CPM: Adding package emsdk@0 (0dfff153dc3c596948ac088b8853006c570f2609 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/emsdk/de6013a6f56ddc5bd63ce157184ad7c79ea4815f)
+-- Using SFPI compiler: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/runtime/sfpi/compiler/bin/riscv-tt-elf-g++ (tenstorrent/sfpi:7.74.0[897]) 15.1.0
+-- TT_METAL_INSTALL_ROOT == /usr/libexec/tt-metalium
+CMake Error at tt_metal/distributed/CMakeLists.txt:53 (message):
+  ENABLE_DISTRIBUTED is ON but no MPI implementation found.  Please install
+  MPI or disable distributed support.
+
+
+-- Configuring incomplete, errors occurred!

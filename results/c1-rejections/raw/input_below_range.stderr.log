@@ -1,0 +1,1 @@
+TT_ROW_REDUCE_ERROR={"status":"invalid-input","before_device":true,"message":"quantized nonzero input magnitude must be in [2^-8,1]"}

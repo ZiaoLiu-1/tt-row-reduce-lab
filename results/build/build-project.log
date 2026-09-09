@@ -1,0 +1,1878 @@
+Integrated tt_row_reduce_metal into pinned TT-Metal checkout (89e1256c982a5b4739d173bcc446c8c748a44b40).
+-- Found Git: /usr/bin/git (found version "2.34.1")
+-- Version: 0.79.0-dev20260909+m
+-- The C compiler identification is Clang 20.1.8
+-- The CXX compiler identification is Clang 20.1.8
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/bin/clang-20 - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/bin/clang++-20 - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Metalium version: 0.79.0
+-- Build type: Release
+-- CMAKE_TOOLCHAIN_FILE: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/project/cmake/user-prefix-toolchain.cmake
+-- Checking compilers
+-- Performing Test COMPILER_SUPPORTS_GZ_ZSTD
+-- Performing Test COMPILER_SUPPORTS_GZ_ZSTD - Failed
+-- Performing Test COMPILER_SUPPORTS_GZ
+-- Performing Test COMPILER_SUPPORTS_GZ - Failed
+-- Performing Test LINKER_SUPPORTS_COMPRESS_ZSTD
+-- Performing Test LINKER_SUPPORTS_COMPRESS_ZSTD - Failed
+-- Performing Test LINKER_SUPPORTS_COMPRESS_ZLIB
+-- Performing Test LINKER_SUPPORTS_COMPRESS_ZLIB - Failed
+-- Compressed debug sections not supported, skipping
+-- Do you have the clang-tools package installed?
+-- Linker type: LLD
+-- Linker version: 20.1.8
+-- Performing Test LINKER_SUPPORTS_GDB_INDEX
+-- Performing Test LINKER_SUPPORTS_GDB_INDEX - Failed
+-- Linker does not support --gdb-index, skipping
+-- ENABLE_LIBCXX: FALSE
+-- Build shared libs: ON
+-- Build Python bindings: OFF
+-- Build Programming Examples: ON
+-- Build TT METAL Tests: OFF
+-- Build TTNN Tests: OFF
+-- Build with Unity builds: ON
+-- Build with LTO: OFF
+-- Build with Shared TTNN Sublibraries: OFF
+-- Build with LightMetal Trace Enabled: ON
+-- Build with Multihost Distributed Compute: OFF
+-- CPM: Adding package blake3@1.8.4 (1.8.4 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/blake3/b4d598ea672ffc1a88600ed5876875112b29ca86)
+-- Boost: Release build, static libraries, MPI OFF, Python OFF, testing OFF
+-- Boost: libraries included: core;container;smart_ptr;interprocess;asio;lockfree
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test BOOST_ATOMIC_TARGET_X86
+-- Performing Test BOOST_ATOMIC_TARGET_X86 - Failed
+-- Boost.Context: architecture arm64, binary format elf, ABI aapcs, assembler gas, suffix .S, implementation fcontext
+-- CPM: Adding package Boost@1.86.0 (1.86.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/boost/1359e136761ab2d10afa1c4e21086c8d824735cd)
+CMake Deprecation Warning at .cpmcache/protobuf/8a3b611df2de7d977c1a110a21a76a4db510b115/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- CPM: Adding package protobuf@21.12 (v21.12 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/protobuf/8a3b611df2de7d977c1a110a21a76a4db510b115)
+-- CPM: Adding package yaml-cpp@0 (2f86d13775d119edbb69af52e5f566fd65c6953b at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/yaml-cpp/0_8_0_upstream_patched)
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/googlemock/CMakeLists.txt:39 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/googletest/CMakeLists.txt:49 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Found Python: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv/bin/python3.10 (found version "3.10.12") found components: Interpreter
+-- CPM: Adding package GTest@1.13.0 (v1.13.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949)
+-- CPM: Adding package reflect@1.2.6 (v1.2.6 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/reflect/f93e77475670eaeacf332927dfe8b50e3f3812e0)
+-- CPM: Adding package enchantum@0 (8ca5b0eb7e7ebe0252e5bc6915083f1dd1b8294e at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/enchantum/2fb7ab238e36c101b9848892ddb6382276b65837)
+-- CPM: Adding package fmt@11.1.4 (11.1.4 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/fmt/69912fb6b71fcb1f7e5deca191a2bb4748c4e7b6)
+-- CPM: Adding package range-v3@0.12.0 (0.12.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/range-v3/0_12_0_patched)
+-- Found Python: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv/bin/python3.10 (found version "3.10.12") found components: Interpreter Development.Module Development.SABIModule
+-- CPM: Adding package nanobind@0 (86e5626728fc282637a6c338597120913dded1bb at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nanobind/7965351fcedc97e6ade403d51a150a266d188dc6)
+-- CPM: Adding package nlohmann_json@3.11.3 (v3.11.3 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nlohmann_json/798e0374658476027d9723eeb67a262d0f3c8308)
+-- CPM: Adding package xtl@0.8.0 (0.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtl/0_8_0_patched)
+-- CPM: Adding package xtensor@0.26.0 (0.26.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtensor/0_26_0_patched)
+-- CPM: Adding package xtensor-blas@0.22.0 (0.22.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtensor-blas/0_22_0_patched)
+-- CPM: Adding package benchmark@1.9.1 (v1.9.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/benchmark/17a125dc196d0eea81711f65879e8410dd54303f)
+-- CPM: Adding package Taskflow@3.7.0 (v3.7.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/taskflow/52063f60902bfeb362fa4616b1394ab5efe30994)
+-- Proceeding with version: 24.3.25.0
+-- Looking for strtof_l
+-- Looking for strtof_l - found
+-- Looking for strtoull_l
+-- Looking for strtoull_l - found
+-- Looking for realpath
+-- Looking for realpath - found
+-- CMAKE_CXX_FLAGS: --gcc-toolchain=/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/aarch64-linux-gnu
+-- CPM: Adding package flatbuffers@24.3.25 (v24.3.25 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/flatbuffers/2c4062bffa52fa4157b1b4deeae73395df475fda)
+-- CPM: Adding package simd-everywhere@0.8.2 (v0.8.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/simd-everywhere/b3b426f78574ef837b17f42e86bab88314c5e4db)
+-- CPM: Adding package spdlog@1.15.2 (v1.15.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/spdlog/b1c2586bb5c35a7929362e87f62433eb68206873)
+-- tt-logger: using spdlog target spdlog::spdlog
+-- CPM: Adding package tt-logger@1.1.8 (v1.1.8 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/tt-logger/d2339ce68562cae34cd95f3fece7fd94eb0529b7)
+-- CPM: Adding package cadical@ (rel-2.2.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3)
+-- Looking for C++ include initializer_list
+-- Looking for C++ include initializer_list - found
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2") found components: Crypto SSL
+-- Looking for makecontext in c
+-- Looking for makecontext in c - found
+-- CPM: Adding package capnproto@0 (d135c9ca5e15219eaf131dfce1a41afdbaea9aab at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/capnproto/f6c518d3bd34781c51de8344e9c1574d44c43348)
+-- CPM: Adding package ttexalens@0 (6f5720240b7254b25cb3d78aef81769fc12a30f9 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/ttexalens/a20f65d9ba149476c88937f984419ea3beedefce)
+-- CMake version: 4.0.2
+-- CPM: Adding package nanomsg@1.8.0 (v1.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nanomsg/28cc32d5bdb6a858fe53b3ccf7e923957e53eada)
+INFOCPM Added flatbuffers, creating ALIAS flatbuffers::flatbuffers
+-- CPM: Adding package libuv@1.51.0 (v1.51.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/libuv/2b05484ccff8fdf26b363fb50e4830b774d7eb53)
+-- CPM: Adding package cxxopts@0 (dbf4c6a66816f6c3872b46cc6af119ad227e04e1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/cxxopts/dda70ad5c1afdb5368541192bace55dbcd7872e3)
+CMake Warning at .cpmcache/cpm/CPM_0.40.2.cmake:317 (message):
+  CPM: Requires a newer version of nanobind (2.10.2) than currently included
+  (0).
+Call Stack (most recent call first):
+  .cpmcache/cpm/CPM_0.40.2.cmake:682 (cpm_check_if_package_already_added)
+  tt_metal/third_party/umd/third_party/CMakeLists.txt:190 (CPMAddPackage)
+
+
+-- CPM: Adding package umd_asio@ (asio-1-30-2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/umd_asio/83a029aeca9a00050695989a093d0cc1fcd67ba8)
+-- Looking for backtrace
+-- Looking for backtrace - found
+-- 
+-- ==================== UMD configuration summary ====================
+--   CMAKE_BUILD_TYPE = Release
+--   TT_EMULE_PATH = 
+--   TT_UMD_BUILD_ALL = OFF
+--   TT_UMD_BUILD_EMULE = OFF
+--   TT_UMD_BUILD_EXAMPLES = OFF
+--   TT_UMD_BUILD_JTAG = OFF
+--   TT_UMD_BUILD_PIP = 
+--   TT_UMD_BUILD_PYTHON = OFF
+--   TT_UMD_BUILD_SIMULATION = ON
+--   TT_UMD_BUILD_STATIC = OFF
+--   TT_UMD_BUILD_TESTS = OFF
+--   TT_UMD_BUILD_TOOLS = ON
+--   TT_UMD_ENABLE_CLANG_TIDY = OFF
+--   TT_UMD_ENABLE_LOGGING = OFF
+--   TT_UMD_ENABLE_TRACY = OFF
+-- ===================================================================
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- Could NOT find rocprofiler-sdk (missing: rocprofiler-sdk_DIR)
+-- TRACY_ENABLE: ON
+-- TRACY_ON_DEMAND: OFF
+-- TRACY_CALLSTACK: (not set)
+-- TRACY_NO_CALLSTACK: OFF
+-- TRACY_NO_CALLSTACK_INLINES: OFF
+-- TRACY_ONLY_LOCALHOST: OFF
+-- TRACY_NO_BROADCAST: OFF
+-- TRACY_ONLY_IPV4: OFF
+-- TRACY_NO_CODE_TRANSFER: OFF
+-- TRACY_NO_CONTEXT_SWITCH: OFF
+-- TRACY_NO_EXIT: OFF
+-- TRACY_NO_SAMPLING: OFF
+-- TRACY_NO_VERIFY: OFF
+-- TRACY_NO_VSYNC_CAPTURE: OFF
+-- TRACY_NO_FRAME_IMAGE: OFF
+-- TRACY_NO_SYSTEM_TRACING: OFF
+-- TRACY_PATCHABLE_NOPSLEDS: OFF
+-- TRACY_DELAYED_INIT: OFF
+-- TRACY_MANUAL_LIFETIME: OFF
+-- TRACY_FIBERS: OFF
+-- TRACY_NO_CRASH_HANDLER: OFF
+-- TRACY_TIMER_FALLBACK: ON
+-- TRACY_DISALLOW_HW_TIMER: OFF
+-- TRACY_LIBUNWIND_BACKTRACE: OFF
+-- TRACY_SYMBOL_OFFLINE_RESOLVE: OFF
+-- TRACY_LIBBACKTRACE_ELF_DYNLOAD_SUPPORT: OFF
+-- TRACY_DEBUGINFOD: OFF
+-- TRACY_IGNORE_MEMORY_FAULTS: OFF
+-- TRACY_VERBOSE: OFF
+-- TRACY_NO_INTERNAL_MESSAGE: OFF
+-- TRACY_DEMANGLE: OFF
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- NO_ISA_EXTENSIONS: ON
+-- NO_LTO: OFF
+-- NO_MOLD_LINKER: OFF
+-- NO_CCACHE: ON
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Performing Test SUPPORTS_MU
+-- Performing Test SUPPORTS_MU - Failed
+-- Performing Test SUPPORTS_SHADOWING
+-- Performing Test SUPPORTS_SHADOWING - Failed
+-- Performing Test SUPPORTS_SUNINIT
+-- Performing Test SUPPORTS_SUNINIT - Success
+Enabling CAPSTONE_ARM_SUPPORT
+Enabling CAPSTONE_AARCH64_SUPPORT
+Enabling CAPSTONE_X86_SUPPORT
+-- CPM: Adding package capstone@6.0.0 (6.0.0-Alpha1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/capstone/bbb5bd2ce37fb9eb88905aa958322ed1c477bd15)
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Could NOT find PNG (missing: PNG_LIBRARY PNG_PNG_INCLUDE_DIR) 
+-- Could NOT find BZip2 (missing: BZIP2_LIBRARIES BZIP2_INCLUDE_DIR) 
+-- Could NOT find BrotliDec (missing: BROTLIDEC_INCLUDE_DIRS BROTLIDEC_LIBRARIES) 
+-- CPM: Adding package freetype@ (VER-2-14-3 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/freetype/adf3abb0a96c3adc6d84b8bfd7172192db267d75)
+-- ZSTD VERSION: 1.5.7
+-- Performing Test C_FLAG_WALL
+-- Performing Test C_FLAG_WALL - Success
+-- Performing Test CXX_FLAG_WALL
+-- Performing Test CXX_FLAG_WALL - Success
+-- Performing Test C_FLAG_WEXTRA
+-- Performing Test C_FLAG_WEXTRA - Success
+-- Performing Test CXX_FLAG_WEXTRA
+-- Performing Test CXX_FLAG_WEXTRA - Success
+-- Performing Test C_FLAG_WUNDEF
+-- Performing Test C_FLAG_WUNDEF - Success
+-- Performing Test CXX_FLAG_WUNDEF
+-- Performing Test CXX_FLAG_WUNDEF - Success
+-- Performing Test C_FLAG_WSHADOW
+-- Performing Test C_FLAG_WSHADOW - Success
+-- Performing Test CXX_FLAG_WSHADOW
+-- Performing Test CXX_FLAG_WSHADOW - Success
+-- Performing Test C_FLAG_WCAST_ALIGN
+-- Performing Test C_FLAG_WCAST_ALIGN - Success
+-- Performing Test CXX_FLAG_WCAST_ALIGN
+-- Performing Test CXX_FLAG_WCAST_ALIGN - Success
+-- Performing Test C_FLAG_WCAST_QUAL
+-- Performing Test C_FLAG_WCAST_QUAL - Success
+-- Performing Test CXX_FLAG_WCAST_QUAL
+-- Performing Test CXX_FLAG_WCAST_QUAL - Success
+-- Performing Test C_FLAG_WSTRICT_PROTOTYPES
+-- Performing Test C_FLAG_WSTRICT_PROTOTYPES - Success
+-- Performing Test LD_FLAG_WL_Z_NOEXECSTACK
+-- Performing Test LD_FLAG_WL_Z_NOEXECSTACK - Success
+-- Performing Test C_FLAG_QUNUSED_ARGUMENTS
+-- Performing Test C_FLAG_QUNUSED_ARGUMENTS - Success
+-- Performing Test CXX_FLAG_QUNUSED_ARGUMENTS
+-- Performing Test CXX_FLAG_QUNUSED_ARGUMENTS - Success
+-- Performing Test C_FLAG_WA_NOEXECSTACK
+-- Performing Test C_FLAG_WA_NOEXECSTACK - Success
+-- Performing Test CXX_FLAG_WA_NOEXECSTACK
+-- Performing Test CXX_FLAG_WA_NOEXECSTACK - Success
+-- CMAKE_INSTALL_PREFIX: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release
+-- CMAKE_INSTALL_LIBDIR: lib
+-- ZSTD_LEGACY_SUPPORT defined!
+-- ZSTD_MULTITHREAD_SUPPORT is enabled
+-- CPM: Adding package zstd@1.5.7 (v1.5.7 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/zstd/dfd2e0b6e613dcf44911302708e636a8aee527d2)
+-- CPM: Adding package ImGui@1.92.8 (v1.92.8-docking at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/imgui/4afe909dc6063570b0ec9c75d03af1d6d5f301d0)
+-- CPM: PPQSort: Adding package PackageProject.cmake@1.11.1 (v1.11.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/packageproject.cmake/39dc740304285c2e0815cb4669f337dc2af3b0a3)
+-- PPQSORT_OPTIMIZE_NATIVE: OFF
+-- CPM: Adding package PPQSort@1.0.6 (v1.0.6 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/ppqsort/501e95a7fe7f78924f116c3ac0b965356ded7bd8)
+CMake Deprecation Warning at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- CPM: Adding package md4c@ (release-0.5.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68)
+-- /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/base64/84ae1394053597c26e30daec579e0a125b5f9744
+-- Looking for getopt.h
+-- Looking for getopt.h - found
+-- Could NOT find OpenMP_C (missing: OpenMP_C_FLAGS OpenMP_C_LIB_NAMES) 
+-- Could NOT find OpenMP_CXX (missing: OpenMP_CXX_FLAGS OpenMP_CXX_LIB_NAMES) 
+-- Could NOT find OpenMP (missing: OpenMP_C_FOUND OpenMP_CXX_FOUND) 
+-- The following packages have been found:
+
+ * Python
+ * OpenSSL
+ * ZLIB
+ * Threads
+ * Git
+
+-- The following packages have not been found:
+
+ * rocprofiler-sdk
+ * PNG
+ * BZip2
+ * BrotliDec
+ * OpenMP
+   Allows to utilize OpenMP
+
+-- The following features have been enabled:
+
+ * NEON SIMD intrinsics, The library uses NEON SIMD intrinsics.
+ * NEON64, add NEON64 codepath
+
+-- The following features have been disabled:
+
+ * AMD64 assembly, The library uses hand written amd64 SIMD assembly.
+ * x86 SIMD intrinsics, The library uses x86 SIMD intrinsics.
+ * oneTBB parallelism, The library uses oneTBB parallelism.
+ * CLI, enables the CLI executable for encoding and decoding
+ * OpenMP codec, spreads codec work accross multiple threads
+ * SSSE3, add SSSE 3 codepath
+ * SSE4.1, add SSE 4.1 codepath
+ * SSE4.2, add SSE 4.2 codepath
+ * AVX, add AVX codepath
+ * AVX2, add AVX2 codepath
+ * AVX512, add AVX512 codepath
+ * NEON32, add NEON32 codepath
+
+-- CPM: Adding package base64@0.5.2 (v0.5.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/base64/84ae1394053597c26e30daec579e0a125b5f9744)
+-> TIDY_SO_VERSION = 58. This is an EVEN (stable) release.
+-- *** Debug Logging is NOT enabled.
+-- *** Building support for runtime configuration files.
+-- *** Also building DLL library SHARED, version 5.8.0, date 2021.07.10
+-- *** NOTE: xsltproc NOT FOUND! Can NOT generate man page.
+-- *** You need to install xsltproc in your system.
+-- CPM: Adding package tidy@5.8.0 (5.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/tidy/4f721c05cc5dfeca83fce683e489577f1e045640)
+-- Performing Test USEARCH_CAN_COMPILE_FP16
+-- Performing Test USEARCH_CAN_COMPILE_FP16 - Failed
+-- Performing Test USEARCH_CAN_COMPILE_FLOAT16
+-- Performing Test USEARCH_CAN_COMPILE_FLOAT16 - Failed
+-- Performing Test USEARCH_CAN_COMPILE_BF16
+-- Performing Test USEARCH_CAN_COMPILE_BF16 - Failed
+-- Performing Test USEARCH_CAN_COMPILE_BFLOAT16
+-- Performing Test USEARCH_CAN_COMPILE_BFLOAT16 - Failed
+-- CPM: Adding package usearch@2.23.0 (v2.23.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/usearch/45b3dace4fb730b831c618ce192366cac43383a6)
+-- CPM: Adding package pugixml@1.15 (v1.15 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/pugixml/e07018e704dbbe9c0f19244e7eb78a094614260a)
+-- Using CMake version 4.0.2
+-- curl version=[8.19.0-DEV]
+-- CMake platform flags: UNIX LLVM-CLANG
+-- Picky compiler options: -Werror-implicit-function-declaration -Wextra -Wall -Wpedantic -Wbad-function-cast -Wconversion -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Waddress -Wattributes -Wcast-align -Wcast-qual -Wdeclaration-after-statement -Wdiv-by-zero -Wempty-body -Wendif-labels -Wfloat-equal -Wformat-security -Wignored-qualifiers -Wmissing-field-initializers -Wmissing-noreturn -Wno-padded -Wno-sign-conversion -Wno-switch-default -Wno-switch-enum -Wno-system-headers -Wold-style-definition -Wredundant-decls -Wstrict-prototypes -Wtype-limits -Wunreachable-code -Wunused-parameter -Wvla -Wconditional-uninitialized -Wno-used-but-marked-unused -Wshift-sign-overflow -Wshorten-64-to-32 -Wformat=2 -Wlanguage-extension-token -Wno-covered-switch-default -Wno-disabled-macro-expansion -Wformat-non-iso -Wenum-conversion -Wmissing-variable-declarations -Wno-documentation-unknown-command -Wsometimes-uninitialized -Wdouble-promotion -Wheader-guard -Wpragmas -Wunused-const-variable -Wcomma -Wassign-enum -Wextra-semi-stmt -Wimplicit-fallthrough -Wxor-used-as-pow -Wcast-function-type -Wreserved-identifier -Wno-reserved-macro-identifier -Wno-unsafe-buffer-usage -Wcast-function-type-strict -Wno-format-signedness
+-- Found Perl: /usr/bin/perl (found version "5.34.0")
+-- Looking for connect in socket
+-- Looking for connect in socket - not found
+-- Performing Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID
+-- Performing Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID - Success
+-- Performing Test HAVE_SOCKADDR_IN6_SIN6_ADDR
+-- Performing Test HAVE_SOCKADDR_IN6_SIN6_ADDR - Success
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")
+-- Looking for OPENSSL_IS_BORINGSSL
+-- Looking for OPENSSL_IS_BORINGSSL - not found
+-- Looking for OPENSSL_IS_AWSLC
+-- Looking for OPENSSL_IS_AWSLC - not found
+-- Looking for LIBRESSL_VERSION_NUMBER
+-- Looking for LIBRESSL_VERSION_NUMBER - not found
+-- Could NOT find Brotli (missing: BROTLI_INCLUDE_DIR BROTLIDEC_LIBRARY BROTLICOMMON_LIBRARY) 
+-- Looking for DES_ecb_encrypt
+-- Looking for DES_ecb_encrypt - found
+-- Looking for SSL_set0_wbio
+-- Looking for SSL_set0_wbio - found
+-- Looking for SSL_CTX_set_srp_username
+-- Looking for SSL_CTX_set_srp_username - found
+-- Could NOT find NGHTTP2 (missing: NGHTTP2_INCLUDE_DIR NGHTTP2_LIBRARY) 
+-- Could NOT find Libidn2 (missing: LIBIDN2_INCLUDE_DIR LIBIDN2_LIBRARY) 
+-- Could NOT find Libssh2 (missing: LIBSSH2_INCLUDE_DIR LIBSSH2_LIBRARY) 
+-- Performing Test USE_UNIX_SOCKETS
+-- Performing Test USE_UNIX_SOCKETS - Success
+-- Found CA bundle: /etc/ssl/certs/ca-certificates.crt
+-- Found CA path: /etc/ssl/certs
+-- Looking for sys/eventfd.h
+-- Looking for sys/eventfd.h - found
+-- Looking for sys/filio.h
+-- Looking for sys/filio.h - not found
+-- Looking for sys/ioctl.h
+-- Looking for sys/ioctl.h - found
+-- Looking for sys/param.h
+-- Looking for sys/param.h - found
+-- Looking for sys/poll.h
+-- Looking for sys/poll.h - found
+-- Looking for sys/resource.h
+-- Looking for sys/resource.h - found
+-- Looking for 3 include files sys/socket.h, ..., sys/select.h
+-- Looking for 3 include files sys/socket.h, ..., sys/select.h - found
+-- Looking for sys/sockio.h
+-- Looking for sys/sockio.h - not found
+-- Looking for sys/un.h
+-- Looking for sys/un.h - found
+-- Looking for 5 include files sys/socket.h, ..., sys/utime.h
+-- Looking for 5 include files sys/socket.h, ..., sys/utime.h - not found
+-- Looking for 5 include files sys/socket.h, ..., arpa/inet.h
+-- Looking for 5 include files sys/socket.h, ..., arpa/inet.h - found
+-- Looking for dirent.h
+-- Looking for dirent.h - found
+-- Looking for 6 include files sys/socket.h, ..., ifaddrs.h
+-- Looking for 6 include files sys/socket.h, ..., ifaddrs.h - found
+-- Looking for io.h
+-- Looking for io.h - not found
+-- Looking for 7 include files sys/socket.h, ..., libgen.h
+-- Looking for 7 include files sys/socket.h, ..., libgen.h - found
+-- Looking for linux/tcp.h
+-- Looking for linux/tcp.h - found
+-- Looking for locale.h
+-- Looking for locale.h - found
+-- Looking for 8 include files sys/socket.h, ..., net/if.h
+-- Looking for 8 include files sys/socket.h, ..., net/if.h - found
+-- Looking for 9 include files sys/socket.h, ..., netdb.h
+-- Looking for 9 include files sys/socket.h, ..., netdb.h - found
+-- Looking for 10 include files sys/socket.h, ..., netinet/in.h
+-- Looking for 10 include files sys/socket.h, ..., netinet/in.h - found
+-- Looking for netinet/in6.h
+-- Looking for netinet/in6.h - not found
+-- Looking for 11 include files sys/socket.h, ..., netinet/tcp.h
+-- Looking for 11 include files sys/socket.h, ..., netinet/tcp.h - found
+-- Looking for 12 include files sys/socket.h, ..., netinet/udp.h
+-- Looking for 12 include files sys/socket.h, ..., netinet/udp.h - found
+-- Looking for poll.h
+-- Looking for poll.h - found
+-- Looking for pwd.h
+-- Looking for pwd.h - found
+-- Looking for stdatomic.h
+-- Looking for stdatomic.h - found
+-- Looking for stdbool.h
+-- Looking for stdbool.h - found
+-- Looking for strings.h
+-- Looking for strings.h - found
+-- Looking for stropts.h
+-- Looking for stropts.h - not found
+-- Looking for termio.h
+-- Looking for termio.h - found
+-- Looking for termios.h
+-- Looking for termios.h - found
+-- Looking for utime.h
+-- Looking for utime.h - found
+-- Check size of size_t
+-- Check size of size_t - done
+-- Check size of ssize_t
+-- Check size of ssize_t - done
+-- Check size of long
+-- Check size of long - done
+-- Check size of int
+-- Check size of int - done
+-- Check size of __int64
+-- Check size of __int64 - failed
+-- Check size of time_t
+-- Check size of time_t - done
+-- Check size of suseconds_t
+-- Check size of suseconds_t - done
+-- Looking for accept4
+-- Looking for accept4 - found
+-- Looking for fnmatch
+-- Looking for fnmatch - found
+-- Looking for basename
+-- Looking for basename - found
+-- Looking for opendir
+-- Looking for opendir - found
+-- Looking for poll
+-- Looking for poll - found
+-- Looking for socket
+-- Looking for socket - found
+-- Looking for socketpair
+-- Looking for socketpair - found
+-- Looking for recv
+-- Looking for recv - found
+-- Looking for send
+-- Looking for send - found
+-- Looking for sendmsg
+-- Looking for sendmsg - found
+-- Looking for sendmmsg
+-- Looking for sendmmsg - found
+-- Looking for select
+-- Looking for select - found
+-- Looking for memrchr
+-- Looking for memrchr - found
+-- Looking for alarm
+-- Looking for alarm - found
+-- Looking for fcntl
+-- Looking for fcntl - found
+-- Looking for getppid
+-- Looking for getppid - found
+-- Looking for utimes
+-- Looking for utimes - found
+-- Looking for gettimeofday
+-- Looking for gettimeofday - found
+-- Looking for closesocket
+-- Looking for closesocket - not found
+-- Looking for sigsetjmp
+-- Looking for sigsetjmp - found
+-- Looking for getpass_r
+-- Looking for getpass_r - not found
+-- Looking for getpwuid
+-- Looking for getpwuid - found
+-- Looking for getpwuid_r
+-- Looking for getpwuid_r - found
+-- Looking for geteuid
+-- Looking for geteuid - found
+-- Looking for utime
+-- Looking for utime - found
+-- Looking for gmtime_r
+-- Looking for gmtime_r - found
+-- Looking for localtime_r
+-- Looking for localtime_r - found
+-- Looking for gethostbyname_r
+-- Looking for gethostbyname_r - found
+-- Looking for gethostname
+-- Looking for gethostname - found
+-- Looking for signal
+-- Looking for signal - found
+-- Looking for strerror_r
+-- Looking for strerror_r - found
+-- Looking for sigaction
+-- Looking for sigaction - found
+-- Looking for siginterrupt
+-- Looking for siginterrupt - found
+-- Looking for getaddrinfo
+-- Looking for getaddrinfo - found
+-- Looking for getifaddrs
+-- Looking for getifaddrs - found
+-- Looking for freeaddrinfo
+-- Looking for freeaddrinfo - found
+-- Looking for pipe
+-- Looking for pipe - found
+-- Looking for pipe2
+-- Looking for pipe2 - found
+-- Looking for eventfd
+-- Looking for eventfd - found
+-- Looking for ftruncate
+-- Looking for ftruncate - found
+-- Looking for getpeername
+-- Looking for getpeername - found
+-- Looking for getsockname
+-- Looking for getsockname - found
+-- Looking for getrlimit
+-- Looking for getrlimit - found
+-- Looking for setlocale
+-- Looking for setlocale - found
+-- Looking for setrlimit
+-- Looking for setrlimit - found
+-- Looking for if_nametoindex
+-- Looking for if_nametoindex - found
+-- Looking for sched_yield
+-- Looking for sched_yield - found
+-- Looking for snprintf
+-- Looking for snprintf - found
+-- Looking for strcasecmp
+-- Looking for strcasecmp - found
+-- Looking for stricmp
+-- Looking for stricmp - not found
+-- Looking for strcmpi
+-- Looking for strcmpi - not found
+-- Looking for inet_ntop
+-- Looking for inet_ntop - found
+-- Looking for inet_pton
+-- Looking for inet_pton - found
+-- Looking for fsetxattr
+-- Looking for fsetxattr - found
+-- Performing Test HAVE_FSETXATTR_5
+-- Performing Test HAVE_FSETXATTR_5 - Success
+-- Performing Test HAVE_FSETXATTR_6
+-- Performing Test HAVE_FSETXATTR_6 - Failed
+-- Check size of sa_family_t
+-- Check size of sa_family_t - done
+-- Performing Test HAVE_FCNTL_O_NONBLOCK
+-- Performing Test HAVE_FCNTL_O_NONBLOCK - Success
+-- Performing Test HAVE_IOCTLSOCKET
+-- Performing Test HAVE_IOCTLSOCKET - Failed
+-- Performing Test HAVE_IOCTLSOCKET_CAMEL
+-- Performing Test HAVE_IOCTLSOCKET_CAMEL - Failed
+-- Performing Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO
+-- Performing Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO - Failed
+-- Performing Test HAVE_IOCTLSOCKET_FIONBIO
+-- Performing Test HAVE_IOCTLSOCKET_FIONBIO - Failed
+-- Performing Test HAVE_IOCTL_FIONBIO
+-- Performing Test HAVE_IOCTL_FIONBIO - Success
+-- Performing Test HAVE_IOCTL_SIOCGIFADDR
+-- Performing Test HAVE_IOCTL_SIOCGIFADDR - Success
+-- Performing Test HAVE_SETSOCKOPT_SO_NONBLOCK
+-- Performing Test HAVE_SETSOCKOPT_SO_NONBLOCK - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_3
+-- Performing Test HAVE_GETHOSTBYNAME_R_3 - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_5
+-- Performing Test HAVE_GETHOSTBYNAME_R_5 - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_6
+-- Performing Test HAVE_GETHOSTBYNAME_R_6 - Success
+-- Performing Test HAVE_BOOL_T
+-- Performing Test HAVE_BOOL_T - Success
+-- Performing Test STDC_HEADERS
+-- Performing Test STDC_HEADERS - Success
+-- Performing Test HAVE_ATOMIC
+-- Performing Test HAVE_ATOMIC - Success
+-- Performing Test HAVE_GETHOSTBYNAME_R_3_REENTRANT
+-- Performing Test HAVE_GETHOSTBYNAME_R_3_REENTRANT - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_5_REENTRANT
+-- Performing Test HAVE_GETHOSTBYNAME_R_5_REENTRANT - Failed
+-- Performing Test HAVE_GETHOSTBYNAME_R_6_REENTRANT
+-- Performing Test HAVE_GETHOSTBYNAME_R_6_REENTRANT - Success
+-- Performing Test HAVE_FILE_OFFSET_BITS
+-- Performing Test HAVE_FILE_OFFSET_BITS - Success
+-- Check size of off_t
+-- Check size of off_t - done
+-- Looking for fseeko
+-- Looking for fseeko - found
+-- Check size of curl_off_t
+-- Check size of curl_off_t - done
+-- Check size of curl_socket_t
+-- Check size of curl_socket_t - done
+-- Performing Test HAVE_WRITABLE_ARGV
+-- Performing Test HAVE_WRITABLE_ARGV - Success
+-- Performing Test HAVE_TIME_T_UNSIGNED
+-- Performing Test HAVE_TIME_T_UNSIGNED - Failed
+-- Performing Test HAVE_GLIBC_STRERROR_R
+-- Performing Test HAVE_GLIBC_STRERROR_R - Success
+-- Performing Test HAVE_POSIX_STRERROR_R
+-- Performing Test HAVE_POSIX_STRERROR_R - Failed
+-- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC
+-- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC - Success
+-- Check size of struct sockaddr_storage
+-- Check size of struct sockaddr_storage - done
+-- Performing Test HAVE_STRUCT_TIMEVAL
+-- Performing Test HAVE_STRUCT_TIMEVAL - Success
+-- Performing Test HAVE_H_ERRNO
+-- Performing Test HAVE_H_ERRNO - Success
+-- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC_RAW
+-- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC_RAW - Success
+-- Enabled examples with dependencies: cacertinmem:USE_OPENSSL threaded:HAVE_PTHREAD_H usercertinmem:USE_OPENSSL
+-- Protocols: http https
+-- Features: alt-svc AsynchDNS HSTS HTTPS-proxy IPv6 Largefile libz NTLM SSL threadsafe TLS-SRP UnixSockets
+-- Enabled SSL backends: OpenSSL
+-- CPM: Adding package libcurl@ (curl-8_19_0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/libcurl/31c94cb23f21bf76308a51d0005a4d6f8c1eb54b)
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- NO_ISA_EXTENSIONS: ON
+-- NO_LTO: OFF
+-- NO_MOLD_LINKER: OFF
+-- NO_CCACHE: ON
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- CPM: Adding package emsdk@0 (0dfff153dc3c596948ac088b8853006c570f2609 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/emsdk/de6013a6f56ddc5bd63ce157184ad7c79ea4815f)
+-- Using SFPI compiler: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/runtime/sfpi/compiler/bin/riscv-tt-elf-g++ (tenstorrent/sfpi:7.74.0[897]) 15.1.0
+-- TT_METAL_INSTALL_ROOT == /usr/libexec/tt-metalium
+-- Multihost compute with MPI disabled, using single host context.
+-- Configuring done (44.6s)
+CMake Warning (dev) at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/src/CMakeLists.txt:9 (add_library):
+  Policy CMP0069 is not set: INTERPROCEDURAL_OPTIMIZATION is enforced when
+  enabled.  Run "cmake --help-policy CMP0069" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  INTERPROCEDURAL_OPTIMIZATION property will be ignored for target 'md4c'.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/src/CMakeLists.txt:20 (add_library):
+  Policy CMP0069 is not set: INTERPROCEDURAL_OPTIMIZATION is enforced when
+  enabled.  Run "cmake --help-policy CMP0069" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  INTERPROCEDURAL_OPTIMIZATION property will be ignored for target
+  'md4c-html'.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/md2html/CMakeLists.txt:8 (add_executable):
+  Policy CMP0069 is not set: INTERPROCEDURAL_OPTIMIZATION is enforced when
+  enabled.  Run "cmake --help-policy CMP0069" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  INTERPROCEDURAL_OPTIMIZATION property will be ignored for target 'md2html'.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done (2.1s)
+-- Build files have been written to: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release
+-- Version: 0.79.0-dev20260909+m
+-- Metalium version: 0.79.0
+-- Build type: Release
+-- CMAKE_TOOLCHAIN_FILE: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/project/cmake/user-prefix-toolchain.cmake
+-- Checking compilers
+-- Compressed debug sections not supported, skipping
+-- Do you have the clang-tools package installed?
+-- Linker type: LLD
+-- Linker version: 20.1.8
+-- Linker does not support --gdb-index, skipping
+-- ENABLE_LIBCXX: FALSE
+-- Build shared libs: ON
+-- Build Python bindings: OFF
+-- Build Programming Examples: ON
+-- Build TT METAL Tests: OFF
+-- Build TTNN Tests: OFF
+-- Build with Unity builds: ON
+-- Build with LTO: OFF
+-- Build with Shared TTNN Sublibraries: OFF
+-- Build with LightMetal Trace Enabled: ON
+-- Build with Multihost Distributed Compute: OFF
+-- CPM: Adding package blake3@1.8.4 (1.8.4 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/blake3/b4d598ea672ffc1a88600ed5876875112b29ca86)
+-- Boost: Release build, static libraries, MPI OFF, Python OFF, testing OFF
+-- Boost: libraries included: core;container;smart_ptr;interprocess;asio;lockfree
+-- Boost.Context: architecture arm64, binary format elf, ABI aapcs, assembler gas, suffix .S, implementation fcontext
+-- CPM: Adding package Boost@1.86.0 (1.86.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/boost/1359e136761ab2d10afa1c4e21086c8d824735cd)
+CMake Deprecation Warning at .cpmcache/protobuf/8a3b611df2de7d977c1a110a21a76a4db510b115/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- CPM: Adding package protobuf@21.12 (v21.12 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/protobuf/8a3b611df2de7d977c1a110a21a76a4db510b115)
+-- CPM: Adding package yaml-cpp@0 (2f86d13775d119edbb69af52e5f566fd65c6953b at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/yaml-cpp/0_8_0_upstream_patched)
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/googlemock/CMakeLists.txt:39 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at .cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949/googletest/CMakeLists.txt:49 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Found Python: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv/bin/python3.10 (found version "3.10.12") found components: Interpreter
+-- CPM: Adding package GTest@1.13.0 (v1.13.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/gtest/96129d89f45386492ae46d6bb8c027bc3df5f949)
+-- CPM: Adding package reflect@1.2.6 (v1.2.6 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/reflect/f93e77475670eaeacf332927dfe8b50e3f3812e0)
+-- CPM: Adding package enchantum@0 (8ca5b0eb7e7ebe0252e5bc6915083f1dd1b8294e at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/enchantum/2fb7ab238e36c101b9848892ddb6382276b65837)
+-- CPM: Adding package fmt@11.1.4 (11.1.4 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/fmt/69912fb6b71fcb1f7e5deca191a2bb4748c4e7b6)
+-- CPM: Adding package range-v3@0.12.0 (0.12.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/range-v3/0_12_0_patched)
+-- Found Python: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv/bin/python3.10 (found version "3.10.12") found components: Interpreter Development.Module Development.SABIModule
+-- CPM: Adding package nanobind@0 (86e5626728fc282637a6c338597120913dded1bb at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nanobind/7965351fcedc97e6ade403d51a150a266d188dc6)
+-- CPM: Adding package nlohmann_json@3.11.3 (v3.11.3 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nlohmann_json/798e0374658476027d9723eeb67a262d0f3c8308)
+-- CPM: Adding package xtl@0.8.0 (0.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtl/0_8_0_patched)
+-- CPM: Adding package xtensor@0.26.0 (0.26.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtensor/0_26_0_patched)
+-- CPM: Adding package xtensor-blas@0.22.0 (0.22.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/xtensor-blas/0_22_0_patched)
+-- CPM: Adding package benchmark@1.9.1 (v1.9.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/benchmark/17a125dc196d0eea81711f65879e8410dd54303f)
+-- CPM: Adding package Taskflow@3.7.0 (v3.7.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/taskflow/52063f60902bfeb362fa4616b1394ab5efe30994)
+-- Proceeding with version: 24.3.25.0
+-- CMAKE_CXX_FLAGS: --gcc-toolchain=/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include -isystem /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/aarch64-linux-gnu
+-- CPM: Adding package flatbuffers@24.3.25 (v24.3.25 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/flatbuffers/2c4062bffa52fa4157b1b4deeae73395df475fda)
+-- CPM: Adding package simd-everywhere@0.8.2 (v0.8.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/simd-everywhere/b3b426f78574ef837b17f42e86bab88314c5e4db)
+-- CPM: Adding package spdlog@1.15.2 (v1.15.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/spdlog/b1c2586bb5c35a7929362e87f62433eb68206873)
+-- tt-logger: using spdlog target spdlog::spdlog
+-- CPM: Adding package tt-logger@1.1.8 (v1.1.8 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/tt-logger/d2339ce68562cae34cd95f3fece7fd94eb0529b7)
+-- CPM: Adding package cadical@ (rel-2.2.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2") found components: Crypto SSL
+-- CPM: Adding package capnproto@0 (d135c9ca5e15219eaf131dfce1a41afdbaea9aab at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/capnproto/f6c518d3bd34781c51de8344e9c1574d44c43348)
+-- CPM: Adding package ttexalens@0 (6f5720240b7254b25cb3d78aef81769fc12a30f9 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/ttexalens/a20f65d9ba149476c88937f984419ea3beedefce)
+-- CMake version: 4.0.2
+-- CPM: Adding package nanomsg@1.8.0 (v1.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/nanomsg/28cc32d5bdb6a858fe53b3ccf7e923957e53eada)
+INFOCPM Added flatbuffers, creating ALIAS flatbuffers::flatbuffers
+-- CPM: Adding package libuv@1.51.0 (v1.51.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/libuv/2b05484ccff8fdf26b363fb50e4830b774d7eb53)
+-- CPM: Adding package cxxopts@0 (dbf4c6a66816f6c3872b46cc6af119ad227e04e1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/cxxopts/dda70ad5c1afdb5368541192bace55dbcd7872e3)
+CMake Warning at .cpmcache/cpm/CPM_0.40.2.cmake:317 (message):
+  CPM: Requires a newer version of nanobind (2.10.2) than currently included
+  (0).
+Call Stack (most recent call first):
+  .cpmcache/cpm/CPM_0.40.2.cmake:682 (cpm_check_if_package_already_added)
+  tt_metal/third_party/umd/third_party/CMakeLists.txt:190 (CPMAddPackage)
+
+
+-- CPM: Adding package umd_asio@ (asio-1-30-2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/umd_asio/83a029aeca9a00050695989a093d0cc1fcd67ba8)
+-- 
+-- ==================== UMD configuration summary ====================
+--   CMAKE_BUILD_TYPE = Release
+--   TT_EMULE_PATH = 
+--   TT_UMD_BUILD_ALL = OFF
+--   TT_UMD_BUILD_EMULE = OFF
+--   TT_UMD_BUILD_EXAMPLES = OFF
+--   TT_UMD_BUILD_JTAG = OFF
+--   TT_UMD_BUILD_PIP = 
+--   TT_UMD_BUILD_PYTHON = OFF
+--   TT_UMD_BUILD_SIMULATION = ON
+--   TT_UMD_BUILD_STATIC = OFF
+--   TT_UMD_BUILD_TESTS = OFF
+--   TT_UMD_BUILD_TOOLS = ON
+--   TT_UMD_ENABLE_CLANG_TIDY = OFF
+--   TT_UMD_ENABLE_LOGGING = OFF
+--   TT_UMD_ENABLE_TRACY = OFF
+-- ===================================================================
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- Could NOT find rocprofiler-sdk (missing: rocprofiler-sdk_DIR)
+-- TRACY_ENABLE: ON
+-- TRACY_ON_DEMAND: OFF
+-- TRACY_CALLSTACK: (not set)
+-- TRACY_NO_CALLSTACK: OFF
+-- TRACY_NO_CALLSTACK_INLINES: OFF
+-- TRACY_ONLY_LOCALHOST: OFF
+-- TRACY_NO_BROADCAST: OFF
+-- TRACY_ONLY_IPV4: OFF
+-- TRACY_NO_CODE_TRANSFER: OFF
+-- TRACY_NO_CONTEXT_SWITCH: OFF
+-- TRACY_NO_EXIT: OFF
+-- TRACY_NO_SAMPLING: OFF
+-- TRACY_NO_VERIFY: OFF
+-- TRACY_NO_VSYNC_CAPTURE: OFF
+-- TRACY_NO_FRAME_IMAGE: OFF
+-- TRACY_NO_SYSTEM_TRACING: OFF
+-- TRACY_PATCHABLE_NOPSLEDS: OFF
+-- TRACY_DELAYED_INIT: OFF
+-- TRACY_MANUAL_LIFETIME: OFF
+-- TRACY_FIBERS: OFF
+-- TRACY_NO_CRASH_HANDLER: OFF
+-- TRACY_TIMER_FALLBACK: ON
+-- TRACY_DISALLOW_HW_TIMER: OFF
+-- TRACY_LIBUNWIND_BACKTRACE: OFF
+-- TRACY_SYMBOL_OFFLINE_RESOLVE: OFF
+-- TRACY_LIBBACKTRACE_ELF_DYNLOAD_SUPPORT: OFF
+-- TRACY_DEBUGINFOD: OFF
+-- TRACY_IGNORE_MEMORY_FAULTS: OFF
+-- TRACY_VERBOSE: OFF
+-- TRACY_NO_INTERNAL_MESSAGE: OFF
+-- TRACY_DEMANGLE: OFF
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- NO_ISA_EXTENSIONS: ON
+-- NO_LTO: OFF
+-- NO_MOLD_LINKER: OFF
+-- NO_CCACHE: ON
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+Enabling CAPSTONE_ARM_SUPPORT
+Enabling CAPSTONE_AARCH64_SUPPORT
+Enabling CAPSTONE_X86_SUPPORT
+-- CPM: Adding package capstone@6.0.0 (6.0.0-Alpha1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/capstone/bbb5bd2ce37fb9eb88905aa958322ed1c477bd15)
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Could NOT find PNG (missing: PNG_LIBRARY PNG_PNG_INCLUDE_DIR) 
+-- Could NOT find BZip2 (missing: BZIP2_LIBRARIES BZIP2_INCLUDE_DIR) 
+-- Could NOT find BrotliDec (missing: BROTLIDEC_INCLUDE_DIRS BROTLIDEC_LIBRARIES) 
+-- CPM: Adding package freetype@ (VER-2-14-3 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/freetype/adf3abb0a96c3adc6d84b8bfd7172192db267d75)
+-- ZSTD VERSION: 1.5.7
+-- CMAKE_INSTALL_PREFIX: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release
+-- CMAKE_INSTALL_LIBDIR: lib
+-- ZSTD_LEGACY_SUPPORT defined!
+-- ZSTD_MULTITHREAD_SUPPORT is enabled
+-- CPM: Adding package zstd@1.5.7 (v1.5.7 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/zstd/dfd2e0b6e613dcf44911302708e636a8aee527d2)
+-- CPM: Adding package ImGui@1.92.8 (v1.92.8-docking at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/imgui/4afe909dc6063570b0ec9c75d03af1d6d5f301d0)
+-- CPM: PPQSort: Adding package PackageProject.cmake@1.11.1 (v1.11.1 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/packageproject.cmake/39dc740304285c2e0815cb4669f337dc2af3b0a3)
+-- PPQSORT_OPTIMIZE_NATIVE: OFF
+-- CPM: Adding package PPQSort@1.0.6 (v1.0.6 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/ppqsort/501e95a7fe7f78924f116c3ac0b965356ded7bd8)
+CMake Deprecation Warning at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- CPM: Adding package md4c@ (release-0.5.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68)
+-- /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/base64/84ae1394053597c26e30daec579e0a125b5f9744
+-- Could NOT find OpenMP_C (missing: OpenMP_C_FLAGS OpenMP_C_LIB_NAMES) 
+-- Could NOT find OpenMP_CXX (missing: OpenMP_CXX_FLAGS OpenMP_CXX_LIB_NAMES) 
+-- Could NOT find OpenMP (missing: OpenMP_C_FOUND OpenMP_CXX_FOUND) 
+-- The following packages have been found:
+
+ * Python
+ * OpenSSL
+ * ZLIB
+ * Threads
+ * Git
+
+-- The following packages have not been found:
+
+ * rocprofiler-sdk
+ * PNG
+ * BZip2
+ * BrotliDec
+ * OpenMP
+   Allows to utilize OpenMP
+
+-- The following features have been enabled:
+
+ * NEON SIMD intrinsics, The library uses NEON SIMD intrinsics.
+ * NEON64, add NEON64 codepath
+
+-- The following features have been disabled:
+
+ * AMD64 assembly, The library uses hand written amd64 SIMD assembly.
+ * x86 SIMD intrinsics, The library uses x86 SIMD intrinsics.
+ * oneTBB parallelism, The library uses oneTBB parallelism.
+ * CLI, enables the CLI executable for encoding and decoding
+ * OpenMP codec, spreads codec work accross multiple threads
+ * SSSE3, add SSSE 3 codepath
+ * SSE4.1, add SSE 4.1 codepath
+ * SSE4.2, add SSE 4.2 codepath
+ * AVX, add AVX codepath
+ * AVX2, add AVX2 codepath
+ * AVX512, add AVX512 codepath
+ * NEON32, add NEON32 codepath
+
+-- CPM: Adding package base64@0.5.2 (v0.5.2 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/base64/84ae1394053597c26e30daec579e0a125b5f9744)
+-> TIDY_SO_VERSION = 58. This is an EVEN (stable) release.
+-- *** Debug Logging is NOT enabled.
+-- *** Building support for runtime configuration files.
+-- *** Also building DLL library SHARED, version 5.8.0, date 2021.07.10
+-- *** NOTE: xsltproc NOT FOUND! Can NOT generate man page.
+-- *** You need to install xsltproc in your system.
+-- CPM: Adding package tidy@5.8.0 (5.8.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/tidy/4f721c05cc5dfeca83fce683e489577f1e045640)
+-- CPM: Adding package usearch@2.23.0 (v2.23.0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/usearch/45b3dace4fb730b831c618ce192366cac43383a6)
+-- CPM: Adding package pugixml@1.15 (v1.15 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/pugixml/e07018e704dbbe9c0f19244e7eb78a094614260a)
+-- Using CMake version 4.0.2
+-- curl version=[8.19.0-DEV]
+-- CMake platform flags: UNIX LLVM-CLANG
+-- Picky compiler options: -Werror-implicit-function-declaration -Wextra -Wall -Wpedantic -Wbad-function-cast -Wconversion -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Waddress -Wattributes -Wcast-align -Wcast-qual -Wdeclaration-after-statement -Wdiv-by-zero -Wempty-body -Wendif-labels -Wfloat-equal -Wformat-security -Wignored-qualifiers -Wmissing-field-initializers -Wmissing-noreturn -Wno-padded -Wno-sign-conversion -Wno-switch-default -Wno-switch-enum -Wno-system-headers -Wold-style-definition -Wredundant-decls -Wstrict-prototypes -Wtype-limits -Wunreachable-code -Wunused-parameter -Wvla -Wconditional-uninitialized -Wno-used-but-marked-unused -Wshift-sign-overflow -Wshorten-64-to-32 -Wformat=2 -Wlanguage-extension-token -Wno-covered-switch-default -Wno-disabled-macro-expansion -Wformat-non-iso -Wenum-conversion -Wmissing-variable-declarations -Wno-documentation-unknown-command -Wsometimes-uninitialized -Wdouble-promotion -Wheader-guard -Wpragmas -Wunused-const-variable -Wcomma -Wassign-enum -Wextra-semi-stmt -Wimplicit-fallthrough -Wxor-used-as-pow -Wcast-function-type -Wreserved-identifier -Wno-reserved-macro-identifier -Wno-unsafe-buffer-usage -Wcast-function-type-strict -Wno-format-signedness
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")
+-- Could NOT find Brotli (missing: BROTLI_INCLUDE_DIR BROTLIDEC_LIBRARY BROTLICOMMON_LIBRARY) 
+-- Could NOT find NGHTTP2 (missing: NGHTTP2_INCLUDE_DIR NGHTTP2_LIBRARY) 
+-- Could NOT find Libidn2 (missing: LIBIDN2_INCLUDE_DIR LIBIDN2_LIBRARY) 
+-- Could NOT find Libssh2 (missing: LIBSSH2_INCLUDE_DIR LIBSSH2_LIBRARY) 
+-- Enabled examples with dependencies: cacertinmem:USE_OPENSSL threaded:HAVE_PTHREAD_H usercertinmem:USE_OPENSSL
+-- Protocols: http https
+-- Features: alt-svc AsynchDNS HSTS HTTPS-proxy IPv6 Largefile libz NTLM SSL threadsafe TLS-SRP UnixSockets
+-- Enabled SSL backends: OpenSSL
+-- CPM: Adding package libcurl@ (curl-8_19_0 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/libcurl/31c94cb23f21bf76308a51d0005a4d6f8c1eb54b)
+Parsing public/common/TracyVersion.hpp file
+VERSION 0.13.3
+-- NO_ISA_EXTENSIONS: ON
+-- NO_LTO: OFF
+-- NO_MOLD_LINKER: OFF
+-- NO_CCACHE: ON
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- CPM: Adding package emsdk@0 (0dfff153dc3c596948ac088b8853006c570f2609 at /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/.cpmcache/emsdk/de6013a6f56ddc5bd63ce157184ad7c79ea4815f)
+-- Using SFPI compiler: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/runtime/sfpi/compiler/bin/riscv-tt-elf-g++ (tenstorrent/sfpi:7.74.0[897]) 15.1.0
+-- TT_METAL_INSTALL_ROOT == /usr/libexec/tt-metalium
+-- Multihost compute with MPI disabled, using single host context.
+-- Configuring done (2.5s)
+CMake Warning (dev) at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/src/CMakeLists.txt:9 (add_library):
+  Policy CMP0069 is not set: INTERPROCEDURAL_OPTIMIZATION is enforced when
+  enabled.  Run "cmake --help-policy CMP0069" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  INTERPROCEDURAL_OPTIMIZATION property will be ignored for target 'md4c'.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/src/CMakeLists.txt:20 (add_library):
+  Policy CMP0069 is not set: INTERPROCEDURAL_OPTIMIZATION is enforced when
+  enabled.  Run "cmake --help-policy CMP0069" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  INTERPROCEDURAL_OPTIMIZATION property will be ignored for target
+  'md4c-html'.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at .cpmcache/md4c/095a5f4a99b1dce91c5ce8dd20ad24459ed15f68/md2html/CMakeLists.txt:8 (add_executable):
+  Policy CMP0069 is not set: INTERPROCEDURAL_OPTIMIZATION is enforced when
+  enabled.  Run "cmake --help-policy CMP0069" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  INTERPROCEDURAL_OPTIMIZATION property will be ignored for target 'md2html'.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done (2.1s)
+-- Build files have been written to: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include;/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/aarch64-linux-gnu;/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/c++/12;/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/aarch64-linux-gnu/c++/12;/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/include/c++/12/backward;/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/llvm-20/lib/clang/20/include;/usr/local/include;/usr/include/aarch64-linux-gnu;/usr/include")
+[0/2] Re-checking globbed directories...
+[1/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/analyze.cpp.o
+[2/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/arena.cpp.o
+[3/876] Building CXX object CMakeFiles/metal_common_pch.dir/cmake_pch.hxx.pch
+[4/876] Building CXX object CMakeFiles/metal_common_pch.dir/metal_common_pch.cpp.o
+[5/876] Linking CXX static library libmetal_common_pch.a
+[6/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/assume.cpp.o
+[7/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/averages.cpp.o
+[8/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/backtrack.cpp.o
+[9/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/backbone.cpp.o
+[10/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/backward.cpp.o
+[11/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/bins.cpp.o
+[12/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/ccadical.cpp.o
+[13/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/block.cpp.o
+[14/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/checker.cpp.o
+[15/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/clause.cpp.o
+[16/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/collect.cpp.o
+[17/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/compact.cpp.o
+[18/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/condition.cpp.o
+[19/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/config.cpp.o
+[20/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/constrain.cpp.o
+[21/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/contract.cpp.o
+[22/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/cover.cpp.o
+[23/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/congruence.cpp.o
+[24/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/decide.cpp.o
+[25/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/decompose.cpp.o
+[26/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/deduplicate.cpp.o
+[27/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/definition.cpp.o
+[28/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/drattracer.cpp.o
+[29/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/elim.cpp.o
+[30/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/elimfast.cpp.o
+[31/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/ema.cpp.o
+[32/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/extend.cpp.o
+[33/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/external.cpp.o
+[34/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/external_propagate.cpp.o
+[35/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/file.cpp.o
+[36/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/factor.cpp.o
+[37/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/flags.cpp.o
+[38/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/flip.cpp.o
+[39/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/format.cpp.o
+[40/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/frattracer.cpp.o
+[41/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/gates.cpp.o
+[42/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/idruptracer.cpp.o
+[43/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/instantiate.cpp.o
+[44/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/ipasir.cpp.o
+[45/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/internal.cpp.o
+[46/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/lidruptracer.cpp.o
+[47/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/logging.cpp.o
+[48/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/limit.cpp.o
+[49/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/lookahead.cpp.o
+[50/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/lratchecker.cpp.o
+[51/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/lrattracer.cpp.o
+[52/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/lucky.cpp.o
+[53/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/message.cpp.o
+[54/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/minimize.cpp.o
+[55/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/occs.cpp.o
+[56/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/parse.cpp.o
+[57/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/phases.cpp.o
+[58/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/options.cpp.o
+[59/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/probe.cpp.o
+[60/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/profile.cpp.o
+[61/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/proof.cpp.o
+[62/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/propagate.cpp.o
+[63/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/queue.cpp.o
+[64/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/random.cpp.o
+[65/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/reap.cpp.o
+[66/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/rephase.cpp.o
+[67/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/reduce.cpp.o
+[68/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/resources.cpp.o
+[69/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/report.cpp.o
+[70/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/restart.cpp.o
+[71/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/restore.cpp.o
+[72/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/score.cpp.o
+[73/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/signal.cpp.o
+[74/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/shrink.cpp.o
+[75/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/solution.cpp.o
+[76/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/stable.cpp.o
+[77/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/solver.cpp.o
+[78/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/stats.cpp.o
+[79/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/subsume.cpp.o
+[80/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/terminal.cpp.o
+[81/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/sweep.cpp.o
+[82/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/ternary.cpp.o
+[83/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/tier.cpp.o
+[84/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/unstable.cpp.o
+[85/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/transred.cpp.o
+[86/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/util.cpp.o
+[87/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/var.cpp.o
+[88/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/version.cpp.o
+[89/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/veripbtracer.cpp.o
+[90/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/walk.cpp.o
+[91/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/vivify.cpp.o
+[92/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/walk_full_occs.cpp.o
+[93/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/warmup.cpp.o
+[94/876] Building C object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/kitten.c.o
+[95/876] Building C object _deps/blake3-build/CMakeFiles/blake3.dir/blake3.c.o
+[96/876] Building C object _deps/blake3-build/CMakeFiles/blake3.dir/blake3_dispatch.c.o
+[97/876] Building CXX object third_party/CMakeFiles/cadical.dir/__/.cpmcache/cadical/0a6f2de5729bcca8fd850a21979041848bb77cc3/src/watch.cpp.o
+[98/876] Building C object _deps/blake3-build/CMakeFiles/blake3.dir/blake3_portable.c.o
+[99/876] Linking CXX static library third_party/libcadical.a
+[100/876] Building C object _deps/blake3-build/CMakeFiles/blake3.dir/blake3_neon.c.o
+[101/876] Linking C static library _deps/blake3-build/libblake3.a
+[102/876] Building CXX object _deps/boost-build/libs/container/CMakeFiles/boost_container.dir/src/dlmalloc.cpp.o
+[103/876] Building C object _deps/boost-build/libs/container/CMakeFiles/boost_container.dir/src/alloc_lib.c.o
+[104/876] Building CXX object _deps/boost-build/libs/container/CMakeFiles/boost_container.dir/src/global_resource.cpp.o
+[105/876] Building CXX object _deps/boost-build/libs/container/CMakeFiles/boost_container.dir/src/monotonic_buffer_resource.cpp.o
+[106/876] Building CXX object _deps/boost-build/libs/container/CMakeFiles/boost_container.dir/src/synchronized_pool_resource.cpp.o
+[107/876] Building CXX object _deps/boost-build/libs/container/CMakeFiles/boost_container.dir/src/pool_resource.cpp.o
+[108/876] Building CXX object _deps/boost-build/libs/container/CMakeFiles/boost_container.dir/src/unsynchronized_pool_resource.cpp.o
+[109/876] Linking CXX static library _deps/boost-build/libs/container/libboost_container.a
+[110/876] Building CXX object _deps/boost-build/libs/coroutine/CMakeFiles/boost_coroutine.dir/src/detail/coroutine_context.cpp.o
+[111/876] Building CXX object _deps/boost-build/libs/context/CMakeFiles/boost_context.dir/src/posix/stack_traits.cpp.o
+[112/876] Linking CXX static library _deps/boost-build/libs/context/libboost_context.a
+[113/876] Building CXX object _deps/boost-build/libs/coroutine/CMakeFiles/boost_coroutine.dir/src/posix/stack_traits.cpp.o
+[114/876] Building CXX object _deps/boost-build/libs/date_time/CMakeFiles/boost_date_time.dir/src/gregorian/greg_month.cpp.o
+[115/876] Linking CXX static library _deps/boost-build/libs/date_time/libboost_date_time.a
+[116/876] Building CXX object _deps/boost-build/libs/coroutine/CMakeFiles/boost_coroutine.dir/src/exceptions.cpp.o
+[117/876] Linking CXX static library _deps/boost-build/libs/coroutine/libboost_coroutine.a
+[118/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/any_lite.cc.o
+[119/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/arena.cc.o
+[120/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/arenaz_sampler.cc.o
+[121/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/arenastring.cc.o
+[122/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_enum_util.cc.o
+[123/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/extension_set.cc.o
+[124/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_util.cc.o
+[125/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_tctable_lite.cc.o
+[126/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/implicit_weak_message.cc.o
+[127/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/inlined_string_field.cc.o
+[128/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/io_win32.cc.o
+[129/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/strtod.cc.o
+[130/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/coded_stream.cc.o
+[131/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream.cc.o
+[132/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream_impl.cc.o
+[133/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o
+[134/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/map.cc.o
+[135/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/message_lite.cc.o
+[136/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/parse_context.cc.o
+[137/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/repeated_ptr_field.cc.o
+[138/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/repeated_field.cc.o
+[139/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/bytestream.cc.o
+[140/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/int128.cc.o
+[141/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/common.cc.o
+[142/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/statusor.cc.o
+[143/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/status.cc.o
+[144/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/stringpiece.cc.o
+[145/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/stringprintf.cc.o
+[146/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/structurally_valid.cc.o
+[147/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/time.cc.o
+[148/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/strutil.cc.o
+[149/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/wire_format_lite.cc.o
+[150/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/any.cc.o
+[151/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/any.pb.cc.o
+[152/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/api.pb.cc.o
+[153/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/compiler/importer.cc.o
+[154/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/compiler/parser.cc.o
+[155/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/descriptor.pb.cc.o
+[156/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/descriptor_database.cc.o
+[157/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/descriptor.cc.o
+[158/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/duration.pb.cc.o
+[159/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/empty.pb.cc.o
+[160/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/dynamic_message.cc.o
+[161/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/field_mask.pb.cc.o
+[162/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/extension_set_heavy.cc.o
+[163/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_bases.cc.o
+[164/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_tctable_full.cc.o
+[165/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/gzip_stream.cc.o
+[166/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_reflection.cc.o
+[167/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/printer.cc.o
+[168/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/tokenizer.cc.o
+[169/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/map_field.cc.o
+[170/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/message.cc.o
+[171/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/service.cc.o
+[172/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/reflection_ops.cc.o
+[173/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/source_context.pb.cc.o
+[174/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/substitute.cc.o
+[175/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/struct.pb.cc.o
+[176/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/timestamp.pb.cc.o
+[177/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/type.pb.cc.o
+[178/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/text_format.cc.o
+[179/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/delimited_message_util.cc.o
+[180/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/unknown_field_set.cc.o
+[181/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/field_comparator.cc.o
+[182/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/field_mask_util.cc.o
+[183/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/datapiece.cc.o
+[184/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/error_listener.cc.o
+[185/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/default_value_objectwriter.cc.o
+[186/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/json_escaping.cc.o
+[187/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/field_mask_utility.cc.o
+[188/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/json_objectwriter.cc.o
+[189/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/json_stream_parser.cc.o
+[190/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/object_writer.cc.o
+[191/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/proto_writer.cc.o
+[192/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/protostream_objectsource.cc.o
+[193/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/protostream_objectwriter.cc.o
+[194/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/type_info.cc.o
+[195/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/internal/utility.cc.o
+[196/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/json_util.cc.o
+[197/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/time_util.cc.o
+[198/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/type_resolver_util.cc.o
+[199/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/util/message_differencer.cc.o
+[200/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/wrappers.pb.cc.o
+[201/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotobuf.dir/src/google/protobuf/wire_format.cc.o
+[202/876] Linking CXX static library _deps/protobuf-build/libprotobuf.a
+[203/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/code_generator.cc.o
+[204/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/enum.cc.o
+[205/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/command_line_interface.cc.o
+[206/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/enum_field.cc.o
+[207/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/extension.cc.o
+[208/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/field.cc.o
+[209/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/generator.cc.o
+[210/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/file.cc.o
+[211/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/map_field.cc.o
+[212/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/helpers.cc.o
+[213/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/message_field.cc.o
+[214/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/padding_optimizer.cc.o
+[215/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/message.cc.o
+[216/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/primitive_field.cc.o
+[217/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/parse_function_generator.cc.o
+[218/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/service.cc.o
+[219/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/cpp/string_field.cc.o
+[220/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_doc_comment.cc.o
+[221/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_enum_field.cc.o
+[222/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_enum.cc.o
+[223/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_generator.cc.o
+[224/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_field_base.cc.o
+[225/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_helpers.cc.o
+[226/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_map_field.cc.o
+[227/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_message_field.cc.o
+[228/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_message.cc.o
+[229/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_primitive_field.cc.o
+[230/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_reflection_class.cc.o
+[231/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_repeated_enum_field.cc.o
+[232/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_repeated_message_field.cc.o
+[233/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_repeated_primitive_field.cc.o
+[234/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_source_generator_base.cc.o
+[235/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/csharp/csharp_wrapper_field.cc.o
+[236/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/context.cc.o
+[237/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/doc_comment.cc.o
+[238/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/enum.cc.o
+[239/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/enum_field.cc.o
+[240/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/enum_field_lite.cc.o
+[241/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/enum_lite.cc.o
+[242/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/extension.cc.o
+[243/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/extension_lite.cc.o
+[244/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/field.cc.o
+[245/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/file.cc.o
+[246/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/generator.cc.o
+[247/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/generator_factory.cc.o
+[248/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/helpers.cc.o
+[249/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/kotlin_generator.cc.o
+[250/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/map_field.cc.o
+[251/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/map_field_lite.cc.o
+[252/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/message_builder.cc.o
+[253/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/message.cc.o
+[254/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/message_builder_lite.cc.o
+[255/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/message_field.cc.o
+[256/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/message_field_lite.cc.o
+[257/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/message_lite.cc.o
+[258/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/name_resolver.cc.o
+[259/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/primitive_field.cc.o
+[260/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/primitive_field_lite.cc.o
+[261/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/service.cc.o
+[262/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/shared_code_generator.cc.o
+[263/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/string_field.cc.o
+[264/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/java/string_field_lite.cc.o
+[265/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_enum.cc.o
+[266/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_enum_field.cc.o
+[267/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_extension.cc.o
+[268/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_field.cc.o
+[269/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_generator.cc.o
+[270/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_file.cc.o
+[271/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_map_field.cc.o
+[272/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_helpers.cc.o
+[273/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_message.cc.o
+[274/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_message_field.cc.o
+[275/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_oneof.cc.o
+[276/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/objectivec/objectivec_primitive_field.cc.o
+[277/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/plugin.cc.o
+[278/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/plugin.pb.cc.o
+[279/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/php/php_generator.cc.o
+[280/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/python/helpers.cc.o
+[281/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/python/generator.cc.o
+[282/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/ruby/ruby_generator.cc.o
+[283/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/python/pyi_generator.cc.o
+[284/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/subprocess.cc.o
+[285/876] Building CXX object _deps/protobuf-build/CMakeFiles/libprotoc.dir/src/google/protobuf/compiler/zip_writer.cc.o
+[286/876] Linking CXX static library _deps/protobuf-build/libprotoc.a
+[287/876] Building CXX object _deps/protobuf-build/CMakeFiles/protoc.dir/src/google/protobuf/compiler/main.cc.o
+[288/876] Linking CXX executable _deps/protobuf-build/protoc-3.21.12.0
+[289/876] Creating executable symlink _deps/protobuf-build/protoc
+[290/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/contrib/graphbuilder.cpp.o
+[291/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/contrib/graphbuilderadapter.cpp.o
+[292/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/binary.cpp.o
+[293/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/depthguard.cpp.o
+[294/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/directives.cpp.o
+[295/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/convert.cpp.o
+[296/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emit.cpp.o
+[297/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitfromevents.cpp.o
+[298/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitter.cpp.o
+[299/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitterstate.cpp.o
+[300/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/exceptions.cpp.o
+[301/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/emitterutils.cpp.o
+[302/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/exp.cpp.o
+[303/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/fptostring.cpp.o
+[304/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/memory.cpp.o
+[305/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/node.cpp.o
+[306/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/node_data.cpp.o
+[307/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/nodebuilder.cpp.o
+[308/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/null.cpp.o
+[309/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/ostream_wrapper.cpp.o
+[310/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/nodeevents.cpp.o
+[311/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/parse.cpp.o
+[312/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/parser.cpp.o
+[313/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/regex_yaml.cpp.o
+[314/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scanner.cpp.o
+[315/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scanscalar.cpp.o
+[316/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scantag.cpp.o
+[317/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/scantoken.cpp.o
+[318/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/simplekey.cpp.o
+[319/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/stream.cpp.o
+[320/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/singledocparser.cpp.o
+[321/876] Building CXX object _deps/yaml-cpp-build/CMakeFiles/yaml-cpp.dir/src/tag.cpp.o
+[322/876] Linking CXX static library _deps/yaml-cpp-build/libyaml-cpp.a
+[323/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatbuffers.dir/src/idl_gen_text.cpp.o
+[324/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatbuffers.dir/src/reflection.cpp.o
+[325/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatbuffers.dir/src/util.cpp.o
+[326/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatbuffers.dir/src/idl_parser.cpp.o
+[327/876] Linking CXX static library _deps/flatbuffers-build/libflatbuffers.a
+[328/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_text.cpp.o
+[329/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/reflection.cpp.o
+[330/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/util.cpp.o
+[331/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_parser.cpp.o
+[332/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_binary.cpp.o
+[333/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_cpp.cpp.o
+[334/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_csharp.cpp.o
+[335/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_dart.cpp.o
+[336/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_kotlin.cpp.o
+[337/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_kotlin_kmp.cpp.o
+[338/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_go.cpp.o
+[339/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_java.cpp.o
+[340/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_ts.cpp.o
+[341/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_php.cpp.o
+[342/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_lobster.cpp.o
+[343/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_python.cpp.o
+[344/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_fbs.cpp.o
+[345/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_rust.cpp.o
+[346/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_grpc.cpp.o
+[347/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_json_schema.cpp.o
+[348/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/file_name_saving_file_manager.cpp.o
+[349/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/file_binary_writer.cpp.o
+[350/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/file_writer.cpp.o
+[351/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/idl_gen_swift.cpp.o
+[352/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/flatc_main.cpp.o
+[353/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/flatc.cpp.o
+[354/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/annotated_binary_text_gen.cpp.o
+[355/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/binary_annotator.cpp.o
+[356/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/bfbs_gen_lua.cpp.o
+[357/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/bfbs_gen_nim.cpp.o
+[358/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/src/code_generators.cpp.o
+[359/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/grpc/src/compiler/go_generator.cc.o
+[360/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/grpc/src/compiler/cpp_generator.cc.o
+[361/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/grpc/src/compiler/python_generator.cc.o
+[362/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/grpc/src/compiler/java_generator.cc.o
+[363/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/grpc/src/compiler/swift_generator.cc.o
+[364/876] Building CXX object _deps/flatbuffers-build/CMakeFiles/flatc.dir/grpc/src/compiler/ts_generator.cc.o
+[365/876] Linking CXX executable _deps/flatbuffers-build/flatc
+[366/876] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o
+[367/876] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o
+[368/876] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/spdlog.cpp.o
+[369/876] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o
+[370/876] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/cfg.cpp.o
+[371/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/array.c++.o
+[372/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/cidr.c++.o
+[373/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/list.c++.o
+[374/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/common.c++.o
+[375/876] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/async.cpp.o
+[376/876] Linking CXX static library _deps/spdlog-build/libspdlog.a
+[377/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/debug.c++.o
+[378/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/io.c++.o
+[379/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/memory.c++.o
+[380/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/exception.c++.o
+[381/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/mutex.c++.o
+[382/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/source-location.c++.o
+[383/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/hash.c++.o
+[384/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/string.c++.o
+[385/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/thread.c++.o
+[386/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/table.c++.o
+[387/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/arena.c++.o
+[388/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/test-helpers.c++.o
+[389/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/units.c++.o
+[390/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/main.c++.o
+[391/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/refcount.c++.o
+[392/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/encoding.c++.o
+[393/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/string-tree.c++.o
+[394/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/time.c++.o
+[395/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/filesystem-disk-unix.c++.o
+[396/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/filesystem-disk-win32.c++.o
+[397/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/filesystem.c++.o
+[398/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj.dir/parse/char.c++.o
+[399/876] Linking CXX static library _deps/capnproto-build/c++/src/kj/libkj.a
+[400/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj-async.dir/async-unix.c++.o
+[401/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj-async.dir/async-win32.c++.o
+[402/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj-async.dir/async-io-win32.c++.o
+[403/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj-async.dir/async.c++.o
+[404/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj-async.dir/async-io-unix.c++.o
+[405/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj-async.dir/timer.c++.o
+[406/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/c++.capnp.c++.o
+[407/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/blob.c++.o
+[408/876] Building CXX object _deps/capnproto-build/c++/src/kj/CMakeFiles/kj-async.dir/async-io.c++.o
+[409/876] Linking CXX static library _deps/capnproto-build/c++/src/kj/libkj-async.a
+[410/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/arena.c++.o
+[411/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/list.c++.o
+[412/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/any.c++.o
+[413/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/message.c++.o
+[414/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/schema.capnp.c++.o
+[415/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/stream.capnp.c++.o
+[416/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/layout.c++.o
+[417/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/serialize.c++.o
+[418/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/serialize-packed.c++.o
+[419/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/schema.c++.o
+[420/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/dynamic.c++.o
+[421/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/schema-loader.c++.o
+[422/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp.dir/stringify.c++.o
+[423/876] Linking CXX static library _deps/capnproto-build/c++/src/capnp/libcapnp.a
+[424/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/serialize-async.c++.o
+[425/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/membrane.c++.o
+[426/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/capability.c++.o
+[427/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/dynamic-capability.c++.o
+[428/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/rpc.capnp.c++.o
+[429/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/rpc-twoparty.c++.o
+[430/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/rpc-twoparty.capnp.c++.o
+[431/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/persistent.capnp.c++.o
+[432/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/ez-rpc.c++.o
+[433/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-rpc.dir/rpc.c++.o
+[434/876] Linking CXX static library _deps/capnproto-build/c++/src/capnp/libcapnp-rpc.a
+[435/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-json.dir/compat/json.capnp.c++.o
+[436/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/compiler/type-id.c++.o
+[437/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp-json.dir/compat/json.c++.o
+[438/876] Linking CXX static library _deps/capnproto-build/c++/src/capnp/libcapnp-json.a
+[439/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/compiler/error-reporter.c++.o
+[440/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/compiler/lexer.capnp.c++.o
+[441/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/compiler/grammar.capnp.c++.o
+[442/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/compiler/lexer.c++.o
+[443/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/compiler/generics.c++.o
+[444/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/compiler/parser.c++.o
+[445/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/compiler/node-translator.c++.o
+[446/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/schema-parser.c++.o
+[447/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/compiler/compiler.c++.o
+[448/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc.dir/serialize-text.c++.o
+[449/876] Linking CXX static library _deps/capnproto-build/c++/src/capnp/libcapnpc.a
+[450/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp_tool.dir/compiler/module-loader.c++.o
+[451/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnp_tool.dir/compiler/capnp.c++.o
+[452/876] Linking CXX executable _deps/capnproto-build/c++/src/capnp/capnp
+[453/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/private/elf_file_impl.cpp.o
+[454/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/private/dwarf_info_impl.cpp.o
+[455/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/elf_file.cpp.o
+[456/876] Building CXX object _deps/capnproto-build/c++/src/capnp/CMakeFiles/capnpc_cpp.dir/compiler/capnpc-c++.c++.o
+[457/876] Linking CXX executable _deps/capnproto-build/c++/src/capnp/capnpc-c++
+[458/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/dwarf_attribute.cpp.o
+[459/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/dwarf_info.cpp.o
+[460/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/dwarf_cu.cpp.o
+[461/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/dwarf_die.cpp.o
+[462/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/dwarf_frame.cpp.o
+[463/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/dwarf_location.cpp.o
+[464/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/variable.cpp.o
+[465/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_abbrev.c.o
+[466/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_alloc.c.o
+[467/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_crc.c.o
+[468/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_crc32.c.o
+[469/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_arange.c.o
+[470/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_debug_sup.c.o
+[471/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_debugaddr.c.o
+[472/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_debuglink.c.o
+[473/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_die_deliv.c.o
+[474/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_debugnames.c.o
+[475/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_dsc.c.o
+[476/876] Building CXX object _deps/ttexalens-build/CMakeFiles/ttexalens_elf.dir/callstack.cpp.o
+[477/876] Linking CXX static library _deps/ttexalens-build/libttexalens_elf.a
+[478/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_elf_load_headers.c.o
+[479/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_elf_rel_detector.c.o
+[480/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_error.c.o
+[481/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_elfread.c.o
+[482/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_fill_in_attr_form.c.o
+[483/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_find_sigref.c.o
+[484/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_fission_to_cu.c.o
+[485/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_form_class_names.c.o
+[486/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_form.c.o
+[487/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_frame.c.o
+[488/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_frame_iter.c.o
+[489/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_frame2.c.o
+[490/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_gdbindex.c.o
+[491/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_frame_cfa_read.c.o
+[492/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_global.c.o
+[493/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_groups.c.o
+[494/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_gnu_index.c.o
+[495/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_harmless.c.o
+[496/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_generic_init.c.o
+[497/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_leb.c.o
+[498/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_init_finish.c.o
+[499/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_loc.c.o
+[500/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_loclists.c.o
+[501/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_line.c.o
+[502/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_local_malloc.c.o
+[503/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_lname_version.c.o
+[504/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_locationop_read.c.o
+[505/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_lvn_name.c.o
+[506/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_64machoread.c.o
+[507/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_machoread.c.o
+[508/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_macro.c.o
+[509/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_memcpy_swap.c.o
+[510/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_macro5.c.o
+[511/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_names.c.o
+[512/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_object_read_common.c.o
+[513/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_object_detector.c.o
+[514/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_peread.c.o
+[515/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_ranges.c.o
+[516/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_query.c.o
+[517/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_safe_arithmetic.c.o
+[518/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_rnglists.c.o
+[519/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_safe_strcpy.c.o
+[520/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_secname_ck.c.o
+[521/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_seekr.c.o
+[522/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_setup_sections.c.o
+[523/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_stringsection.c.o
+[524/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_tied.c.o
+[525/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_string.c.o
+[526/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_str_offsets.c.o
+[527/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_tsearchhash.c.o
+[528/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_xu_index.c.o
+[529/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_util.c.o
+[530/876] Building C object _deps/libdwarf-build/src/lib/libdwarf/CMakeFiles/dwarf.dir/dwarf_print_lines.c.o
+[531/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/nng.c.o
+[532/876] Linking C static library _deps/libdwarf-build/src/lib/libdwarf/libdwarf.a
+[533/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/nng_legacy.c.o
+[534/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/aio.c.o
+[535/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/device.c.o
+[536/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/dialer.c.o
+[537/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/sockfd.c.o
+[538/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/file.c.o
+[539/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/idhash.c.o
+[540/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/init.c.o
+[541/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/list.c.o
+[542/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/listener.c.o
+[543/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/lmq.c.o
+[544/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/log.c.o
+[545/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/message.c.o
+[546/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/msgqueue.c.o
+[547/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/options.c.o
+[548/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/pollable.c.o
+[549/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/panic.c.o
+[550/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/pipe.c.o
+[551/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/reap.c.o
+[552/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/sockaddr.c.o
+[553/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/stats.c.o
+[554/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/socket.c.o
+[555/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/strs.c.o
+[556/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/stream.c.o
+[557/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/taskq.c.o
+[558/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/tcp.c.o
+[559/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/thread.c.o
+[560/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_alloc.c.o
+[561/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/core/url.c.o
+[562/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_atomic.c.o
+[563/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_clock.c.o
+[564/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_debug.c.o
+[565/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_file.c.o
+[566/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_ipcconn.c.o
+[567/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_ipcdial.c.o
+[568/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_peerid.c.o
+[569/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_ipclisten.c.o
+[570/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_pipe.c.o
+[571/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_resolv_gai.c.o
+[572/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_sockaddr.c.o
+[573/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_socketpair.c.o
+[574/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_sockfd.c.o
+[575/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_tcpconn.c.o
+[576/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_tcpdial.c.o
+[577/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_tcplisten.c.o
+[578/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_thread.c.o
+[579/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_udp.c.o
+[580/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_pollq_epoll.c.o
+[581/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/platform/posix/posix_rand_getrandom.c.o
+[582/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/bus0/bus.c.o
+[583/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/pair0/pair.c.o
+[584/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/pair1/pair1_poly.c.o
+[585/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/pair1/pair.c.o
+[586/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/pipeline0/push.c.o
+[587/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/pipeline0/pull.c.o
+[588/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/pubsub0/pub.c.o
+[589/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/pubsub0/sub.c.o
+[590/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/pubsub0/xsub.c.o
+[591/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/reqrep0/xreq.c.o
+[592/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/reqrep0/req.c.o
+[593/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/reqrep0/xrep.c.o
+[594/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/reqrep0/rep.c.o
+[595/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/survey0/xsurvey.c.o
+[596/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/survey0/survey.c.o
+[597/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/survey0/xrespond.c.o
+[598/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol/survey0/respond.c.o
+[599/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/transport/inproc/inproc.c.o
+[600/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/transport/socket/sockfd.c.o
+[601/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/transport/ipc/ipc.c.o
+[602/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/transport/tcp/tcp.c.o
+[603/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/transport/ws/websocket.c.o
+[604/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/transport/tls/tls.c.o
+[605/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/protocol.c.o
+[606/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/sp/transport.c.o
+[607/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/base64/base64.c.o
+[608/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/http/http_public.c.o
+[609/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/http/http_client.c.o
+[610/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/http/http_chunk.c.o
+[611/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/http/http_conn.c.o
+[612/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/http/http_schemes.c.o
+[613/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/http/http_msg.c.o
+[614/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/sha1/sha1.c.o
+[615/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/http/http_server.c.o
+[616/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/tls/tls_common.c.o
+[617/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/util/idhash.c.o
+[618/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/util/options.c.o
+[619/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/util/platform.c.o
+[620/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/compat/nanomsg/nn.c.o
+[621/876] Building C object _deps/nanomsg-build/CMakeFiles/nng.dir/src/supplemental/websocket/websocket.c.o
+[622/876] Linking C static library _deps/nanomsg-build/libnng.a
+[623/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/fs-poll.c.o
+[624/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/idna.c.o
+[625/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/inet.c.o
+[626/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/strscpy.c.o
+[627/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/random.c.o
+[628/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/strtok.c.o
+[629/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/thread-common.c.o
+[630/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/threadpool.c.o
+[631/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/timer.c.o
+[632/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/uv-data-getter-setters.c.o
+[633/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/uv-common.c.o
+[634/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/version.c.o
+[635/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/async.c.o
+[636/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/dl.c.o
+[637/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/core.c.o
+[638/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/getaddrinfo.c.o
+[639/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/getnameinfo.c.o
+[640/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/fs.c.o
+[641/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/loop-watcher.c.o
+[642/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/loop.c.o
+[643/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/poll.c.o
+[644/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/pipe.c.o
+[645/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/random-devurandom.c.o
+[646/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/process.c.o
+[647/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/signal.c.o
+[648/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/stream.c.o
+[649/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/tcp.c.o
+[650/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/thread.c.o
+[651/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/tty.c.o
+[652/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/proctitle.c.o
+[653/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/udp.c.o
+[654/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/procfs-exepath.c.o
+[655/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/random-getrandom.c.o
+[656/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/random-sysctl-linux.c.o
+[657/876] Building C object _deps/libuv-build/CMakeFiles/uv_a.dir/src/unix/linux.c.o
+[658/876] Linking C static library _deps/libuv-build/libuv.a
+[659/876] Generating FlatBuffers header /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release/tt_metal/third_party/umd/device/simulation_device_generated.h
+[660/876] Generating FlatBuffers header /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release/tt_metal/third_party/umd/device/simulation_server_protocol_generated.h
+[661/876] Building C object tt_metal/third_party/umd/tt-kmd-lib/CMakeFiles/tt-kmd-lib.dir/src/tt_kmd_lib.c.o
+[662/876] Linking C static library tt_metal/third_party/umd/tt-kmd-lib/libtt-kmd-lib.a
+[663/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_13_cxx.cxx.o
+[664/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_12_cxx.cxx.o
+[665/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_11_cxx.cxx.o
+[666/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_10_cxx.cxx.o
+[667/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_9_cxx.cxx.o
+[668/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_7_cxx.cxx.o
+[669/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_8_cxx.cxx.o
+[670/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_5_cxx.cxx.o
+[671/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_6_cxx.cxx.o
+[672/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_4_cxx.cxx.o
+[673/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_3_cxx.cxx.o
+[674/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_2_cxx.cxx.o
+[675/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_1_cxx.cxx.o
+[676/876] Building CXX object tt_metal/third_party/umd/device/CMakeFiles/tt-umd.dir/Unity/unity_0_cxx.cxx.o
+[677/876] Linking CXX shared library tt_metal/third_party/umd/lib/libtt-umd.so.0.79.0
+[678/876] Creating library symlink tt_metal/third_party/umd/lib/libtt-umd.so.0 tt_metal/third_party/umd/lib/libtt-umd.so
+[679/876] Building CXX object tt_stl/CMakeFiles/tt_stl.dir/tt_stl/llvm/llvm_small_vector.cpp.o
+[680/876] Linking CXX shared library tt_stl/libtt_stl.so
+[681/876] Generating protobuf/factory_system_descriptor.pb.cc, protobuf/factory_system_descriptor.pb.h
+[682/876] Generating protobuf/node_config.pb.cc, protobuf/node_config.pb.h
+[683/876] Generating protobuf/cluster_config.pb.cc, protobuf/cluster_config.pb.h
+[684/876] Generating protobuf/deployment.pb.cc, protobuf/deployment.pb.h
+[685/876] Generating protobuf/ethernet_link_metrics.pb.cc, protobuf/ethernet_link_metrics.pb.h
+[686/876] Building CXX object tt_metal/third_party/tracy/CMakeFiles/TracyClient.dir/public/TracyClient.cpp.o
+[687/876] Linking CXX shared library lib/libtracy.so.0.13.3
+[688/876] Creating library symlink lib/libtracy.so
+[689/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/node/node_types.cpp.o
+[690/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/node/node.cpp.o
+[691/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/board/board.cpp.o
+[692/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/cabling_generator/regen_descriptors.cpp.o
+[693/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/connector/connector.cpp.o
+[694/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/factory_system_descriptor/query.cpp.o
+[695/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/cabling_generator/cabling_generator.cpp.o
+[696/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/protobuf/factory_system_descriptor.pb.cc.o
+[697/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/protobuf/node_config.pb.cc.o
+[698/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/factory_system_descriptor/utils.cpp.o
+[699/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/protobuf/deployment.pb.cc.o
+[700/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/protobuf/ethernet_link_metrics.pb.cc.o
+[701/876] Building C++ header for api/tt-metalium/serialized_descriptors/mesh_coordinate.fbs
+[702/876] Building CXX object tools/scaleout/CMakeFiles/scaleout_tools.dir/protobuf/cluster_config.pb.cc.o
+[703/876] Building blackhole hw lib noc.o
+[704/876] Building blackhole hw lib substitutes.o
+[705/876] Building blackhole hw lib tdma_xmov.o
+[706/876] Building blackhole hw lib tmu-crt0.o
+[707/876] Building quasar:tt-qsr32 hw lib tt-qsr32-crt0-tls.o from tt_metal/hw/toolchain/crt0-tls.S
+[708/876] Building quasar:tt-qsr32 hw lib tt-qsr32-crt0.o from tt_metal/hw/toolchain/crt0.S
+[709/876] Building quasar:tt-qsr32 hw lib tt-qsr32-substitutes.o from tt_metal/hw/toolchain/substitutes.cpp
+[710/876] Building quasar:tt-qsr64 hw lib tt-qsr64-crt0-tls.o from tt_metal/hw/toolchain/crt0-tls.S
+[711/876] Building quasar:tt-qsr64 hw lib tt-qsr64-crt0.o from tt_metal/hw/toolchain/crt0.S
+[712/876] Building quasar:tt-qsr64 hw lib tt-qsr64-noc.o from tt_metal/hw/firmware/src/tt-2xx/quasar/noc.c
+[713/876] Building quasar:tt-qsr64 hw lib tt-qsr64-substitutes.o from tt_metal/hw/toolchain/substitutes.cpp
+[714/876] Building wormhole hw lib noc.o
+[715/876] Building wormhole hw lib substitutes.o
+[716/876] Building wormhole hw lib tdma_xmov.o
+[717/876] Building wormhole hw lib tmu-crt0.o
+[718/876] Building wormhole hw lib wh-iram-start.o
+[719/876] Building wormhole hw lib wh-iram-trampoline.o
+[720/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_aerisc.ld
+[721/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_brisc.ld
+[722/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_drisc.ld
+[723/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_ierisc.ld
+[724/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_main_aerisc.ld
+[725/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_ncrisc.ld
+[726/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_subordinate_aerisc.ld
+[727/876] Building CXX object tt_metal/logging/CMakeFiles/metalium-logging.dir/logging.cpp.o
+[728/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_subordinate_ierisc.ld
+[729/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_trisc0.ld
+[730/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_trisc1.ld
+[731/876] Preprocessing runtime/hw/toolchain/blackhole/firmware_trisc2.ld
+[732/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_aerisc.ld
+[733/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_brisc.ld
+[734/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_drisc.ld
+[735/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_ierisc.ld
+[736/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_main_aerisc.ld
+[737/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_ncrisc.ld
+[738/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_subordinate_aerisc.ld
+[739/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_trisc0.ld
+[740/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_subordinate_ierisc.ld
+[741/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_trisc1.ld
+[742/876] Preprocessing runtime/hw/toolchain/blackhole/kernel_trisc2.ld
+[743/876] Preprocessing runtime/hw/toolchain/quasar/firmware_dm.ld
+[744/876] Preprocessing runtime/hw/toolchain/quasar/firmware_trisc.ld
+[745/876] Preprocessing runtime/hw/toolchain/quasar/kernel_dm_lgc.ld
+[746/876] Preprocessing runtime/hw/toolchain/quasar/kernel_dm.ld
+[747/876] Preprocessing runtime/hw/toolchain/quasar/kernel_trisc.ld
+[748/876] Preprocessing runtime/hw/toolchain/quasar/kernel_trisc_lgc.ld
+[749/876] Preprocessing runtime/hw/toolchain/wormhole/erisc-b0-app.ld
+[750/876] Preprocessing runtime/hw/toolchain/wormhole/erisc-b0-app_iram.ld with IRAM
+[751/876] Preprocessing runtime/hw/toolchain/wormhole/erisc-b0-kernel_iram.ld with IRAM
+[752/876] Preprocessing runtime/hw/toolchain/wormhole/erisc-b0-kernel.ld
+[753/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_brisc.ld
+[754/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_aerisc.ld
+[755/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_ierisc.ld
+[756/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_main_aerisc.ld
+[757/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_ncrisc.ld
+[758/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_subordinate_aerisc.ld
+[759/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_trisc0.ld
+[760/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_subordinate_ierisc.ld
+[761/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_trisc2.ld
+[762/876] Preprocessing runtime/hw/toolchain/wormhole/firmware_trisc1.ld
+[763/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_aerisc.ld
+[764/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_brisc.ld
+[765/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_main_aerisc.ld
+[766/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_ierisc.ld
+[767/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_subordinate_aerisc.ld
+[768/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_ncrisc.ld
+[769/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_subordinate_ierisc.ld
+[770/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_trisc0.ld
+[771/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_trisc2.ld
+[772/876] Preprocessing runtime/hw/toolchain/wormhole/kernel_trisc1.ld
+[773/876] Generating /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/llrt/hal/generated/dev_msgs.hpp, /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/llrt/hal/generated/dev_msgs_impl.hpp
+parsed 23 structs.
+[774/876] Building CXX object tt_metal/common/CMakeFiles/common.dir/Unity/unity_1_cxx.cxx.o
+[775/876] Generating /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/llrt/hal/generated/fabric_telemetry.hpp, /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/llrt/hal/generated/fabric_telemetry_impl.hpp
+parsed 7 structs.
+[776/876] Generating /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/llrt/hal/generated/realtime_profiler_msgs.hpp, /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/llrt/hal/generated/realtime_profiler_msgs_impl.hpp
+parsed 2 structs.
+[777/876] Building CXX object tt_metal/common/CMakeFiles/common.dir/Unity/unity_0_cxx.cxx.o
+[778/876] Building CXX object tt_metal/llrt/CMakeFiles/llrt.dir/Unity/unity_1_cxx.cxx.o
+[779/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/wh_hal.dir/wormhole/wh_hal.cpp.o
+[780/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/wh_hal.dir/wormhole/wh_hal_tensix.cpp.o
+[781/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/wh_hal.dir/wormhole/wh_hal_active_eth.cpp.o
+[782/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/wh_hal.dir/wormhole/wh_hal_idle_eth.cpp.o
+[783/876] Building CXX object tt_metal/llrt/CMakeFiles/llrt.dir/Unity/unity_0_cxx.cxx.o
+[784/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/bh_hal.dir/blackhole/bh_hal.cpp.o
+[785/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/bh_hal.dir/blackhole/bh_hal_tensix.cpp.o
+[786/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/bh_hal.dir/blackhole/bh_hal_active_eth.cpp.o
+[787/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/bh_hal.dir/blackhole/bh_hal_idle_eth.cpp.o
+[788/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/bh_hal.dir/blackhole/bh_hal_dram.cpp.o
+[789/876] Building CXX object tt_metal/llrt/hal/tt-1xx/CMakeFiles/hal_1xx.dir/hal_1xx_common.cpp.o
+[790/876] Linking CXX static library tt_metal/llrt/hal/tt-1xx/libhal_1xx.a
+[791/876] Building CXX object tt_metal/llrt/hal/tt-2xx/CMakeFiles/qa_hal.dir/quasar/qa_hal_tensix.cpp.o
+[792/876] Building CXX object tt_metal/llrt/hal/tt-2xx/CMakeFiles/qa_hal.dir/quasar/qa_hal.cpp.o
+[793/876] Building CXX object tt_metal/llrt/hal/tt-2xx/CMakeFiles/qa_hal.dir/quasar/qa_hal_dispatch.cpp.o
+[794/876] Building CXX object tt_metal/llrt/hal/tt-2xx/CMakeFiles/qa_hal.dir/quasar/qa_hal_active_eth.cpp.o
+[795/876] Building CXX object tt_metal/llrt/hal/tt-2xx/CMakeFiles/qa_hal.dir/quasar/qa_hal_idle_eth.cpp.o
+[796/876] Building C++ header for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/impl/flatbuffer/light_metal_binary.fbs
+[797/876] Building C++ header for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/impl/flatbuffer/command.fbs
+[798/876] Building C++ header for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/impl/flatbuffer/base_types.fbs
+[799/876] Building C++ header for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/impl/flatbuffer/buffer_types.fbs
+[800/876] Building C++ header for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/impl/flatbuffer/program_types.fbs
+[801/876] Compiling Cap'n Proto schema /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/impl/debug/inspector/rpc.capnp
+[802/876] Generating RPC server implementation for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/impl/debug/inspector/rpc.capnp
+[803/876] Compiling Cap'n Proto schema /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/impl/jit_server/rpc.capnp
+[804/876] Generating internal/disaggregation/protobuf/kv_chunk_address_table.pb.cc, internal/disaggregation/protobuf/kv_chunk_address_table.pb.h
+[805/876] Generating RPC stub for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/impl/debug/inspector/rpc.capnp
+Cannot generate stub file for Inspector. If you need python autocomplete/static analysis, install with: pip install pycapnp
+[806/876] Building CXX object tt_metal/jit_build/CMakeFiles/jit_build.dir/Unity/unity_1_cxx.cxx.o
+[807/876] Building CXX object tt_metal/llrt/hal/tt-2xx/CMakeFiles/hal_2xx.dir/hal_2xx_common.cpp.o
+[808/876] Linking CXX static library tt_metal/llrt/hal/tt-2xx/libhal_2xx.a
+[809/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_21_cxx.cxx.o
+[810/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_20_cxx.cxx.o
+[811/876] Building CXX object tt_metal/jit_build/CMakeFiles/jit_build.dir/Unity/unity_0_cxx.cxx.o
+[812/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_18_cxx.cxx.o
+[813/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_19_cxx.cxx.o
+[814/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_16_cxx.cxx.o
+[815/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_17_cxx.cxx.o
+[816/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_15_cxx.cxx.o
+[817/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_14_cxx.cxx.o
+[818/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_13_cxx.cxx.o
+[819/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_12_cxx.cxx.o
+[820/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_11_cxx.cxx.o
+[821/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_10_cxx.cxx.o
+[822/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_9_cxx.cxx.o
+[823/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_8_cxx.cxx.o
+[824/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_7_cxx.cxx.o
+[825/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_5_cxx.cxx.o
+[826/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_6_cxx.cxx.o
+[827/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_3_cxx.cxx.o
+[828/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_4_cxx.cxx.o
+[829/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_2_cxx.cxx.o
+[830/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_1_cxx.cxx.o
+[831/876] Building CXX object tt_metal/detail/CMakeFiles/detail.dir/reports/memory_reporter.cpp.o
+[832/876] Building C++ header for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/distributed/flatbuffer/socket_peer_descriptor.fbs
+[833/876] Building C++ header for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/distributed/flatbuffer/hd_socket_descriptor.fbs
+[834/876] Building C++ header for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/distributed/flatbuffer/h2d_stream_service_descriptor.fbs
+[835/876] Building C++ header for /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/tt_metal/distributed/flatbuffer/d2h_stream_service_descriptor.fbs
+[836/876] Building CXX object tt_metal/impl/CMakeFiles/impl.dir/Unity/unity_0_cxx.cxx.o
+[837/876] Building CXX object tt_metal/distributed/CMakeFiles/distributed.dir/Unity/unity_4_cxx.cxx.o
+[838/876] Building CXX object tt_metal/distributed/CMakeFiles/distributed.dir/Unity/unity_3_cxx.cxx.o
+[839/876] Building CXX object tt_metal/distributed/CMakeFiles/distributed.dir/Unity/unity_2_cxx.cxx.o
+[840/876] Building CXX object tt_metal/distributed/CMakeFiles/distributed.dir/Unity/unity_1_cxx.cxx.o
+[841/876] Generating protobuf/mesh_graph_descriptor.pb.cc, protobuf/mesh_graph_descriptor.pb.h
+[842/876] Generating protobuf/physical_system_descriptor.pb.cc, protobuf/physical_system_descriptor.pb.h
+[843/876] Generating protobuf/router_port_directions.pb.cc, protobuf/router_port_directions.pb.h
+[844/876] Generating protobuf/port_descriptor_table.pb.cc, protobuf/port_descriptor_table.pb.h
+[845/876] Generating protobuf/intermesh_connection_table.pb.cc, protobuf/intermesh_connection_table.pb.h
+[846/876] Generating protobuf/physical_grouping_descriptor.pb.cc, protobuf/physical_grouping_descriptor.pb.h
+[847/876] Building CXX object tt_metal/distributed/CMakeFiles/distributed.dir/Unity/unity_0_cxx.cxx.o
+[848/876] Building CXX object tt_metal/CMakeFiles/tt_metal.dir/impl/host_api/tt_metal.cpp.o
+[849/876] Building CXX object tt_metal/CMakeFiles/tt_metal.dir/impl/experimental/offline_compile/offline_kernel_compile.cpp.o
+[850/876] Building CXX object tt_metal/CMakeFiles/tt_metal.dir/impl/graph/graph_tracking.cpp.o
+[851/876] Building CXX object tt_metal/CMakeFiles/tt_metal.dir/hal.cpp.o
+[852/876] Building CXX object tt_metal/programming_examples/add_2_integers_in_riscv/CMakeFiles/metal_example_add_2_integers_in_riscv.dir/add_2_integers_in_riscv.cpp.o
+[853/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/Unity/unity_6_cxx.cxx.o
+[854/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/Unity/unity_4_cxx.cxx.o
+[855/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/Unity/unity_5_cxx.cxx.o
+[856/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/Unity/unity_3_cxx.cxx.o
+[857/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/Unity/unity_2_cxx.cxx.o
+[858/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/Unity/unity_1_cxx.cxx.o
+[859/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/protobuf/mesh_graph_descriptor.pb.cc.o
+[860/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/protobuf/physical_system_descriptor.pb.cc.o
+[861/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/protobuf/router_port_directions.pb.cc.o
+[862/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/protobuf/port_descriptor_table.pb.cc.o
+[863/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/protobuf/intermesh_connection_table.pb.cc.o
+[864/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/protobuf/physical_grouping_descriptor.pb.cc.o
+[865/876] Building CXX object tt_metal/impl/experimental/noc_estimator/CMakeFiles/tt_metal_noc_estimator.dir/noc_estimator.cpp.o
+[866/876] Building CXX object tt_metal/impl/experimental/noc_estimator/CMakeFiles/tt_metal_noc_estimator.dir/interpolation.cpp.o
+[867/876] Building CXX object tt_metal/impl/experimental/noc_estimator/CMakeFiles/tt_metal_noc_estimator.dir/yaml_loader.cpp.o
+[868/876] Building CXX object row-reduce-lab/CMakeFiles/row_reduce_cpu.dir/src/cpu_main.cpp.o
+[869/876] Linking CXX executable row-reduce-lab/row_reduce_cpu
+[870/876] Building CXX object row-reduce-lab/CMakeFiles/row_reduce_cpu_tests.dir/tests/cpu_tests.cpp.o
+[871/876] Linking CXX executable row-reduce-lab/row_reduce_cpu_tests
+[872/876] Building CXX object row-reduce-lab/CMakeFiles/tt_row_reduce_metal.dir/src/metal_main.cpp.o
+[873/876] Building CXX object tt_metal/fabric/CMakeFiles/fabric.dir/Unity/unity_0_cxx.cxx.o
+[874/876] Linking CXX shared library tt_metal/libtt_metal.so
+[875/876] Linking CXX executable row-reduce-lab/tt_row_reduce_metal
+[876/876] Linking CXX executable programming_examples/metal_example_add_2_integers_in_riscv
+Test project /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release/row-reduce-lab
+    Start 1: cpu_contract
+1/3 Test #1: cpu_contract .....................   Passed    0.01 sec
+    Start 2: cpu_matrix
+2/3 Test #2: cpu_matrix .......................   Passed    0.00 sec
+    Start 3: cpu_invalid_shape
+3/3 Test #3: cpu_invalid_shape ................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 3
+
+Total Test time (real) =   0.02 sec
+	linux-vdso.so.1 (0x0000f55fdb0d7000)
+	libtt_metal.so => /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release/tt_metal/libtt_metal.so (0x0000f55fd9ba0000)
+	libtracy.so.0.13.3 => /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release/lib/libtracy.so.0.13.3 (0x0000f55fd9970000)
+	libtt-umd.so.0 => /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release/tt_metal/third_party/umd/lib/libtt-umd.so.0 (0x0000f55fd9550000)
+	libtt_stl.so => /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/tt-metal/build_Release/tt_stl/libtt_stl.so (0x0000f55fd9510000)
+	libstdc++.so.6 => /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/aarch64-linux-gnu/libstdc++.so.6 (0x0000f55fd92e0000)
+	libm.so.6 => /lib/aarch64-linux-gnu/libm.so.6 (0x0000f55fd9240000)
+	libgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000f55fd9210000)
+	libc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000f55fd9060000)
+	libhwloc.so.15 => /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/aarch64-linux-gnu/libhwloc.so.15 (0x0000f55fd8ff0000)
+	libnuma.so.1 => /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/prefix/usr/lib/aarch64-linux-gnu/libnuma.so.1 (0x0000f55fd8fc0000)
+	libz.so.1 => /lib/aarch64-linux-gnu/libz.so.1 (0x0000f55fd8f90000)
+	libnsl.so.2 => /lib/aarch64-linux-gnu/libnsl.so.2 (0x0000f55fd8f60000)
+	/lib/ld-linux-aarch64.so.1 (0x0000f55fdb090000)
+	libudev.so.1 => /lib/aarch64-linux-gnu/libudev.so.1 (0x0000f55fd8f20000)
+	libtirpc.so.3 => /lib/aarch64-linux-gnu/libtirpc.so.3 (0x0000f55fd8ee0000)
+	libgssapi_krb5.so.2 => /lib/aarch64-linux-gnu/libgssapi_krb5.so.2 (0x0000f55fd8e70000)
+	libkrb5.so.3 => /lib/aarch64-linux-gnu/libkrb5.so.3 (0x0000f55fd8d90000)
+	libk5crypto.so.3 => /lib/aarch64-linux-gnu/libk5crypto.so.3 (0x0000f55fd8d50000)
+	libcom_err.so.2 => /lib/aarch64-linux-gnu/libcom_err.so.2 (0x0000f55fd8d30000)
+	libkrb5support.so.0 => /lib/aarch64-linux-gnu/libkrb5support.so.0 (0x0000f55fd8d10000)
+	libkeyutils.so.1 => /lib/aarch64-linux-gnu/libkeyutils.so.1 (0x0000f55fd8cf0000)
+	libresolv.so.2 => /lib/aarch64-linux-gnu/libresolv.so.2 (0x0000f55fd8cc0000)
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1       146G   41G  106G  28% /

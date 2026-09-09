@@ -1,0 +1,61 @@
+{
+  "source_commit_for_successful_custom_build": "81efb4fff0f7f2de48819529b83427f31b2714da",
+  "upstream_commit": "89e1256c982a5b4739d173bcc446c8c748a44b40",
+  "logs": "verbatim remote stdout/stderr; no SSH routing or credentials",
+  "attempts": [
+    {
+      "file": "results/build/bootstrap-deps-retry.log",
+      "sha256": "bca4083e8a523f7641b8e552f45ce51ad2d26a2f1060e115ae951e9c67a9efab",
+      "exit_code": 1,
+      "outcome": "missing ensurepip for venv"
+    },
+    {
+      "file": "results/build/bootstrap-deps.log",
+      "sha256": "fd3d22e691ae892794eb18fcd79e6ba418fd94d77750f8aea9b6af12c86d7238",
+      "exit_code": 1,
+      "outcome": "unavailable ARM64 auxiliary package"
+    },
+    {
+      "file": "results/build/bootstrap-sources.log",
+      "sha256": "80f4ead1b47f946d9bc97ca167a268832232c7c98d4048d3997398b8115550b7",
+      "exit_code": 0,
+      "outcome": "pinned source checkout"
+    },
+    {
+      "file": "results/build/bootstrap-venv.log",
+      "sha256": "d8d6276840f4d56258be13e02b158bad3dec0d01dc7fa351bf036751a0e97e8e",
+      "exit_code": 0,
+      "outcome": "venv provision"
+    },
+    {
+      "file": "results/build/build-metal-gcc12.log",
+      "sha256": "cc7ad04918ee3eea94fcb4587e4152d7192d190381220fe8b5d01aee5da1b1b5",
+      "exit_code": 1,
+      "outcome": "missing prefix multiarch hwloc header search"
+    },
+    {
+      "file": "results/build/build-metal-multiarch.log",
+      "sha256": "5881f42624ac0f4c34b12e101d346e0b7142e9f6a219693aefe22f670b78b61d",
+      "exit_code": 1,
+      "outcome": "CMake compiler-name cache reset re-enabled MPI"
+    },
+    {
+      "file": "results/build/build-project.log",
+      "sha256": "cfa87a4cd028424d0132937c68bac54958fc7570b38f2c063e8c2b6cb5b6301e",
+      "exit_code": 0,
+      "outcome": "custom/official targets linked; remote CTest3/3"
+    },
+    {
+      "file": "results/build/configure-metal.log",
+      "sha256": "7c3be4c28b94326d715eff4f5d9b2b6523485da9c62171920a508dc95f0094dc",
+      "exit_code": 2,
+      "outcome": "deliberate interruption after discovering GCC11 includes"
+    },
+    {
+      "file": "results/build/official-smoke.log",
+      "sha256": "40ef33bcb5a46734af05c606c096a947b82b706afb0b576e845595af3b21f159",
+      "exit_code": 0,
+      "outcome": "official simulator smoke returned21; not project C3"
+    }
+  ]
+}

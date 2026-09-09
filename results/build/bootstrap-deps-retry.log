@@ -1,0 +1,44 @@
+LLVM download bytes 74738314 unpacked KiB 344184
+unpack clang-20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack libclang-common-20-dev 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack libclang-cpp20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack libclang1-20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack libllvm20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack lld-20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack llvm-20 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack llvm-20-linker-tools 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+unpack llvm-20-runtime 1:20.1.8~++20250708123929+0de59a293f7a-1~exp1~20250708003944.130
+Get:1 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy/main arm64 libnuma-dev arm64 2.0.14-3ubuntu2 [37.4 kB]
+Get:2 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy/main arm64 libnuma1 arm64 2.0.14-3ubuntu2 [22.4 kB]
+Get:3 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy/universe arm64 libcapstone-dev arm64 4.0.2-5 [770 kB]
+Get:4 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy/universe arm64 libcapstone4 arm64 4.0.2-5 [664 kB]
+Get:5 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy/universe arm64 libtbb-dev arm64 2021.5.0-7ubuntu2 [191 kB]
+Get:6 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy/universe arm64 libtbb12 arm64 2021.5.0-7ubuntu2 [62.6 kB]
+Get:7 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy/universe arm64 libtbbmalloc2 arm64 2021.5.0-7ubuntu2 [35.7 kB]
+Get:8 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 cpp-12 arm64 12.3.0-1ubuntu1~22.04.3 [9648 kB]
+Get:9 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 gcc-12 arm64 12.3.0-1ubuntu1~22.04.3 [19.3 MB]
+Get:10 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libgcc-12-dev arm64 12.3.0-1ubuntu1~22.04.3 [1168 kB]
+Get:11 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libpfm4 arm64 4.11.1+git32-gd0b85fb-1ubuntu0.1 [50.4 kB]
+Get:12 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy-updates/main arm64 libstdc++6 arm64 12.3.0-1ubuntu1~22.04.3 [661 kB]
+Get:13 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy-updates/universe arm64 g++-12 arm64 12.3.0-1ubuntu1~22.04.3 [11.0 MB]
+Get:14 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy-updates/universe arm64 libhwloc-dev arm64 2.7.0-2ubuntu1 [249 kB]
+Get:15 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy-updates/universe arm64 libhwloc15 arm64 2.7.0-2ubuntu1 [148 kB]
+Get:16 http://ca-toronto-1-ad-1.clouds.ports.ubuntu.com/ubuntu-ports jammy-updates/universe arm64 libstdc++-12-dev arm64 12.3.0-1ubuntu1~22.04.3 [2179 kB]
+Fetched 46.1 MB in 1s (62.9 MB/s)
+The virtual environment was not created successfully because ensurepip is not
+available.  On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt install python3.10-venv
+
+You may need to use sudo with that command.  After installing the python3-venv
+package, recreate your virtual environment.
+
+Failing command: /home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv/bin/python3
+
+Traceback (most recent call last):
+  File "/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/bootstrap-deps.py", line 24, in <module>
+    subprocess.run(['python3','-m','venv',str(root/'venv')],check=True)
+  File "/usr/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', '-m', 'venv', '/home/ubuntu/accelerator-projects-20260908/tt-row-reduce-lab/venv']' returned non-zero exit status 1.

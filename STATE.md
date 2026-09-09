@@ -4,9 +4,9 @@ Updated: 2026-09-09 UTC (2026-09-08 Toronto).
 
 Goal is active. The goal tool created this task's unbudgeted goal on 2026-09-09: implement, verify custom-kernel ttsim C3 execution, document and deliver a private `ZiaoLiu-1/tt-row-reduce-lab` repository by 2026-09-09 evening Toronto.
 
-Current validation: C0 CPU contract verified; C1 host link, C2 device JIT and C3 simulator execution pending. This directory initially contained only AGENTS.md. The root coordination task owns workspace status, evidence and learning records. No hardware is available; no silicon performance claim is possible.
+Current validation: C0 CPU contract and C1 real host link verified; custom C2 device JIT and C3 simulator matrix pending. This directory initially contained only AGENTS.md. The root coordination task owns workspace status, evidence and learning records. No hardware is available; no silicon performance claim is possible.
 
-Execution: pin Metal `89e1256c982a5b4739d173bcc446c8c748a44b40` and ttsim `v1.10.6`; first complete single-node BF16 row reduction and the 12-shape matrix. Remote environment preflight and narrow toolchain bootstrap are the immediate work. The task is the sole full-Metal environment coordinator and must use the shared heavy-build lock. Private routing stays outside Git.
+Execution: pin Metal `89e1256c982a5b4739d173bcc446c8c748a44b40` and ttsim `v1.10.6`; complete single-node BF16 row reduction and the 12-shape matrix. The environment and host are built. Custom-kernel execution follows Runtime's current shared-lock stage. The task coordinates the full-Metal environment and must use the shared heavy-build lock. Private routing stays outside Git.
 
 Authorship: project implementation is agent-assisted. Ziao's independent reconstruction and oral understanding are not yet assessed.
 
@@ -24,8 +24,16 @@ Apple Clang 17 compiled the CPU targets with C++20 strict warnings and ASan/UBSa
 
 ## Private repository checkpoint
 
-Created and read back `https://github.com/ZiaoLiu-1/tt-row-reduce-lab` with visibility `PRIVATE`, then pushed the initial source/C0 snapshot `aee2dea`. C1/C2/C3 remain pending; repository availability is not execution evidence. The next Metal build will embed its configure-time project commit; the runner also records actual source files and binary SHA-256.
+Created and read back `https://github.com/ZiaoLiu-1/tt-row-reduce-lab` with visibility `PRIVATE`, then pushed the initial source/C0 snapshot `aee2dea`. C1/C2/C3 were pending at that checkpoint; repository availability is not execution evidence. The Metal build embeds its configure-time project commit; the runner also records actual source files and binary SHA-256.
 
 Build dependency correction: bundled UMD compilation stopped at `hwloc/autogen/config.h` because Ubuntu's architecture-specific headers reside in the prefix's `usr/include/aarch64-linux-gnu`. Added that explicit system include directory to both compiler flag sets and regenerated/rebuilt the same narrow target. The prior failing log is preserved. No upstream source or system installation was changed to work around the error.
 
 A follow-up reconfigure exposed a CMake toolchain cache issue: the pinned ARM64 toolchain repeatedly assigns bare compiler names with CACHE INTERNAL, causing CMake 4.0.2 to discard prior cache settings in this user-prefix setup (and re-enable MPI by default). Added a project-owned toolchain wrapper that includes the exact upstream file, then fixes both compiler paths to the extracted prefix. This preserves the upstream source and compiler semantics while stabilizing reconfigure. The failed MPI configure is retained separately; MPI is still intentionally disabled.
+
+## C1 and official simulator checkpoint
+
+The real `tt_row_reduce_metal` host and official smoke target compiled and linked from project source `81efb4fff0f7f2de48819529b83427f31b2714da`; custom binary SHA-256 is `e9b87650d2a51fa1f694b1e09b5b0bb5d9a3837bc3e1da2e26773d8cbcb5d5b8`. Remote CTest passed 3/3. Fourteen actual Metal CLI invalid-input cases all returned exit 2 with `before_device=true`; raw evidence is `results/c1-rejections/`.
+
+Official `add_2_integers_in_riscv` returned 21 and exit 0 on the hash-verified pinned ttsim asset. This proves the environment works, not that this project kernel runs. Its 2.37 s process wall time includes software/JIT overhead and is not a silicon metric. All nine setup/build/smoke logs, including failed attempts, are retained verbatim in `results/build/`; `environment.json` captures the actual toolchain and simulator identity. The initial priority heavy-build phase ended and Runtime was notified to use the next shared-lock opportunity.
+
+During the build, the same remote filesystem changed from 45 GiB total to 146 GiB total, with about 106 GiB free. This task did not perform the resize. GitHub Actions has been explicitly disabled and read back as `enabled=false`; Actions run count was 0. Validation is local/authorized remote execution only.

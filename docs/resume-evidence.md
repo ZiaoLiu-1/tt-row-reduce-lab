@@ -19,8 +19,10 @@ file does not update the workspace's canonical resume evidence or mastery.
   `python3 -m unittest discover -s tests -p 'test_tools.py' -v`.
   They use explicit temporary fixtures, including process failures and invalid
   numerical/layout data. Fixture output is not simulator evidence.
-- C1 host link, C2 device JIT and C3 full custom-kernel ttsim execution are
-  pending. Prepared source, schemas, scripts and upstream smoke cannot satisfy
+- C1 host link passed; the real binary rejected all 14 invalid-input cases
+  before device creation (`results/c1-rejections/`). Remote CTest passed 3/3.
+  Official simulator smoke passed, as recorded in `results/build/`.
+- Custom C2 device JIT and C3 full custom-kernel ttsim execution remain pending. Prepared source, schemas, scripts and upstream smoke cannot satisfy
   those gates. No Tenstorrent silicon is available; C4 is outside this delivery.
 
 The exact latest state, final source commit, private repository URL and durable
