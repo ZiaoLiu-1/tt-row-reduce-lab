@@ -89,6 +89,12 @@ exposed Ubuntu's separate ARM64 hwloc configuration headers; both compiler
 flag sets now also include `-isystem $RR_ENV_ROOT/prefix/usr/include/aarch64-linux-gnu`.
 The failing build log is retained.
 
+The project-owned `cmake/user-prefix-toolchain.cmake` includes the pinned
+upstream ARM64 toolchain and then fixes both compiler paths to the extracted
+prefix. This avoids an observed CMake 4.0.2 cache reset caused by repeated bare
+compiler-name assignments. Two consecutive configurations were checked to keep
+MPI and Python bindings disabled; the upstream toolchain file remains unchanged.
+
 After correcting an already configured tree, refresh compiler detection; merely
 changing `PATH` leaves CMake's old include discovery cached:
 
@@ -97,7 +103,7 @@ export BUILD_PURPOSE='refresh compiler detection and configure'
 bash "$RR_PROJECT/tools/with-heavy-lock.sh" \
   cmake --fresh -S "$TT_METAL_HOME" -B "$TT_METAL_HOME/build_Release" -G Ninja \
   -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=build_Release \
-  -DCMAKE_TOOLCHAIN_FILE="$TT_METAL_HOME/cmake/aarch64-linux-clang-20-libstdcpp-toolchain.cmake" \
+  -DCMAKE_TOOLCHAIN_FILE="$RR_PROJECT/cmake/user-prefix-toolchain.cmake" \
   -DBUILD_PROGRAMMING_EXAMPLES=ON -DWITH_PYTHON_BINDINGS=OFF \
   -DENABLE_DISTRIBUTED=OFF
 ```
