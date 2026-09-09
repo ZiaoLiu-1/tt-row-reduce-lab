@@ -2,11 +2,11 @@
 
 Updated: 2026-09-09 UTC (2026-09-08 Toronto).
 
-Goal is active. The goal tool created this task's unbudgeted goal on 2026-09-09: implement, verify custom-kernel ttsim C3 execution, document and deliver a private `ZiaoLiu-1/tt-row-reduce-lab` repository by 2026-09-09 evening Toronto.
+Delivery work is complete. The unbudgeted goal created on 2026-09-09 was to implement, verify custom-kernel ttsim C3 execution, document and deliver a private `ZiaoLiu-1/tt-row-reduce-lab` repository by 2026-09-09 evening Toronto. The implementation and evidence snapshot `9116247bf6a199e79137eb71028b86b2aaa74a10` was pushed and read back successfully before that deadline; this final state update changes no tested code.
 
 Current validation: C0 CPU contract, C1 real host link, custom C2 device JIT and C3 full simulator matrix verified. Profiling produced a header-only CSV, so no successful profiling claim is made. This directory initially contained only AGENTS.md. The root coordination task owns workspace status, evidence and learning records. No hardware is available; no silicon performance claim is possible.
 
-Execution: pin Metal `89e1256c982a5b4739d173bcc446c8c748a44b40` and ttsim `v1.10.6`; single-node BF16 row reduction and the 12-shape matrix are complete. The shared heavy-build lock has been released after execution. Final work is evidence review and private delivery. Private routing stays outside Git.
+Execution: pin Metal `89e1256c982a5b4739d173bcc446c8c748a44b40` and ttsim `v1.10.6`; single-node BF16 row reduction and the 12-shape matrix are complete. The shared heavy-build lock has been released after execution. Root coordination's independent numerical and 61-ELF cross-review passed with no blocking findings. Private routing stays outside Git.
 
 Authorship: project implementation is agent-assisted. Ziao's independent reconstruction and oral understanding are not yet assessed.
 
