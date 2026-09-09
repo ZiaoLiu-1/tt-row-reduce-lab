@@ -170,8 +170,10 @@ def decode_output_bits(encoded: object, rows: int, actual: list[float]) -> bool:
     return padding_zero
 
 
-def validate_result(result: dict, case: Case, index: int) -> dict:
+def validate_result(result: object, case: Case, index: int) -> dict:
     """Recompute the oracle and fixed budget from uploaded logical BF16 bytes."""
+    if not isinstance(result, dict):
+        raise ValueError("result record must be a JSON object")
     for field, expected in (("rows", case.rows), ("cols", case.cols), ("repeat_index", index)):
         if result.get(field) != expected:
             raise ValueError(f"{field} does not match requested execution")

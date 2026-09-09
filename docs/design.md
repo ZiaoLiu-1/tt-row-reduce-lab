@@ -4,8 +4,8 @@ For a logical `M×N` matrix, the project computes one sum per row on one Wormhol
 Tensix node. The C++ host uses the pinned Metal 2.0 `ProgramSpec`,
 `DataflowBufferSpec`, `KernelSpec`, `MakeProgramFromSpec` and `SetProgramRunArgs`
 interfaces throughout. Source adaptations and exact upstream references are in
-[source-notes.md](source-notes.md); current execution evidence is in
-[STATE.md](../STATE.md).
+[source-notes.md](source-notes.md); validation results are described in
+[validation.md](validation.md).
 
 ## Data and numerical contract
 
@@ -94,8 +94,7 @@ pop_front`, so storage cannot be reused before the write completes.
 
 The host owns mesh, tensors and workload until `Finish` and readback complete.
 Every invocation supplies the full runtime argument table. `Ht`, `Wt` and
-`NC` are compile-time specializations; this single-node implementation does
-not pretend runtime arguments can change them. For repeat testing, the same
+`NC` are compile-time specializations; changing them requires a new program specialization. For repeat testing, the same
 mesh, tensors and workload remain live while the next input changes. Before
 every launch the host poisons the entire output with NaNs; missing writes and
 stale results cannot pass an all-zero case accidentally.
@@ -104,7 +103,7 @@ stale results cannot pass an all-zero case accidentally.
 
 The CPU suite exercises all seven patterns across the 12 required shapes,
 layout round-trips and face boundaries, input rejection and deliberately
-incorrect results. These tests establish C0 only. The ttsim matrix runs these
+incorrect results. The ttsim matrix runs these
 12 logical shapes with recorded patterns and seeds:
 
 ```text
@@ -118,8 +117,8 @@ error semantics. Timeouts terminate the process group and retain logs and
 elapsed time. The runner checks the official simulator digest and Metal HEAD,
 captures binary/source hashes, and refuses to overwrite evidence. It
 regenerates every pattern, including the specified `std::mt19937` sequence,
-from the recorded seed. Raw BF16 bytes, actual/reference vectors and source
-identity make each result auditable.
+from the recorded seed. Each record includes the raw BF16 bytes, actual/reference vectors and source
+identity for later checks.
 
 | Stage | Required evidence |
 | --- | --- |
@@ -135,5 +134,5 @@ and excludes transfers. Both are simulator observations when using ttsim.
 Three coarse `DeviceZoneScopedN` scopes provide profiler hooks; Mesh profiler
 readback produces a CSV only if the execution environment supports it. The
 checker requires complete project zones and labels counters
-`simulator_instrumentation`. No result converts simulation into silicon
-latency, bandwidth, speedup or a tuning claim.
+`simulator_instrumentation`. These counters describe simulation and do not measure silicon
+latency, bandwidth or speedup.

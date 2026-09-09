@@ -1,6 +1,7 @@
 """Evidence-tool regression tests. Fixtures never count as simulator results."""
 
 import copy
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -153,6 +154,26 @@ class ProcessTests(unittest.TestCase):
         code = "\n".join("print(" + repr(runner.RESULT_PREFIX + json.dumps(r)) + ")"
                          for r in (first, second))
         self.assertEqual(self.run_fixture(code, case)["status"], "protocol-error")
+
+    def test_non_object_results_keep_protocol_error_and_log_hashes(self):
+        stderr = "fixture diagnostic\n"
+        for value in ([], None, "unexpected", 42, True):
+            with self.subTest(value=value):
+                stdout = runner.RESULT_PREFIX + json.dumps(value) + "\n"
+                code = ("import sys\n"
+                        f"sys.stdout.write({stdout!r})\n"
+                        f"sys.stderr.write({stderr!r})\n")
+                record = self.run_fixture(code)
+                self.assertEqual(record["status"], "protocol-error")
+                self.assertEqual(record["error"], "result record must be a JSON object")
+                self.assertEqual(record["exit_code"], 0)
+                self.assertEqual(record["executions"], [])
+                self.assertFalse(record["timed_out"])
+                self.assertGreater(record["wall_seconds"], 0)
+                self.assertEqual(record["log_sha256"], {
+                    "fixture.stdout.log": hashlib.sha256(stdout.encode()).hexdigest(),
+                    "fixture.stderr.log": hashlib.sha256(stderr.encode()).hexdigest(),
+                })
 
 
 class ProfilerTests(unittest.TestCase):

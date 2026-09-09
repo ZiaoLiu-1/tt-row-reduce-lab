@@ -1,10 +1,8 @@
 # Source notes and kernel reading guide
 
 All Metal API and kernel references below are pinned to Tenstorrent's
-`tt-metal` commit `89e1256c982a5b4739d173bcc446c8c748a44b40`. These are
-source-level checks; actual build, JIT and simulator outcomes belong in `STATE.md`
-and `results/`. A readable reference kernel is not evidence that this project's
-kernel executed.
+`tt-metal` commit `89e1256c982a5b4739d173bcc446c8c748a44b40`. Build, JIT and simulator results are described in
+[validation.md](validation.md).
 
 ## Attribution and scope
 
@@ -13,15 +11,11 @@ The Metal configuration in `src/metal_main.cpp` is a narrowed adaptation of
 The reader, compute and writer retain the essential algorithms and synchronization
 of the three official kernels below. Their original copyright and Apache-2.0
 notices remain in each derived file. The repository's `LICENSE` and `NOTICE`
-record redistribution terms. The project does not claim the upstream LLK,
-runtime, simulator, or reference kernel algorithm as original work.
-
+record redistribution terms.
 Project additions are the bounded shape/value contract, independent CPU oracle
 and layout index, cross-checks against upstream conversion, narrow CLI, complete
 output-padding checks, raw readback records, changed-input reuse, poisoned output
-buffers, source-bound runner and small named profiler scopes. Agent assistance
-and the separate personal-understanding gate are recorded in
-`docs/resume-evidence.md`.
+buffers, a runner that records source identity, and named profiler scopes.
 
 | Upstream file | Use here | SHA-256 of consulted bytes |
 | --- | --- | --- |
@@ -38,31 +32,9 @@ The compiler configuration also follows the pinned
 and profiler readback follows the pinned
 [Mesh slow-dispatch example](https://github.com/tenstorrent/tt-metal/blob/89e1256c982a5b4739d173bcc446c8c748a44b40/tt_metal/programming_examples/profiler/test_custom_cycle_count_slow_dispatch/test_custom_cycle_count_slow_dispatch.cpp).
 
-## Five code points to explain
-
-1. **`transfer_words` / 上传前的布局转换**：输入是 host 的零 padding
-   BF16 位模式；官方 `tilize_nfaces` 将其变成四个 16×16 face。
-   每个结果必须与独立 CPU 索引完全相同，再把相邻两个 BF16 合成
-   一个 UINT32 传输字。UINT32 TensorSpec 只描述原始传输页；DFB 的
-   数据格式仍明确为 BF16。
-2. **`make_program` / 三个角色的绑定**：一个 node 上有 reader、compute、
-   writer。input 与 output DFB 各容纳两 tile，scaler 容纳一 tile；
-   每个 DFB 只有一个 producer 和一个 consumer。`Ht`、`Wt`、`NC`
-   是编译期参数，改变 shape 要重新专门化 program，不能只改 runtime args。
-3. **`reader.cpp::kernel_main` / 数据什么时候有效**：先生成 scaler：
-   四个 face 的第一行填 1，其余清零。每个输入 tile 先 reserve、发起
-   NoC read、等待 barrier，最后 push；push 之后 compute 才能消费。
-4. **`compute.cpp::kernel_main` / 一行跨多个 tile**：Wormhole 的行 SUM
-   初始化前交换 scaler/data 格式配置。对一个 tile-row 的全部 `Wt`
-   输入复用 Dest slot 0；整行累加完成后才 pack 成 BF16。host 的
-   `enable_32_bit_dest=true` 与 `DST_ACCUM_MODE=1`、显式 `<..., true>`
-   同时存在。保留参考实现的 register 获取、等待、pack、commit、release
-   顺序与最后的 `reduce_uninit`。
-5. **`run` / 真正结果与重复执行**：writer 等输出、写 DRAM、等待完成后
-   pop。host `Finish` 后读取实际 DRAM，再 untilize 并取每行 column 0；
-   其余列和补齐的行必须为零。每轮上传新输入并将输出填为 NaN，下一轮
-   保留同一 mesh/tensor/workload，同时根据真实输入位选择不同输入。
-   JSON 保留输入位和完整输出 tile 位；Python runner 独立复核。
+The [Chinese code walkthrough](explain.md) follows these components through
+a 33×33 matrix. Buffer ordering and the numerical budget are covered in the
+[design](design.md).
 
 ## Profiler and numerical boundaries
 

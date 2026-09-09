@@ -1,145 +1,80 @@
 # TT Row Reduce Lab
 
-A small TT-Metalium row-sum learning project: C++ host orchestration, one Wormhole
-Tensix node, and reader/compute/writer kernels. Inputs and outputs are BF16;
-the host checks device readback against a reference computed from the quantized
-input bits. The scope is `1 ≤ M,N ≤ 128`, with explicit padding and tile layout.
+A C++20 program that sums each row of a BF16 matrix using TT-Metalium. A reader,
+compute kernel and writer move tiles through one Wormhole Tensix node; the host
+checks the output against a CPU reference computed from the uploaded BF16 values.
 
-**Verified in official ttsim: all 12 shapes and the two-execution reuse case
-passed—13 processes, 14 readbacks, 521 logical rows.** C0 CPU tests, C1 host
-build, custom C2 JIT and C3 numerical execution have separate evidence in
-[STATE.md](STATE.md) and [results/summary.json](results/summary.json).
-There is no Tenstorrent card and no
-hardware performance result. The commands below are the reproducible interface;
-only saved, source-bound results establish which steps have passed.
+The program handles matrices from 1×1 to 128×128, including dimensions that do
+not fill a tile. It has been tested in the official Tenstorrent simulator across
+12 shapes and a repeated run with different input. No hardware performance
+measurements are available.
 
-The tested host and kernel source is commit `81efb4fff0f7f2de48819529b83427f31b2714da`.
-Later commits retain evidence and improve tooling/documentation; the result
-manifests preserve the original compiled source and binary identity. The
-profiler-enabled smoke also computed correct results, but its CSV contained
-only a header and no events. Profiling is therefore **not verified** on this
-simulator; the raw attempt is retained in [results/profile/](results/profile/).
+## Try the CPU reference
 
-## Start with the CPU contract
-
-C++20 and CMake 3.24+ are sufficient for the CPU portion:
+The reference, layout checks and tests run without TT-Metal. They require a
+C++20 compiler, CMake 3.24 or later, and Python 3.10 or later for the tool tests.
 
 ```sh
 cmake -S . -B build_cpu -DROW_REDUCE_SANITIZERS=ON
 cmake --build build_cpu --parallel 1
 ctest --test-dir build_cpu --output-on-failure
-./build_cpu/row_reduce_cpu --rows 33 --cols 33 --pattern decimals --seed 109
-python3 -m unittest discover -s tests -p 'test_tools.py' -v
+./build_cpu/row_reduce_cpu --rows 33 --cols 33 --pattern ones --seed 109
 ```
 
-On a system without CMake, the contract tests also build directly:
+For this input, each of the 33 row sums is `33`. The CLI emits a JSON record
+labelled `C0/cpu_reference`; each `comparison.rows` entry contains the rounded
+reference as `actual`, used to exercise the comparator. To check quantization and the error budget, try
+`--pattern decimals` in the same command. Device readback comes from the
+separate Metal executable.
 
-```sh
-mkdir -p build_cpu
-clang++ -std=c++20 -O1 -g -Wall -Wextra -Wpedantic -Werror \
-  -fsanitize=address,undefined -fno-omit-frame-pointer -Iinclude \
-  tests/cpu_tests.cpp -o build_cpu/row_reduce_cpu_tests
-./build_cpu/row_reduce_cpu_tests
-```
+## How the reduction works
 
-The CPU CLI labels its output `C0/cpu_reference`. It does not load Metal or run a
-device kernel. Evidence-tool regression fixtures are also CPU tests.
+The host quantizes the input to BF16, pads the matrix with zeros and arranges it
+into 32×32 tiles. A 33×33 matrix occupies four input tiles. The reader loads
+those tiles through the NoC; the compute kernel sums across their width in
+FP32 and packs one BF16 output tile per tile-row. The writer stores the result
+in DRAM for the host to read back.
 
-## Build the Metal host on Linux
+Row sums sit in column zero of each output tile. The host checks those sums and
+every unused output position, so an incorrect layout or missing write cannot
+pass just because the visible vector looks right. The repeat case keeps the
+same device objects alive, changes the input, and checks the next result.
 
-Use the exact commits and release digests in [upstream.lock](upstream.lock).
-The pinned Metal tree requires Clang 20, working C++20 libstdc++ headers/runtime,
-CMake, Ninja and its native dependencies. On Ubuntu 22.04, the intended
-libstdc++ dependency is GCC 12; the compiler executable alone is insufficient.
-The small [integration tool](tools/integrate_metal.py) adds this target to the
-pinned upstream checkout while rejecting unrelated top-level CMake edits.
+See the [design](docs/design.md) for the tile layout, buffer ordering and numerical
+budget, or follow a [33×33 example in Chinese](docs/explain.md).
 
-The actual user-prefix bootstrap and compiler checks are documented in
-[docs/environment.md](docs/environment.md).
+## Run on the simulator
 
-With the checkout and toolchain ready:
-
-```sh
-export TT_METAL_HOME=/absolute/path/to/pinned/tt-metal
-python3 tools/fetch_simulator.py --metal "$TT_METAL_HOME" --output /absolute/path/to/simulator
-export TT_METAL_SIMULATOR=/absolute/path/to/simulator/libttsim_wh_aarch64.so
-export TT_METAL_SLOW_DISPATCH_MODE=1
-export TT_METAL_DISABLE_SFPLOADMACRO=1
-export TT_METAL_CACHE=/absolute/path/to/isolated/project-kernel-cache
-bash tools/configure_metal.sh
-```
-
-For Linux x86_64, select `libttsim_wh.so`. The fetch tool copies the pinned
-Wormhole descriptor next to the library and verifies its release SHA-256. The
-configure script selects the upstream ARM64 toolchain on `aarch64` and builds
-only `tt_row_reduce_metal`, with one build job by default. Shared environments
-must use [with-heavy-lock.sh](tools/with-heavy-lock.sh) for downloads and builds.
-The runner requires an absolute `TT_METAL_CACHE` and preserves that environment
-value, keeping JIT writes out of a shared default home cache.
-
-## Run and retain the evidence
-
-Commit the project source before capturing a result. Start with one 32×32 smoke
-and calibrate the timeout from its actual process time:
+The Metal host requires Linux and the versions pinned in [upstream.lock](upstream.lock).
+The tested environment is Ubuntu 22.04 ARM64 with Clang 20 and GCC 12 C++20
+headers/runtime. Follow the [environment setup](docs/environment.md), then the
+[build and run instructions](docs/running.md). With that environment active:
 
 ```sh
 python3 tools/run_matrix.py \
   --binary "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
   --case smoke --timeout 300 --output-dir results/rerun-smoke
-python3 tools/run_matrix.py \
-  --binary "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
-  --case all --timeout 120 --output-dir results/rerun-matrix
 ```
 
-`--case all` launches 13 processes serially: the 12 required shapes and one
-33×33 process that reuses its mesh, tensors and workload for two different
-inputs. It verifies all 14 outputs. A full successful matrix is the C3 gate.
-Use a fresh output directory for every attempt; existing evidence is never
-overwritten. `--list` shows the exact shapes, patterns and seeds without running.
+The runner saves raw output, numerical checks and source/binary hashes. Use a
+fresh output directory for each run. `--case all` runs the full matrix;
+`--list` prints the cases without launching anything.
 
-After C1, verify 14 invalid inputs are rejected before device creation:
+## Results and limits
 
-```sh
-python3 tools/run_rejections.py \
-  --binary "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
-  --output-dir results/c1-rejections-rerun --timeout 15
-```
+The [saved simulator run](results/summary.json) contains 14 readbacks covering
+521 logical rows. These results belong to source commit
+`81efb4fff0f7f2de48819529b83427f31b2714da`; later tool and documentation changes
+keep that identity intact. [Validation notes](docs/validation.md) describe the
+checks and show how to recheck the saved files locally.
 
-The rejection runner writes `rejections.jsonl`, its summary, input fixtures and
-raw logs. The simulator matrix runner writes `environment.json`, `simulator.jsonl`, `summary.json` and
-`raw/*.stdout.log` / `raw/*.stderr.log`. Records bind project source, binary,
-Metal commit, simulator release/asset SHA, input and output bytes, command,
-exit status and elapsed wall time. The checker independently regenerates the
-input, decodes the output tile layout and recomputes the numerical budget.
-Timeout, unsupported environment, crash, protocol error and numerical failure
-remain visible. A partial run cannot produce a complete-matrix C3 summary.
+The input range is deliberately small: after BF16 quantization, each value must
+be zero or have magnitude between `2^-8` and `1`. The implementation uses one
+node. It does not support multi-node reduction or other operators. A profiler
+attempt produced correct output but no event rows, so no kernel timings are
+reported. Simulator wall time is not a measurement of card performance.
 
-Profiler capture, once the simulator run works:
-
-```sh
-bash tools/profile.sh \
-  "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
-  results/rerun-profile 120
-```
-
-This requires a newly created CSV and complete reader/compute/writer scopes.
-Missing profiler output fails validation. Simulator wall time and raw profiler
-counters describe software simulation only; neither is silicon latency,
-bandwidth or speedup.
-
-The retained matrix used a 120 s per-process timeout after the actual cold
-32×32 smoke completed in 2.22 s. Timing includes startup, JIT/cache, simulation
-and teardown. The [host binary](results/binaries/tt_row_reduce_metal.aarch64.elf)
-and [JIT artifacts](results/jit/) are retained for identity checks; the host
-binary requires the recorded Linux ARM64 libraries and is not a standalone
-portable release.
-
-## Read the implementation
-
-- [Design and numerical contract](docs/design.md): layout, dataflow, ownership and validation.
-- [中文五段关键代码导读](docs/explain.md): a short 33×33 demonstration and explanation prompts.
-- [Pinned sources and attribution](docs/source-notes.md), [LICENSE](LICENSE), [NOTICE](NOTICE).
-- [Evidence and personal-understanding boundary](docs/resume-evidence.md).
-
-The project supports a single node. Multi-node reduction, other operators and
-silicon tuning are outside this version's implemented contract.
+The host setup and kernels adapt Tenstorrent's pinned reduction examples.
+[Source notes](docs/source-notes.md) identify those adaptations and project
+additions. Code is distributed under [Apache-2.0](LICENSE); third-party
+attribution is retained in [NOTICE](NOTICE) and the derived files.

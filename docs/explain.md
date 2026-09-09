@@ -35,8 +35,8 @@ sum。每个 tile 内还分成四个 16×16 face，所以“取连续 1024 个�
 
 1. **[`prepare_input`](../include/row_reduce/row_reduce.hpp)：上传之前。**
    输入是 shape 与 float 数组；输出包含逻辑 BF16 位、补零矩阵、tile
-   数据和每行 reference。关键决定是先检查 shape、长度与数值，再量化
-   并产生 reference；发生拒绝时设备还没有创建。阅读后能解释：为什么
+   数据和每行 reference。先检查 shape、长度与有限性，量化后再检查支持的
+   数值范围并产生 reference；发生拒绝时设备还没有创建。阅读后能解释：为什么
    `N=33` 的最后 31 个物理列不能含旧内存？
 
 2. **[`reader.cpp::kernel_main`](../kernels/reader.cpp)：把数据交给计算。**
@@ -79,11 +79,10 @@ node。`Ht/Wt/NC` 是编译期参数，不能只修改 runtime args 就假装改
 ```
 
 第一轮期望 33 个 `33`，第二轮自动换成零输入，期望 33 个零。展示实际
-`TT_ROW_REDUCE_RESULT` 的 actual/reference 与输入哈希。只改 `cols=32`，
+`TT_ROW_REDUCE_RESULT` 的 actual/reference 与 `quantized_bits_hex` 输入位模式。只改 `cols=32`，
 先预测 tile 数和结果，再运行。独立完成一次 decimals 输入的误差检查，
 最后用自己的话解释一次漏 tile 怎样被反例测试发现。
 
-只有真实 ttsim 运行通过才支持“在官方模拟器验证此行归约”。CPU 测试、
-host 链接或 JIT 各自说明不同阶段。模拟器耗时、timer 和 cycle counter
-不能表示真实卡速度。以上是准备理解的代码点；读过导读和工程测试
-通过都不自动表示个人已经独立掌握。
+CPU 测试检查 reference 与布局；host 链接、device JIT 和模拟器执行分别
+检查后续阶段。保存的结果与复查方式见[验证说明](validation.md)。模拟器
+耗时、timer 和 cycle counter 不能表示真实卡速度。
