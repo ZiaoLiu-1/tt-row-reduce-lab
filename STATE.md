@@ -21,3 +21,7 @@ Actual-build correction: inspecting CMake's detected implicit includes revealed 
 ## C0 result
 
 Apple Clang 17 compiled the CPU targets with C++20 strict warnings and ASan/UBSan. All 12 test groups passed (84 shape/pattern combinations, 255025 assertions); 12 CPU matrix records and 10 expected CLI rejections passed validation. Durable raw evidence is in `results/cpu/`. CPU matrix `actual` values are deliberately rounded oracle outputs used to exercise the comparator; they are not device outputs and contribute no C3 cases. Root coordination independently checked RNE, face coordinates, column-zero counterexamples and source hashes without a blocking finding.
+
+## Private repository checkpoint
+
+Created and read back `https://github.com/ZiaoLiu-1/tt-row-reduce-lab` with visibility `PRIVATE`, then pushed the initial source/C0 snapshot `aee2dea`. C1/C2/C3 remain pending; repository availability is not execution evidence. The next Metal build will embed its configure-time project commit; the runner also records actual source files and binary SHA-256.

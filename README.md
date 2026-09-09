@@ -45,6 +45,9 @@ libstdc++ dependency is GCC 12; the compiler executable alone is insufficient.
 The small [integration tool](tools/integrate_metal.py) adds this target to the
 pinned upstream checkout while rejecting unrelated top-level CMake edits.
 
+The actual user-prefix bootstrap and compiler checks are documented in
+[docs/environment.md](docs/environment.md).
+
 With the checkout and toolchain ready:
 
 ```sh
