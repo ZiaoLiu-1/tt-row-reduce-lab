@@ -31,8 +31,8 @@ source "$RR_PROJECT/tools/activate_linux_prefix.sh"
 The bootstrap reads the LLVM Jammy ARM64 package index, checks each archive's
 SHA-256, and extracts `.deb` files with `dpkg-deb -x`. Downloads use a `.part`
 file until verification succeeds. GCC 12 headers/runtime and native libraries
-such as hwloc, NUMA, TBB, and Capstone also stay in this prefix. The initially
-missing TBB auxiliary dependency was resolved there. The script checks for at
+such as hwloc, NUMA, TBB, and Capstone also stay in this prefix. An initially listed TBB auxiliary package was unavailable for this architecture
+and removed from the requested package list. The script checks for at
 least 3 GB free before this dependency stage; this is not a guarantee that the
 source checkout and build will fit. Inspect `df -h "$RR_ENV_ROOT"` between stages.
 
@@ -84,7 +84,10 @@ of `CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES` then exposed GCC 11 headers. The
 initial build was stopped and its log retained. The activation script now
 supplies `--gcc-toolchain=$RR_ENV_ROOT/prefix/usr` explicitly in both `CFLAGS`
 and `CXXFLAGS`, in addition to the wrapper. It supplies library search paths
-and runtime loader paths for the prefix as well.
+and runtime loader paths for the prefix as well. A later bundled UMD build
+exposed Ubuntu's separate ARM64 hwloc configuration headers; both compiler
+flag sets now also include `-isystem $RR_ENV_ROOT/prefix/usr/include/aarch64-linux-gnu`.
+The failing build log is retained.
 
 After correcting an already configured tree, refresh compiler detection; merely
 changing `PATH` leaves CMake's old include discovery cached:

@@ -25,3 +25,5 @@ Apple Clang 17 compiled the CPU targets with C++20 strict warnings and ASan/UBSa
 ## Private repository checkpoint
 
 Created and read back `https://github.com/ZiaoLiu-1/tt-row-reduce-lab` with visibility `PRIVATE`, then pushed the initial source/C0 snapshot `aee2dea`. C1/C2/C3 remain pending; repository availability is not execution evidence. The next Metal build will embed its configure-time project commit; the runner also records actual source files and binary SHA-256.
+
+Build dependency correction: bundled UMD compilation stopped at `hwloc/autogen/config.h` because Ubuntu's architecture-specific headers reside in the prefix's `usr/include/aarch64-linux-gnu`. Added that explicit system include directory to both compiler flag sets and regenerated/rebuilt the same narrow target. The prior failing log is preserved. No upstream source or system installation was changed to work around the error.

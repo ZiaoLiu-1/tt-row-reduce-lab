@@ -88,6 +88,14 @@ inputs. It verifies all 14 outputs. A full successful matrix is the C3 gate.
 Use a fresh output directory for every attempt; existing evidence is never
 overwritten. `--list` shows the exact shapes, patterns and seeds without running.
 
+After C1, verify 14 invalid inputs are rejected before device creation:
+
+```sh
+python3 tools/run_rejections.py \
+  --binary "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
+  --output-dir results/c1-rejections --timeout 15
+```
+
 The runner writes `environment.json`, `simulator.jsonl`, `summary.json` and
 `raw/*.stdout.log` / `raw/*.stderr.log`. Records bind project source, binary,
 Metal commit, simulator release/asset SHA, input and output bytes, command,

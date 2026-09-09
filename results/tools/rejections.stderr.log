@@ -1,0 +1,11 @@
+test_accidental_initialized_device_is_not_accepted (test_rejections.RejectionEvidenceTests.test_accidental_initialized_device_is_not_accepted) ... ok
+test_exit_code_alone_and_result_lines_cannot_pass (test_rejections.RejectionEvidenceTests.test_exit_code_alone_and_result_lines_cannot_pass) ... ok
+test_malformed_duplicate_and_runtime_error_rejected (test_rejections.RejectionEvidenceTests.test_malformed_duplicate_and_runtime_error_rejected) ... ok
+test_pre_device_structured_rejection_passes (test_rejections.RejectionEvidenceTests.test_pre_device_structured_rejection_passes) ... ok
+test_required_rejections_cover_contract (test_rejections.RejectionEvidenceTests.test_required_rejections_cover_contract) ... ok
+test_serial_subprocess_captures_raw_logs_and_input_fixture (test_rejections.RejectionEvidenceTests.test_serial_subprocess_captures_raw_logs_and_input_fixture) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.297s
+
+OK
