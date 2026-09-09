@@ -1,0 +1,131 @@
+{
+  "captured_at_utc": "2026-09-09T02:16:55.592326+00:00",
+  "meaning": "Actual compiled ELF identity only; inspect simulator results separately for correctness.",
+  "artifacts": [
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/brisc/brisc.elf",
+      "sha256": "17d5f4b13cd3a72f7ceb8a60a0bc1255b0b689fe13ad06ef5f26805c6cce4a90",
+      "size_bytes": 121932
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/brisc/brisc_weakened.elf",
+      "sha256": "538120737292b74aa78b340dd28618d865e1ab318ac202d085695f8ef0092876",
+      "size_bytes": 121932
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/erisc/erisc.elf",
+      "sha256": "3f95ef172a9cf1055c669789c5a82045655927feaff75117a50d8c89e0a2df01",
+      "size_bytes": 77368
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/erisc/erisc_weakened.elf",
+      "sha256": "c1afc38af7ec644b9468590d117c38b3e30e14b72453b7a4efded03c65745a78",
+      "size_bytes": 77368
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/idle_erisc/idle_erisc.elf",
+      "sha256": "b4fc1e95858c7e2bb76cb8b39165b05ee301aa4a1166afcc4ce36d77c7ad8bd5",
+      "size_bytes": 69480
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/idle_erisc/idle_erisc_weakened.elf",
+      "sha256": "f1e843e6246ad979408312e1f7f7b7f9834018b35cfe16a4c79a97338ce90f00",
+      "size_bytes": 69480
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/ncrisc/ncrisc.elf",
+      "sha256": "bac82ca07db6a4a86a80b6302d8a7b5b08941190a97bda12ee339c2b3633cc4e",
+      "size_bytes": 56164
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/ncrisc/ncrisc_weakened.elf",
+      "sha256": "79a97247b1864ed84438e7f8039752187f9a063b6c457bfc363161b1a6f5393d",
+      "size_bytes": 56164
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/trisc0/trisc0.elf",
+      "sha256": "00c5cb36717370dc4e41166a39223efa3acb10ebd706426f771dce08c681ba26",
+      "size_bytes": 49428
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/trisc0/trisc0_weakened.elf",
+      "sha256": "194acf66c6cf28fd2b88d285b4c061e15f4ee62e2367456097490d9359cc7484",
+      "size_bytes": 49428
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/trisc1/trisc1.elf",
+      "sha256": "c6ae063a422c17d338caef613b29566eb2020acf9d5d6eaa885c3c5c3264755f",
+      "size_bytes": 42372
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/trisc1/trisc1_weakened.elf",
+      "sha256": "398cc3f457066e246c4da4d075b6baaf159af97b9e507d5151ee64d59a54e969",
+      "size_bytes": 42372
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/trisc2/trisc2.elf",
+      "sha256": "62934cc238198ebb65226d3538183cb98088433b4e4bc52efd1c71f8d26c7fd7",
+      "size_bytes": 48952
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/firmware/trisc2/trisc2_weakened.elf",
+      "sha256": "6284605b557f7cc308c6775c0dc570e003d327ba36f4de18d3e08bd693aa5b43",
+      "size_bytes": 48952
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/compute/4834325930842625953/trisc0/trisc0.elf",
+      "sha256": "d6aff42c90d6991b2508d1e5dc05aed73b76d0fcd368a1a91f1f3ed87aecf07c",
+      "size_bytes": 272128
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/compute/4834325930842625953/trisc0/trisc0.elf.xip.elf",
+      "sha256": "7221dedf9652dcd47277cfc8067b1229069af87e1076e97c98a67e261d878ac3",
+      "size_bytes": 272128
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/compute/4834325930842625953/trisc1/trisc1.elf",
+      "sha256": "ac70020e16f85ab17293d92e8ad5611e6bccc5fc6992dc331b5673683d1e1a64",
+      "size_bytes": 272652
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/compute/4834325930842625953/trisc1/trisc1.elf.xip.elf",
+      "sha256": "5b31c90cbd90d57d11f19f9ae91e53add0f18dbc9a7fe0ef3226573ae56af89c",
+      "size_bytes": 272652
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/compute/4834325930842625953/trisc2/trisc2.elf",
+      "sha256": "744d6f4cac318f5945c44b175381f19a4bb78c3bebe154a344a177e2f2bbb8c3",
+      "size_bytes": 285612
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/compute/4834325930842625953/trisc2/trisc2.elf.xip.elf",
+      "sha256": "5acc3dd477f24e127bfc7faea848e95965bfd7d442c79d5ac7df9641a4035379",
+      "size_bytes": 285612
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/reader/17290799066489602759/ncrisc/ncrisc.elf",
+      "sha256": "8cd7ac6301324379792b4d4fd2d5466de0e702e2523975236316188a50fad6eb",
+      "size_bytes": 197556
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/reader_writer_add_in_riscv/1974622926934165797/brisc/brisc.elf",
+      "sha256": "077323182952aa49f60a1fdebe8ae60d348e9c67e41de959b49d582469bb3182",
+      "size_bytes": 156044
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/reader_writer_add_in_riscv/1974622926934165797/brisc/brisc.elf.xip.elf",
+      "sha256": "8517efd78cac30a23b9e5fb72e26bbdfb25a2fa9352a2830104763eef4bc5350",
+      "size_bytes": 156044
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/writer/14975132015012567546/brisc/brisc.elf",
+      "sha256": "a9876474a606aaf13065b8585bba6a616e264f2d4c8a7ef8a63062e1eae4b2b7",
+      "size_bytes": 189568
+    },
+    {
+      "path_relative_to_cache": "tt-metal-cache9821551207775251064/kernels/writer/14975132015012567546/brisc/brisc.elf.xip.elf",
+      "sha256": "271f0ebc278d7c7d973c92bca3088d72df64faee2d34d71b33d23423f07e4560",
+      "size_bytes": 189568
+    }
+  ]
+}

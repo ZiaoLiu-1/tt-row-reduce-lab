@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "artifact_audit": "independent_exact_rational_bf16",
+  "processes": 13,
+  "executions": 14,
+  "rows_checked": 521,
+  "raw_logs_hashed": 26,
+  "source_files_hash_verified": 27,
+  "recorded_source_commit": "81efb4fff0f7f2de48819529b83427f31b2714da",
+  "compiled_source_commit": "81efb4fff0f7f2de48819529b83427f31b2714da",
+  "binary_sha256": "e9b87650d2a51fa1f694b1e09b5b0bb5d9a3837bc3e1da2e26773d8cbcb5d5b8",
+  "actual_binary_bytes_checked": true,
+  "limitations": [
+    "Audit validates retained artifacts; it does not independently observe simulator execution.",
+    "Random-case mathematics is checked from raw BF16 inputs; MT19937 seed-to-byte generation is not regenerated.",
+    "Raw input DRAM/tiled upload bytes are not retained, so input padding/upload layout is only host-attested.",
+    "Simulator and descriptor digests are checked for consistency; their original binaries are not reopened.",
+    "Compiled commit is an embedded label; binary-to-source provenance is not independently rebuilt."
+  ]
+}

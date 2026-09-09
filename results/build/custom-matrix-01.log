@@ -1,0 +1,16 @@
+m1_n1_zero: pass (0.16416576132178307 process-wall seconds)
+m1_n31_one_hot: pass (0.1648907270282507 process-wall seconds)
+m1_n32_ones: pass (0.16431240364909172 process-wall seconds)
+m1_n33_decimals: pass (2.168286671862006 process-wall seconds)
+m31_n31_cancellation: pass (0.16442956402897835 process-wall seconds)
+m32_n32_small_integers: pass (0.16435920260846615 process-wall seconds)
+m32_n33_ones: pass (0.16432612389326096 process-wall seconds)
+m33_n32_one_hot: pass (2.169175995513797 process-wall seconds)
+m33_n33_small_integers: pass (2.27591685205698 process-wall seconds)
+m65_n97_random: pass (2.2199923526495695 process-wall seconds)
+m97_n65_decimals: pass (2.2205670773983 process-wall seconds)
+m128_n128_random: pass (2.219699112698436 process-wall seconds)
+m33_n33_repeat: pass (0.21491548046469688 process-wall seconds)
+Recorded 61 real ELF hashes.
+Profiler capture exit status: 1
+Recorded 84 real ELF hashes.

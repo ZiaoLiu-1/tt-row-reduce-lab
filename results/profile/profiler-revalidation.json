@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "status": "fail",
+  "hardware": "none",
+  "measurement_kind": "simulator_instrumentation",
+  "error": "profiler CSV has no event rows"
+}

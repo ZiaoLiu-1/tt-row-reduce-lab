@@ -1,0 +1,8 @@
+{
+  "checker_sha256": "8b63732d9935412bf02397bf753476c87c0b50f398640b887d95e79c32504b04",
+  "result_sha256": "602fe9b995aa06260d5cefe61529ee62fd0bc1d6af754415caffc0caab535bd8",
+  "command": "python3 .local/verify_c3.py results --source-root \"$PWD\" --binary results/binaries/tt_row_reduce_metal.aarch64.elf",
+  "exit_code": 0,
+  "checker_copy": "results/audit/verify_c3.py is byte-identical to the independently executed .local/verify_c3.py",
+  "scope": "read-only audit of retained artifacts, not a second simulator execution"
+}

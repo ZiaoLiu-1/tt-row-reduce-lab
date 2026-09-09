@@ -56,6 +56,24 @@
       "sha256": "40ef33bcb5a46734af05c606c096a947b82b706afb0b576e845595af3b21f159",
       "exit_code": 0,
       "outcome": "official simulator smoke returned21; not project C3"
+    },
+    {
+      "file": "results/build/custom-smoke-01.log",
+      "sha256": "6d0178457d7b27967ed7f169b8ba12d133e46910c2d916435277c80e8a70b481",
+      "exit_code": 0,
+      "outcome": "custom 32x32 ttsim smoke passed; real ELF artifacts retained"
+    },
+    {
+      "file": "results/build/custom-matrix-01.log",
+      "sha256": "5fa4b72b38bb8a403b47216052e4a3bbdf6e3a4c8f2f3ba23efc3927dcbd96ce",
+      "exit_code": 0,
+      "outcome": "all 13 processes and 14 readbacks passed; profiler subcommand exit 1 retained separately"
+    },
+    {
+      "file": "results/build/custom-profile-01.log",
+      "sha256": "4da7af5aa61a71ea1175da7277844a421e8f59678fddbd1f4b4928f802807ed7",
+      "exit_code": 1,
+      "outcome": "numerical smoke passed; original profiler checker rejected header; actual CSV has no events"
     }
   ]
 }

@@ -5,11 +5,20 @@ Tensix node, and reader/compute/writer kernels. Inputs and outputs are BF16;
 the host checks device readback against a reference computed from the quantized
 input bits. The scope is `1 ≤ M,N ≤ 128`, with explicit padding and tile layout.
 
-**Current evidence: C0 CPU tests, C1 host build and 14 pre-device rejection
-cases passed. The official simulator smoke passed; custom-kernel C3 remains pending.** Building the host, JIT compilation and simulator execution are
-separate milestones in [STATE.md](STATE.md). There is no Tenstorrent card and no
+**Verified in official ttsim: all 12 shapes and the two-execution reuse case
+passed—13 processes, 14 readbacks, 521 logical rows.** C0 CPU tests, C1 host
+build, custom C2 JIT and C3 numerical execution have separate evidence in
+[STATE.md](STATE.md) and [results/summary.json](results/summary.json).
+There is no Tenstorrent card and no
 hardware performance result. The commands below are the reproducible interface;
 only saved, source-bound results establish which steps have passed.
+
+The tested host and kernel source is commit `81efb4fff0f7f2de48819529b83427f31b2714da`.
+Later commits retain evidence and improve tooling/documentation; the result
+manifests preserve the original compiled source and binary identity. The
+profiler-enabled smoke also computed correct results, but its CSV contained
+only a header and no events. Profiling is therefore **not verified** on this
+simulator; the raw attempt is retained in [results/profile/](results/profile/).
 
 ## Start with the CPU contract
 
@@ -76,10 +85,10 @@ and calibrate the timeout from its actual process time:
 ```sh
 python3 tools/run_matrix.py \
   --binary "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
-  --case smoke --timeout 300 --output-dir results/smoke
+  --case smoke --timeout 300 --output-dir results/rerun-smoke
 python3 tools/run_matrix.py \
   --binary "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
-  --case all --timeout 300 --output-dir results
+  --case all --timeout 120 --output-dir results/rerun-matrix
 ```
 
 `--case all` launches 13 processes serially: the 12 required shapes and one
@@ -110,13 +119,20 @@ Profiler capture, once the simulator run works:
 ```sh
 bash tools/profile.sh \
   "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
-  results/profile 300
+  results/rerun-profile 120
 ```
 
 This requires a newly created CSV and complete reader/compute/writer scopes.
 Missing profiler output fails validation. Simulator wall time and raw profiler
 counters describe software simulation only; neither is silicon latency,
 bandwidth or speedup.
+
+The retained matrix used a 120 s per-process timeout after the actual cold
+32×32 smoke completed in 2.22 s. Timing includes startup, JIT/cache, simulation
+and teardown. The [host binary](results/binaries/tt_row_reduce_metal.aarch64.elf)
+and [JIT artifacts](results/jit/) are retained for identity checks; the host
+binary requires the recorded Linux ARM64 libraries and is not a standalone
+portable release.
 
 ## Read the implementation
 

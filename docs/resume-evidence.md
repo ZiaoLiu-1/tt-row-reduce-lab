@@ -22,11 +22,17 @@ file does not update the workspace's canonical resume evidence or mastery.
 - C1 host link passed; the real binary rejected all 14 invalid-input cases
   before device creation (`results/c1-rejections/`). Remote CTest passed 3/3.
   Official simulator smoke passed, as recorded in `results/build/`.
-- Custom C2 device JIT and C3 full custom-kernel ttsim execution remain pending. Prepared source, schemas, scripts and upstream smoke cannot satisfy
-  those gates. No Tenstorrent silicon is available; C4 is outside this delivery.
+- Custom C2 device JIT and C3 full custom-kernel ttsim execution passed: 12
+  required shapes plus same-process different-input reuse, 13 processes and
+  14 readbacks covering 521 logical output rows. Raw BF16 values, numerical
+  checks, padding and source/binary identity are retained in
+  [results/summary.json](../results/summary.json) and its adjacent raw logs.
+- The profiler-enabled smoke was numerically correct but returned a header-only
+  CSV. Profiling capture is not verified. No Tenstorrent silicon is available;
+  C4 is outside this delivery.
 
-The exact latest state, final source commit, private repository URL and durable
-result paths must be recorded in [STATE.md](../STATE.md) after actual execution.
+The exact state, tested source commit, private repository URL and durable
+result paths are recorded in [STATE.md](../STATE.md) after actual execution.
 No result count in this ledger should be promoted without its matching raw log
 and source identity. Failed attempts remain evidence of a limitation, not a pass.
 
@@ -39,7 +45,7 @@ actually used. The simulator matrix command is:
 ```sh
 python3 tools/run_matrix.py \
   --binary "$TT_METAL_HOME/build_Release/row-reduce-lab/tt_row_reduce_metal" \
-  --case all --timeout 300 --output-dir results
+  --case all --timeout 120 --output-dir results/rerun-matrix
 ```
 
 The runner binds source commit plus file digest manifest, executable SHA-256,
@@ -52,16 +58,11 @@ two-execution repeat process. Environment setup/toolchain capture belongs in
 
 ## Conservative wording candidates
 
-**At C0, subject to coordination review:** “Developed a BF16 row-reduction
-reference and validation harness with tiled-layout, padding and numerical
-contract tests.” A mention of Metal host/kernel source must clearly state its
-unverified execution stage.
-
-**Only after C3 is actually recorded:** “Built a small TT-Metalium learning
+**Now supported at project level, subject to personal-ownership review:** “Built a small TT-Metalium learning
 project for row-wise reduction, using C++ host orchestration and
 reader/compute/writer kernels; checked results in the official Tenstorrent
-simulator against a quantized CPU reference.” Insert counts only from the
-final retained matrix. Personal ownership and ability to explain the selected
+simulator against a quantized CPU reference across 12 shapes and a repeated
+execution case.” Personal ownership and ability to explain the selected
 code points require a separate review.
 
 Neither wording supports independent authorship of all low-level code,

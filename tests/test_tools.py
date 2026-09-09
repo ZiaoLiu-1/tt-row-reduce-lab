@@ -156,13 +156,16 @@ class ProcessTests(unittest.TestCase):
 
 
 class ProfilerTests(unittest.TestCase):
+    # Exact header observed in the real project CSV and verified against the
+    # pinned writeCSVHeader function. Event rows below are synthetic fixtures.
+    HEADER = "PCIe slot, core_x, core_y, RISC processor type, timer_id, time[cycles since reset], data, run host ID, trace id, trace id counter, zone name, type, source line, source file, meta data"
+
     @staticmethod
     def csv_text():
-        header = "PCIe slot,core_x,core_y,RISC processor type,timer_id,time[cycles since reset],stat value,Run ID,zone name,zone phase,source line,source file"
-        rows = ["ARCH: wormhole_b0, CHIP_FREQ[MHz]: 1000", header]
+        rows = ["ARCH: wormhole_b0, CHIP_FREQ[MHz]: 0, Max Compute Cores: 80", ProfilerTests.HEADER]
         for index, zone in enumerate(profiler.DEFAULT_ZONES):
-            rows.extend([f"0,1,1,BRISC,12,{100 + index},0,0,{zone},begin,10,kernel.cpp",
-                         f"0,1,1,BRISC,13,{200 + index},0,0,{zone},end,10,kernel.cpp"])
+            rows.extend([f"0,1,1,BRISC,12,{100 + index},0,0,,,{zone},ZONE_START,10,kernel.cpp,",
+                         f"0,1,1,BRISC,13,{200 + index},0,0,,,{zone},ZONE_END,10,kernel.cpp,"])
         return "\n".join(rows) + "\n"
 
     def check(self, text):
@@ -176,12 +179,40 @@ class ProfilerTests(unittest.TestCase):
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["measurement_kind"], "simulator_instrumentation")
         self.assertEqual(len(result["intervals"]), 3)
+        self.assertEqual(result["intervals"][0]["run_host_id"], 0)
+        self.assertIsNone(result["intervals"][0]["trace_id"])
+        self.assertIsNone(result["intervals"][0]["trace_id_counter"])
+
+    def test_exact_actual_header_without_events_fails(self):
+        text = "ARCH: wormhole_b0, CHIP_FREQ[MHz]: 0, Max Compute Cores: 80\n" + self.HEADER + "\n"
+        with self.assertRaisesRegex(ValueError, "no event rows"):
+            self.check(text)
+
+    def test_trace_identity_preserved_and_not_cross_paired(self):
+        text = self.csv_text().replace(",0,0,,,", ",0,7,9,2,")
+        result = self.check(text)
+        interval = result["intervals"][0]
+        self.assertEqual((interval["run_host_id"], interval["trace_id"], interval["trace_id_counter"]), (7, 9, 2))
+        for unmatched in (text.replace(",0,7,9,2,row_reduce_reader,ZONE_END", ",0,8,9,2,row_reduce_reader,ZONE_END"),
+                          text.replace(",0,7,9,2,row_reduce_reader,ZONE_END", ",0,7,10,2,row_reduce_reader,ZONE_END"),
+                          text.replace(",0,7,9,2,row_reduce_reader,ZONE_END", ",0,7,9,3,row_reduce_reader,ZONE_END")):
+            with self.subTest(unmatched=unmatched), self.assertRaisesRegex(ValueError, "end without a matching begin"):
+                self.check(unmatched)
+
+    def test_old_documentation_fields_and_phase_values_rejected(self):
+        for old_schema in (self.csv_text().replace("run host ID", "Run ID"),
+                           self.csv_text().replace(", type,", ", zone phase,"),
+                           self.csv_text().replace(", data,", ", stat value,"),
+                           self.csv_text().replace("ZONE_START", "begin"),
+                           self.csv_text().replace("ZONE_END", "end")):
+            with self.subTest(old_schema=old_schema), self.assertRaises(ValueError):
+                self.check(old_schema)
 
     def test_missing_empty_and_incomplete_fail(self):
         with self.assertRaises(ValueError):
             profiler.validate_csv(Path("/nonexistent-fixture.csv"))
         for text in ("", self.csv_text().replace("row_reduce_compute", "unrelated"),
-                     self.csv_text().replace(",end,", ",begin,"),
+                     self.csv_text().replace(",ZONE_END,", ",ZONE_START,"),
                      self.csv_text().replace(",200,", ",50,"),
                      self.csv_text().replace(",100,", ",NaN,"),
                      self.csv_text().replace("time[cycles since reset]", "seconds")):

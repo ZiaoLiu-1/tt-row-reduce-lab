@@ -1,0 +1,8 @@
+m32_n32_small_integers: pass (4.129977187141776 process-wall seconds)
+{
+  "schema_version": 1,
+  "status": "fail",
+  "hardware": "none",
+  "measurement_kind": "simulator_instrumentation",
+  "error": "profiler header does not match the pinned Metal CSV fields"
+}

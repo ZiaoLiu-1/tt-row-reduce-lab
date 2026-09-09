@@ -4,9 +4,9 @@ Updated: 2026-09-09 UTC (2026-09-08 Toronto).
 
 Goal is active. The goal tool created this task's unbudgeted goal on 2026-09-09: implement, verify custom-kernel ttsim C3 execution, document and deliver a private `ZiaoLiu-1/tt-row-reduce-lab` repository by 2026-09-09 evening Toronto.
 
-Current validation: C0 CPU contract and C1 real host link verified; custom C2 device JIT and C3 simulator matrix pending. This directory initially contained only AGENTS.md. The root coordination task owns workspace status, evidence and learning records. No hardware is available; no silicon performance claim is possible.
+Current validation: C0 CPU contract, C1 real host link, custom C2 device JIT and C3 full simulator matrix verified. Profiling produced a header-only CSV, so no successful profiling claim is made. This directory initially contained only AGENTS.md. The root coordination task owns workspace status, evidence and learning records. No hardware is available; no silicon performance claim is possible.
 
-Execution: pin Metal `89e1256c982a5b4739d173bcc446c8c748a44b40` and ttsim `v1.10.6`; complete single-node BF16 row reduction and the 12-shape matrix. The environment and host are built. Custom-kernel execution follows Runtime's current shared-lock stage. The task coordinates the full-Metal environment and must use the shared heavy-build lock. Private routing stays outside Git.
+Execution: pin Metal `89e1256c982a5b4739d173bcc446c8c748a44b40` and ttsim `v1.10.6`; single-node BF16 row reduction and the 12-shape matrix are complete. The shared heavy-build lock has been released after execution. Final work is evidence review and private delivery. Private routing stays outside Git.
 
 Authorship: project implementation is agent-assisted. Ziao's independent reconstruction and oral understanding are not yet assessed.
 
@@ -37,3 +37,15 @@ The real `tt_row_reduce_metal` host and official smoke target compiled and linke
 Official `add_2_integers_in_riscv` returned 21 and exit 0 on the hash-verified pinned ttsim asset. This proves the environment works, not that this project kernel runs. Its 2.37 s process wall time includes software/JIT overhead and is not a silicon metric. All nine setup/build/smoke logs, including failed attempts, are retained verbatim in `results/build/`; `environment.json` captures the actual toolchain and simulator identity. The initial priority heavy-build phase ended and Runtime was notified to use the next shared-lock opportunity.
 
 During the build, the same remote filesystem changed from 45 GiB total to 146 GiB total, with about 106 GiB free. This task did not perform the resize. GitHub Actions has been explicitly disabled and read back as `enabled=false`; Actions run count was 0. Validation is local/authorized remote execution only.
+
+## Custom C3 result (2026-09-09 02:17 UTC)
+
+All 12 required shapes and the 33×33 same-process, different-input repeat passed: 13 serial processes, 14 readbacks, 521 logical output rows. The saved matrix summary declares `matrix_complete=true`, `validation_stage=C3` and `sources_and_binary_unchanged=true`. Numerical tolerances were not widened. All output-column and padded-row checks passed. `results/summary.json`, `results/simulator.jsonl`, `results/environment.json` and `results/raw/` retain the complete result and raw logs.
+
+The compiled source and executed checkout were both `81efb4fff0f7f2de48819529b83427f31b2714da`; host binary SHA-256 is `e9b87650d2a51fa1f694b1e09b5b0bb5d9a3837bc3e1da2e26773d8cbcb5d5b8`. `source_dirty=true` reflects captured evidence files; all 27 source-manifest files match that retained Git commit. Later tooling/documentation commits do not rewrite this identity. The retained host binary and actual JIT ELF bytes were copied back and matched against the recorded hashes.
+
+The initial custom smoke took 2.2245 s process wall time; the complete matrix used a 120 s per-process timeout and totaled 14.4750 s. These are software execution observations, not silicon performance. The JIT cache contained 61 ELF artifacts after the matrix and 84 after the profiler attempt, including firmware, the official smoke and XIP forms—not counts of unique project kernels.
+
+An independent standard-library Python audit used exact rational arithmetic to recompute BF16 row sums, error budgets, face decoding and padding. It passed all 521 rows, all 26 raw-log hashes, all 27 source hashes and the retained host binary SHA. It audits saved artifacts and does not constitute a second independent execution or rebuild.
+
+The profiler-enabled custom smoke returned correct numerical output. Its actual CSV had only metadata and the pinned 15-column header, with no event rows. The original checker rejected an outdated header expectation; that failure is retained. The parser now matches the observed pinned writer, including `ZONE_START`/`ZONE_END` and optional trace identifiers; all 16 evidence-tool regression tests passed. Revalidation of the same original CSV correctly fails with `profiler CSV has no event rows` in `results/profile/profiler-revalidation.json`. No reader/compute/writer interval or silicon metric is claimed.

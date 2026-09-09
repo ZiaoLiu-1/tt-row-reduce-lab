@@ -12,9 +12,13 @@ from pathlib import Path
 import sys
 
 DEFAULT_ZONES = ("row_reduce_reader", "row_reduce_compute", "row_reduce_writer")
-REQUIRED_COLUMNS = ("core_x", "core_y", "risc processor type", "timer_id",
-                    "time[cycles since reset]", "stat value", "run id", "zone name",
-                    "zone phase", "source line", "source file")
+# Schema and enum names come from the pinned writer, not the older RST example:
+# tt-metal/89e1256c982a5b4739d173bcc446c8c748a44b40/
+# tt_metal/impl/profiler/profiler.cpp:1243-1310 and :335-344.
+# Consulted source SHA-256: 0ec310b0068a301aa99b6e3aeb54c4811b5def08eaea60c370bd4109dd48be3b
+CSV_COLUMNS = ("pcie slot", "core_x", "core_y", "risc processor type", "timer_id",
+               "time[cycles since reset]", "data", "run host id", "trace id",
+               "trace id counter", "zone name", "type", "source line", "source file", "meta data")
 
 
 def validate_csv(path: Path, expected_zones: tuple[str, ...] = DEFAULT_ZONES) -> dict:
@@ -30,20 +34,21 @@ def validate_csv(path: Path, expected_zones: tuple[str, ...] = DEFAULT_ZONES) ->
                 if "zone name" not in normalized:
                     metadata.append(",".join(row).strip())
                     continue
-                if any(name not in normalized for name in REQUIRED_COLUMNS):
-                    raise ValueError("profiler header does not match the pinned Metal CSV fields")
                 if len(set(normalized)) != len(normalized):
                     raise ValueError("duplicate profiler header fields")
-                if normalized[0] not in {"pcie slot", "chip id", "device id"}:
-                    raise ValueError("unknown profiler device-id column")
+                if tuple(normalized) != CSV_COLUMNS:
+                    raise ValueError("profiler header does not match the pinned Metal CSV fields")
                 header = normalized
                 continue
             if len(row) != len(header):
                 raise ValueError(f"CSV line {line_number} has {len(row)} columns, expected {len(header)}")
             event = dict(zip(header, (cell.strip() for cell in row)))
-            event["device"] = event[header[0]]
-            for name in (header[0], "core_x", "core_y", "timer_id", "time[cycles since reset]",
-                         "stat value", "run id", "source line"):
+            for name in ("pcie slot", "core_x", "core_y", "timer_id", "time[cycles since reset]",
+                         "data", "run host id", "trace id", "trace id counter", "source line"):
+                # The pinned writer uses empty strings for absent trace identity.
+                if name in {"trace id", "trace id counter"} and not event[name]:
+                    event[name] = None
+                    continue
                 try:
                     numeric = int(event[name])
                 except ValueError as error:
@@ -51,11 +56,14 @@ def validate_csv(path: Path, expected_zones: tuple[str, ...] = DEFAULT_ZONES) ->
                 if numeric < 0:
                     raise ValueError(f"CSV line {line_number}: negative {name}")
                 event[name] = numeric
+            event["device"] = event["pcie slot"]
             if not event["risc processor type"] or not event["source file"]:
                 raise ValueError(f"CSV line {line_number}: empty processor/source field")
             events.append(event)
-    if header is None or not events:
-        raise ValueError("profiler CSV has no header or no event rows")
+    if header is None:
+        raise ValueError("profiler CSV has no header")
+    if not events:
+        raise ValueError("profiler CSV has no event rows")
     opened: dict[tuple, list[int]] = defaultdict(list)
     counts: Counter = Counter()
     intervals = []
@@ -64,12 +72,13 @@ def validate_csv(path: Path, expected_zones: tuple[str, ...] = DEFAULT_ZONES) ->
         if zone not in expected_zones:
             continue
         key = (event["device"], event["core_x"], event["core_y"], event["risc processor type"],
-               event["run id"], zone, event["source file"], event["source line"])
-        phase = event["zone phase"].lower()
+               event["run host id"], event["trace id"], event["trace id counter"],
+               zone, event["source file"], event["source line"])
+        phase = event["type"]
         cycle = event["time[cycles since reset]"]
-        if phase == "begin":
+        if phase == "ZONE_START":
             opened[key].append(cycle)
-        elif phase == "end":
+        elif phase == "ZONE_END":
             if not opened[key]:
                 raise ValueError(f"zone {zone}: end without a matching begin")
             begin = opened[key].pop()
@@ -78,7 +87,8 @@ def validate_csv(path: Path, expected_zones: tuple[str, ...] = DEFAULT_ZONES) ->
             counts[zone] += 1
             intervals.append({"zone": zone, "device": event["device"], "core_x": event["core_x"],
                               "core_y": event["core_y"], "processor": event["risc processor type"],
-                              "run_id": event["run id"], "begin_raw_counter": begin,
+                              "run_host_id": event["run host id"], "trace_id": event["trace id"],
+                              "trace_id_counter": event["trace id counter"], "begin_raw_counter": begin,
                               "end_raw_counter": cycle, "source_file": event["source file"],
                               "source_line": event["source line"]})
         else:

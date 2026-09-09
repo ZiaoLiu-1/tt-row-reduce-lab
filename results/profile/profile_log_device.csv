@@ -1,0 +1,2 @@
+ARCH: wormhole_b0, CHIP_FREQ[MHz]: 0, Max Compute Cores: 80
+PCIe slot, core_x, core_y, RISC processor type, timer_id, time[cycles since reset], data, run host ID, trace id, trace id counter, zone name, type, source line, source file, meta data

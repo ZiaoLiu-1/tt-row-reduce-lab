@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-09-09T02:16:55.543616+00:00",
+  "identity": {
+    "upstream_commit": "89e1256c982a5b4739d173bcc446c8c748a44b40",
+    "binary_sha256": "e9b87650d2a51fa1f694b1e09b5b0bb5d9a3837bc3e1da2e26773d8cbcb5d5b8",
+    "simulator_asset": "libttsim_wh_aarch64.so",
+    "simulator_version": "v1.10.6",
+    "simulator_sha256": "d38142c9d94526a5d6b48e5c0711efd718ffaed9270150c5556da0de788214ae",
+    "soc_descriptor_sha256": "24fd3dfae80435a7d9113e255d6d6af9cdf83f6ae3b1c385e1d48a24795ccf49",
+    "source_commit": "81efb4fff0f7f2de48819529b83427f31b2714da",
+    "source_dirty": true,
+    "source_tree_sha256": "bf8be1ea410a261cbb7afde05e5427db8db4a6955723791024413b452cd84c2d"
+  },
+  "status": "pass",
+  "matrix_complete": false,
+  "sources_and_binary_unchanged": true,
+  "validation_stage": null,
+  "executed_processes": 1,
+  "validated_executions": 1,
+  "required_shapes": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      31
+    ],
+    [
+      1,
+      32
+    ],
+    [
+      1,
+      33
+    ],
+    [
+      31,
+      31
+    ],
+    [
+      32,
+      32
+    ],
+    [
+      32,
+      33
+    ],
+    [
+      33,
+      32
+    ],
+    [
+      33,
+      33
+    ],
+    [
+      65,
+      97
+    ],
+    [
+      97,
+      65
+    ],
+    [
+      128,
+      128
+    ]
+  ],
+  "same_process_repeat": false,
+  "counts": {
+    "pass": 1
+  },
+  "backend": "ttsim",
+  "hardware": "none",
+  "measurement_kind": "simulator_process_wall_time",
+  "total_process_wall_seconds": 2.2245456129312515,
+  "timing_scope": "process startup, JIT/cache, simulator execution and teardown; no silicon interpretation"
+}

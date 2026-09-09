@@ -6,7 +6,7 @@ isolated prefix provides Clang 20.1.8, GCC 12 C++20 headers and libstdc++, CMake
 4.0.2, Ninja 1.11.1, and a Python venv. A real `std::span` / `std::bit_cast`
 probe compiled, linked, and ran; its loader dependencies were inspected.
 The project Metal target subsequently compiled and linked (C1); the official
-simulator example returned 21. Custom-kernel execution remains pending.
+simulator example returned 21. The custom JIT and complete C3 matrix also passed.
 See [STATE.md](../STATE.md) and [build logs](../results/build/) for the separate
 environment, build and execution outcomes.
 
