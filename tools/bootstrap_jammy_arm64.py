@@ -39,7 +39,7 @@ for file in sorted(downloads.glob('*.deb')):
  if file.name.split('_')[0] in ubuntu:
   subprocess.run(['dpkg-deb','-x',str(file),str(prefix)],check=True)
 subprocess.run(['python3','-m','venv','--without-pip',str(root/'venv')],check=True)
-subprocess.run(['python3','-m','pip','--python',str(root/'venv/bin/python'),'install','pip','cmake==4.0.2','ninja==1.11.1.4','pyyaml','jinja2','loguru'],check=True)
+subprocess.run(['python3','-m','pip','--python',str(root/'venv/bin/python'),'--cache-dir',str(root/'downloads/pip-cache'),'install','pip','cmake==4.0.2','ninja==1.11.1.4','pyyaml','jinja2','loguru'],check=True)
 
 wrappers = root/'wrappers'; wrappers.mkdir(exist_ok=True)
 for tool in ('clang-20', 'clang++-20'):

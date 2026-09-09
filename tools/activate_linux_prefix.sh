@@ -14,3 +14,6 @@ export TT_METAL_SLOW_DISPATCH_MODE=1
 export TT_METAL_DISABLE_SFPLOADMACRO=1
 export TT_METAL_CACHE="$RR_ENV_ROOT/kernel-cache"
 export XDG_CACHE_HOME="$RR_ENV_ROOT/xdg-cache"
+export PIP_CACHE_DIR="$RR_ENV_ROOT/downloads/pip-cache"
+export TMPDIR="$RR_ENV_ROOT/tmp"
+mkdir -p "$TMPDIR"

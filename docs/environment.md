@@ -41,9 +41,15 @@ the bootstrap, uses its existing pip to populate an empty venv:
 
 ```bash
 python3 -m venv --without-pip "$RR_ENV_ROOT/venv"
-python3 -m pip --python "$RR_ENV_ROOT/venv/bin/python" install \
+python3 -m pip --python "$RR_ENV_ROOT/venv/bin/python" \
+  --cache-dir "$RR_ENV_ROOT/downloads/pip-cache" install \
   pip cmake==4.0.2 ninja==1.11.1.4 pyyaml jinja2 loguru
 ```
+
+The first setup invocation used pip's default cache setting; it did not
+explicitly redirect that cache. No existing user cache was inspected or cleaned.
+The reproducible recipe now specifies its own download cache, and activation
+also redirects `TMPDIR` into the isolated environment.
 
 This requires a host pip that supports `--python`. No system `python3-venv`
 package was installed. CMake and Ninja are pinned in this recipe; Ubuntu/LLVM
